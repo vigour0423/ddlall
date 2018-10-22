@@ -11,7 +11,7 @@
     <artifactId>ddl-api</artifactId>
     <packaging>war</packaging>
     <!-- TODO project name  -->
-    <name>quickstart</name>
+    <name>ddl-api</name>
     <description></description>
 
     <!-- TODO
