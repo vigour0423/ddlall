@@ -28,7 +28,7 @@ public class PartitionerProducer {
         // value序列化
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         // 自定义分区
-        props.put("partitioner.class", "com.atguigu.kafka.CustomPartitioner");
+        props.put("partitioner.class", "com.ddl.learn.kafka.newapi.CustomPartitioner");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
         producer.send(new ProducerRecord<String, String>("first", "1", "ldd"));

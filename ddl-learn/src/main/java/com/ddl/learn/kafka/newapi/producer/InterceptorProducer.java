@@ -25,8 +25,8 @@ public class InterceptorProducer {
 
         // 2 构建拦截链
         List<String> interceptors = new ArrayList<>();
-        interceptors.add("com.ddl.kafka.interceptor.TimeInterceptor");
-        interceptors.add("com.ddl.kafka.interceptor.CounterInterceptor");
+        interceptors.add("com.ddl.learn.kafka.interceptor.TimeInterceptor");
+        interceptors.add("com.ddl.learn.kafka.interceptor.CounterInterceptor");
         props.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptors);
 
         String topic = "third";
