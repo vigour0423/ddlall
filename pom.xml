@@ -98,10 +98,29 @@
             </dependency>
 
             <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>4.3.19.RELEASE</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>23.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.8.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.integration</groupId>
+                <artifactId>spring-integration-java-dsl</artifactId>
+                <version>1.2.3.RELEASE</version>
+            </dependency>
+
             <!-- SLF4J -->
             <dependency>
                 <groupId>org.slf4j</groupId>
