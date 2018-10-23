@@ -1,6 +1,9 @@
 package com.ddl.learn;
 
 
+import com.ddl.egg.exception.BusinessException;
+//import com.ddl.egg.common.spring.SpringContextHolder;
+
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -100,7 +103,7 @@ public abstract class Command implements Serializable {
             try {
                 command = typeParameterClass.newInstance();
             } catch (Exception e) {
-                //throw new RuntimeException(500, "create instance occur exception.", e);
+                throw new BusinessException(500, "create instance occur exception.", e);
             }
         }
 
@@ -148,7 +151,7 @@ public abstract class Command implements Serializable {
     }
 
     public void publish() {
-       /* CommandDispatchService remoteCommandDispatch = SpringContextHolder.getBean(CommandDispatchService.class);
+     /*  CommandDispatchService remoteCommandDispatch = SpringContextHolder.getBean(CommandDispatchService.class);
         remoteCommandDispatch.dispatch(this);*/
     }
 

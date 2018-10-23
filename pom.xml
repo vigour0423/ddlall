@@ -26,6 +26,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>10.0.1</java.version>
         <org.springframework.version>4.3.19.RELEASE</org.springframework.version>
+        <egg.version>1.2.1-SNAPSHOT</egg.version>
         <maven.compiler.source>10.0.1</maven.compiler.source>
         <maven.compiler.target>10.0.1</maven.compiler.target>
         <maven.compiler.compilerVersion>10.0.1</maven.compiler.compilerVersion>
@@ -39,6 +40,57 @@
                 <version>4.12</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-mq</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-validation</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-mongo</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-redis</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>web-platform</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-pg</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-cache</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>rest-client</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-log</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ddl.egg</groupId>
+                <artifactId>egg-common</artifactId>
+                <version>${egg.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
