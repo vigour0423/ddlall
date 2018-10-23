@@ -15,7 +15,8 @@
         <module>ddl-service</module>
         <module>ddl-learn</module>
         <module>ddl-web</module>
-        <module>ddl-web</module>
+        <module>ddl-dto</module>
+        <module>ddl-infrastructure</module>
     </modules>
 
     <name>ddl-all</name>
@@ -24,8 +25,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>10.0.1</java.version>
+        <org.springframework.version>4.3.19.RELEASE</org.springframework.version>
         <maven.compiler.source>10.0.1</maven.compiler.source>
         <maven.compiler.target>10.0.1</maven.compiler.target>
+        <maven.compiler.compilerVersion>10.0.1</maven.compiler.compilerVersion>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -34,6 +37,12 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>4.3.19.RELEASE</version>
             </dependency>
 
             <dependency>
@@ -83,14 +92,23 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.8.0</version>
                     <configuration>
+                        <release>10</release>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
                         <showWarnings>true</showWarnings>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm</artifactId>
+                            <version>6.2</version> <!-- Use newer version of ASM -->
+                        </dependency>
+                    </dependencies>
                 </plugin>
+
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
@@ -101,12 +119,8 @@
                     <version>3.0.2</version>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.7.0</version>
-                </plugin>
-                <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.20.1</version>
+                    <version>2.22.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
