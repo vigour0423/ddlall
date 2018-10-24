@@ -3,9 +3,6 @@ package com.ddl.learn.log.datachange;
 
 import com.ddl.learn.log.datachange.dto.Tracer;
 
-/**
- * Created by zhuyuefan on 2017/10/20.
- */
 public class DataChangeTracer {
 
     private static final ThreadLocal threadLocal = new ThreadLocal();

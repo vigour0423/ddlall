@@ -21,7 +21,7 @@ public class Tracer {
 
     private String operatorAccount;
 
-    private Date changeDate = new Date();
+    private Date changeDate;
 
     public Tracer(String transactionId, String module, String function, String changeType, String reason, String operatorName, String operatorAccount) {
         this.trace = true;

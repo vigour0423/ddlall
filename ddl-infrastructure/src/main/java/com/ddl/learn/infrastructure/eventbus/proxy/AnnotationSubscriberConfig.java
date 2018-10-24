@@ -13,6 +13,11 @@ import org.springframework.core.Ordered;
 
 import java.util.Collection;
 
+/**
+ * description:<有关@Subscribe注解的相关配置>
+ * @author dongdongliu
+ * @date 2018/10/24 16:37
+ */
 @Configuration
 public class AnnotationSubscriberConfig implements EventBusConfigurer, Ordered, BeanFactoryAware {
 

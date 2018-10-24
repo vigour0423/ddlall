@@ -14,6 +14,11 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 
 import java.util.stream.Stream;
 
+/**
+ * description:<事件订阅后置处理器>
+ * @author dongdongliu
+ * @date 2018/10/24 16:33
+ */
 public class EventSubscriberBeanPostProcessor implements BeanDefinitionRegistryPostProcessor, BeanFactoryAware {
 
     private static final Logger logger = LoggerFactory.getLogger(EventSubscriberBeanPostProcessor.class);
@@ -21,6 +26,10 @@ public class EventSubscriberBeanPostProcessor implements BeanDefinitionRegistryP
     private ConfigurableListableBeanFactory beanFactory;
 
     private final SubscriberScanner subscriberScanner;
+
+    /**
+     * 订阅代理
+     */
     private final SubscriberProxyClassGenerator proxyClassGenerator;
 
 
@@ -45,7 +54,12 @@ public class EventSubscriberBeanPostProcessor implements BeanDefinitionRegistryP
         this.beanFactory = (ConfigurableListableBeanFactory) beanFactory;
     }
 
-
+    /**
+     * description:<注册到bean的声明>
+     * @return <void>
+     * @author dongdongliu
+     * @date 2018/10/24 16:13
+     */
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
 
@@ -89,10 +103,15 @@ public class EventSubscriberBeanPostProcessor implements BeanDefinitionRegistryP
                 .getBeanDefinition();
     }
 
-
+    /**
+     * description:<bean的名称和class类型>
+     * @author dongdongliu
+     * @date 2018/10/24 16:30
+     */
     private static class BeanNameAndType {
 
         private final String name;
+
         private final Class<?> type;
 
         private BeanNameAndType(String name, Class<?> type) {
@@ -110,10 +129,10 @@ public class EventSubscriberBeanPostProcessor implements BeanDefinitionRegistryP
     }
 
 
-
     private static class BeanNameAndDefinition {
 
         private final String name;
+
         private final BeanDefinition definition;
 
         private BeanNameAndDefinition(String name, BeanDefinition definition) {

@@ -37,12 +37,11 @@ public class EventBusConfig {
         return new ChannelEventPublisher(eventBusInputChannel());
     }
 
-
     @Bean
     public IntegrationFlow eventBus() {
         EventBusBuilderImpl builder = new EventBusBuilderImpl(eventBusInputChannel());
 
-        // reverse the list so the configurer with the highest precedence gets called last
+        //反转列表，使具有最高优先级的配置器调用最后一个。
         Lists.reverse(eventBusConfigurers)
                 .forEach(c -> c.configureEventBus(builder));
 
