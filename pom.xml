@@ -23,6 +23,7 @@
     <url>http://www.example.com</url>
 
     <properties>
+        <project.release.version>1.2.1-SNAPSHOT</project.release.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>10.0.1</java.version>
         <org.springframework.version>4.3.19.RELEASE</org.springframework.version>
@@ -101,6 +102,12 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-tx</artifactId>
                 <version>4.3.19.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${org.springframework.version}</version>
             </dependency>
 
             <dependency>
