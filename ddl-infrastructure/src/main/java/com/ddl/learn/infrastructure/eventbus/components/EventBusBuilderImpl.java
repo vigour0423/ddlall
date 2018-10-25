@@ -22,215 +22,242 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * description:<事件总线构建>
+ * @author dongdongliu
+ * @date 2018/10/25 10:13
+ */
 public class EventBusBuilderImpl implements EventBusBuilder {
 
-	private static final String DEFAULT_NAME = "eventBus";
-	private static final PollerSpec DEFAULT_EVENT_POLLER = Pollers.fixedRate(10).receiveTimeout(30000);
+    private static final String DEFAULT_NAME = "eventBus";
 
-	private final MessageChannel inputChannel;
-	private String name;
-	private ChannelMessageStore messageStore;
-	private PlatformTransactionManager transactionManager;
-	private final List<EventSubscriber> subscribers = new ArrayList<>();
-	private PollerSpec eventPoller = Pollers.fixedDelay(100);
+    private static final PollerSpec DEFAULT_EVENT_POLLER = Pollers.fixedRate(10).receiveTimeout(30000);
 
-	public EventBusBuilderImpl(MessageChannel inputChannel) {
-		this.inputChannel = inputChannel;
-	}
+    private final MessageChannel inputChannel;
 
-	@Override
-	public EventBusBuilder setName(String name) {
-		this.name = name;
-		return this;
-	}
+    private String name;
 
-	@Override
-	public EventBusBuilder setMessageStore(ChannelMessageStore messageStore) {
-		this.messageStore = messageStore;
-		return this;
-	}
+    private ChannelMessageStore messageStore;
 
-	@Override
-	public EventBusBuilder setTransactionManager(PlatformTransactionManager transactionManager) {
-		this.transactionManager = transactionManager;
-		return this;
-	}
+    private PlatformTransactionManager transactionManager;
 
-	@Override
-	public EventBusBuilder addSubscribers(Iterable<? extends EventSubscriber> subscribers) {
-		for (EventSubscriber subscriber : subscribers) {
-			this.subscribers.add(subscriber);
-		}
-		return this;
-	}
+    private final List<EventSubscriber> subscribers = new ArrayList<>();
 
-	@Override
-	public EventBusBuilder setEventPoller(PollerSpec eventPoller) {
-		this.eventPoller = eventPoller;
-		return this;
-	}
+    private PollerSpec eventPoller = Pollers.fixedDelay(100);
 
-	private void applyDefaultsToMissingProperties() {
-		if (name == null) {
-			name = DEFAULT_NAME;
-		}
-		if (messageStore == null) {
-			messageStore = new SimpleMessageStore();
-		}
-		if (eventPoller == null) {
-			eventPoller = DEFAULT_EVENT_POLLER;
-		}
-	}
+    public EventBusBuilderImpl(MessageChannel inputChannel) {
+        this.inputChannel = inputChannel;
+    }
 
-	@Override
-	public IntegrationFlow build() {
-		applyDefaultsToMissingProperties();
+    @Override
+    public EventBusBuilder setName(String name) {
+        this.name = name;
+        return this;
+    }
 
-		if (subscribers.isEmpty()) {
-			return f -> f
-					.channel(new NullChannel());
-		}
+    @Override
+    public EventBusBuilder setMessageStore(ChannelMessageStore messageStore) {
+        this.messageStore = messageStore;
+        return this;
+    }
 
-		if (transactionManager != null) {
-			eventPoller.transactional(transactionManager);
-		}
+    @Override
+    public EventBusBuilder setTransactionManager(PlatformTransactionManager transactionManager) {
+        this.transactionManager = transactionManager;
+        return this;
+    }
 
-		SyncSubscriberSet syncSubscribers = getSyncSubscribers();
-		AsyncSubscriberSet asyncSubscribers = getAsyncSubscribers();
+    @Override
+    public EventBusBuilder addSubscribers(Iterable<? extends EventSubscriber> subscribers) {
+        for (EventSubscriber subscriber : subscribers) {
+            this.subscribers.add(subscriber);
+        }
+        return this;
+    }
 
-		return IntegrationFlows.from(inputChannel)
-				.routeToRecipients(
-						router -> {
-							asyncSubscribers.configureFlow(router);
-							syncSubscribers.configureFlow(router);
-						},
-						spec -> spec.id(name + "_syncAsyncRouter"))
-				.get();
-	}
+    @Override
+    public EventBusBuilder setEventPoller(PollerSpec eventPoller) {
+        this.eventPoller = eventPoller;
+        return this;
+    }
 
-	private SyncSubscriberSet getSyncSubscribers() {
-		return new SyncSubscriberSet(
-				subscribers.stream()
-						.filter(s -> !s.isAsync())
-						.collect(Collectors.toList()));
-	}
+    private void applyDefaultsToMissingProperties() {
+        if (name == null) {
+            name = DEFAULT_NAME;
+        }
+        if (messageStore == null) {
+            messageStore = new SimpleMessageStore();
+        }
+        if (eventPoller == null) {
+            eventPoller = DEFAULT_EVENT_POLLER;
+        }
+    }
 
-	private AsyncSubscriberSet getAsyncSubscribers() {
-		return new AsyncSubscriberSet(
-				subscribers.stream()
-						.filter(EventSubscriber::isAsync)
-						.collect(Collectors.toList()));
-	}
+    @Override
+    public IntegrationFlow build() {
+        applyDefaultsToMissingProperties();
 
-	private abstract class SubscriberSet {
-		private final Multimap<Class<?>, EventSubscriber> subscribersByEventType;
+        if (subscribers.isEmpty()) {
+            return f -> f
+                    .channel(new NullChannel());
+        }
 
-		public SubscriberSet(Collection<EventSubscriber> subscribers) {
-			this.subscribersByEventType = Multimaps.index(subscribers, EventSubscriber::getEventType);
-		}
+        if (transactionManager != null) {
+            eventPoller.transactional(transactionManager);
+        }
+        //获取同步订阅
+        SyncSubscriberSet syncSubscribers = getSyncSubscribers();
 
-		protected abstract String getMode();
+        //获取异步订阅
+        AsyncSubscriberSet asyncSubscribers = getAsyncSubscribers();
 
-		public Set<Class<?>> getEventTypes() {
-			return subscribersByEventType.keySet();
-		}
+        return IntegrationFlows.from(inputChannel)
+                .routeToRecipients(
+                        router -> {
+                            asyncSubscribers.configureFlow(router);
+                            syncSubscribers.configureFlow(router);
+                        },
+                        spec -> spec.id(name + "_syncAsyncRouter")
+                )
+                .get();
+    }
 
-		public boolean isEmpty() {
-			return subscribersByEventType.isEmpty();
-		}
+    private SyncSubscriberSet getSyncSubscribers() {
+        return new SyncSubscriberSet(
+                subscribers.stream()
+                        .filter(s -> !s.isAsync())
+                        .collect(Collectors.toList()));
+    }
 
-		public MessageSelector createMessageSelector() {
-			MessageSelectorChain chain = new MessageSelectorChain();
-			chain.setSelectors(
-					getEventTypes().stream()
-							.map(EventTypeMessageSelector::new)
-							.collect(Collectors.toList()));
-			chain.setVotingStrategy(MessageSelectorChain.VotingStrategy.ANY);
-			return chain;
-		}
+    private AsyncSubscriberSet getAsyncSubscribers() {
+        return new AsyncSubscriberSet(
+                subscribers.stream()
+                        .filter(EventSubscriber::isAsync)
+                        .collect(Collectors.toList()));
+    }
 
-		protected final IntegrationFlow createFlowForEventType(Class<?> eventType) {
-			return f -> f
-					.filter(p -> eventType.isAssignableFrom(p.getClass()),
-							spec -> spec.id(name + "_" + getMode() + "EventTypeFilter_" + eventType.getName()))
-					.publishSubscribeChannel(null, pubsub -> {
-						pubsub.id(name + "_pubsub_" + getMode() + "Event_" + eventType.getName());
-						subscribersByEventType.get(eventType).stream()
-								.map(this::createSubscriptionFlow)
-								.forEach(pubsub::subscribe);
-					});
-		}
+    private abstract class SubscriberSet {
+        private final Multimap<Class<?>, EventSubscriber> subscribersByEventType;
 
-		private IntegrationFlow createSubscriptionFlow(EventSubscriber subscriber) {
-			return f -> f
-					.handle(subscriber,
-							spec -> spec.id(name + "_" + getMode() + "SubscriptionHandler_" + subscriber.hashCode()));
-		}
-	}
+        public SubscriberSet(Collection<EventSubscriber> subscribers) {
+            this.subscribersByEventType = Multimaps.index(subscribers, EventSubscriber::getEventType);
+        }
 
-	private class SyncSubscriberSet extends SubscriberSet {
+        protected abstract String getMode();
 
-		public SyncSubscriberSet(Collection<EventSubscriber> subscribers) {
-			super(subscribers);
-		}
+        public Set<Class<?>> getEventTypes() {
+            return subscribersByEventType.keySet();
+        }
 
-		@Override
-		protected String getMode() {
-			return "sync";
-		}
+        public boolean isEmpty() {
+            return subscribersByEventType.isEmpty();
+        }
 
-		public IntegrationFlow createEventsFlow() {
-			return f -> f
-					.publishSubscribeChannel(pubsub -> {
-						pubsub.id(name + "_pubsub_allSyncEvents");
-						getEventTypes().stream()
-								.map(this::createFlowForEventType)
-								.forEach(pubsub::subscribe);
-					});
-		}
+        public MessageSelector createMessageSelector() {
+            MessageSelectorChain chain = new MessageSelectorChain();
+            chain.setSelectors(
+                    getEventTypes().stream()
+                            .map(EventTypeMessageSelector::new)
+                            .collect(Collectors.toList()));
+            chain.setVotingStrategy(MessageSelectorChain.VotingStrategy.ANY);
+            return chain;
+        }
 
-		public void configureFlow(RecipientListRouterSpec router) {
-			if (!isEmpty()) {
-				router.recipientFlow(
-						createMessageSelector(),
-						createEventsFlow());
-			}
-		}
-	}
+        protected final IntegrationFlow createFlowForEventType(Class<?> eventType) {
+            return f -> f
+                    .filter(p -> eventType.isAssignableFrom(p.getClass()),
+                            spec -> spec.id(name + "_" + getMode() + "EventTypeFilter_" + eventType.getName())
+                    )
+                    .publishSubscribeChannel(null, pubsub -> {
 
-	private class AsyncSubscriberSet extends SubscriberSet {
+                        pubsub.id(name + "_pubsub_" + getMode() + "Event_" + eventType.getName());
+                        subscribersByEventType.get(eventType).stream()
+                                .map(this::createSubscriptionFlow)
+                                .forEach(pubsub::subscribe);
+                    });
+        }
 
-		public AsyncSubscriberSet(Collection<EventSubscriber> subscribers) {
-			super(subscribers);
-		}
+        private IntegrationFlow createSubscriptionFlow(EventSubscriber subscriber) {
+            return f -> f
+                    .handle(subscriber,
+                            spec -> spec.id(name + "_" + getMode() + "SubscriptionHandler_" + subscriber.hashCode()));
+        }
+    }
 
-		@Override
-		protected String getMode() {
-			return "async";
-		}
+    /**
+     * description:<同步订阅>
+     * @author dongdongliu
+     * @date 2018/10/25 14:52
+     */
+    private class SyncSubscriberSet extends SubscriberSet {
 
-		public IntegrationFlow createEventsFlow() {
-			return f -> f
-					.channel(ch -> ch.queue(
-							name + "_asyncEventQueue",
-							messageStore,
-							name + ":AsyncEventQueue"))
-					.bridge(spec -> spec.poller(eventPoller)
-							.id(name + "_asyncPollingBridge"))
-					.publishSubscribeChannel(pubsub -> {
-						pubsub.id(name + "_pubsub_allAsyncEvents");
-						getEventTypes().stream()
-								.map(this::createFlowForEventType)
-								.forEach(pubsub::subscribe);
-					});
-		}
+        public SyncSubscriberSet(Collection<EventSubscriber> subscribers) {
+            super(subscribers);
+        }
 
-		public void configureFlow(RecipientListRouterSpec router) {
-			if (!isEmpty()) {
-				router.recipientFlow(
-						createMessageSelector(),
-						createEventsFlow());
-			}
-		}
-	}
+        @Override
+        protected String getMode() {
+            return "sync";
+        }
+
+        public IntegrationFlow createEventsFlow() {
+            return f -> f
+                    .publishSubscribeChannel(pubsub -> {
+                        pubsub.id(name + "_pubsub_allSyncEvents");
+                        getEventTypes().stream()
+                                .map(this::createFlowForEventType)
+                                .forEach(pubsub::subscribe);
+                    });
+
+        }
+
+        public void configureFlow(RecipientListRouterSpec router) {
+            if (!isEmpty()) {
+                router.recipientFlow(
+                        createMessageSelector(),
+                        createEventsFlow());
+            }
+        }
+    }
+
+    /**
+     * description:<异步订阅>
+     * @author dongdongliu
+     * @date 2018/10/25 14:53
+     */
+    private class AsyncSubscriberSet extends SubscriberSet {
+
+        public AsyncSubscriberSet(Collection<EventSubscriber> subscribers) {
+            super(subscribers);
+        }
+
+        @Override
+        protected String getMode() {
+            return "async";
+        }
+
+        public IntegrationFlow createEventsFlow() {
+            return f -> f
+                    .channel(ch -> ch.queue(
+                            name + "_asyncEventQueue",
+                            messageStore,
+                            name + ":AsyncEventQueue"))
+                    .bridge(spec -> spec.poller(eventPoller)
+                            .id(name + "_asyncPollingBridge"))
+                    .publishSubscribeChannel(pubsub -> {
+                        pubsub.id(name + "_pubsub_allAsyncEvents");
+                        getEventTypes().stream()
+                                .map(this::createFlowForEventType)
+                                .forEach(pubsub::subscribe);
+                    });
+        }
+
+        public void configureFlow(RecipientListRouterSpec router) {
+            if (!isEmpty()) {
+                router.recipientFlow(
+                        createMessageSelector(),
+                        createEventsFlow());
+            }
+        }
+    }
 }

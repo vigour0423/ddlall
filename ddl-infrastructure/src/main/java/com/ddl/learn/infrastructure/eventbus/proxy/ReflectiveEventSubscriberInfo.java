@@ -5,6 +5,11 @@ import com.ddl.learn.infrastructure.eventbus.Subscribe;
 
 import java.lang.reflect.Method;
 
+/**
+ * description:<用来存放含有@Subscribe注解bean的相关信息>
+ * @author dongdongliu
+ * @date 2018/10/25 9:32
+ */
 final class ReflectiveEventSubscriberInfo implements EventSubscriberInfo {
 
     private final String beanName;

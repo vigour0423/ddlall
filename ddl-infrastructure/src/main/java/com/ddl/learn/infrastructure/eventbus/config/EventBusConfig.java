@@ -14,23 +14,29 @@ import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.messaging.MessageChannel;
 
-import java.util.Collections;
 import java.util.List;
 
+/**
+ * description:<spring bean配置>
+ * @author dongdongliu
+ * @date 2018/10/25 10:05
+ */
 @Configuration
 @EnableIntegration
 @Import({AnnotationSubscriberConfig.class, EventBusTransactionConfig.class})
 public class EventBusConfig {
 
-    @Autowired(required = false)
-    private List<EventBusConfigurer> eventBusConfigurers = Collections.emptyList();
+    private List<EventBusConfigurer> eventBusConfigurers;
 
+    @Autowired(required = false)
+    public EventBusConfig(List<EventBusConfigurer> eventBusConfigurers) {
+        this.eventBusConfigurers = eventBusConfigurers;
+    }
 
     @Bean
     public MessageChannel eventBusInputChannel() {
         return new DirectChannel();
     }
-
 
     @Bean
     public EventPublisher eventPublisher() {
