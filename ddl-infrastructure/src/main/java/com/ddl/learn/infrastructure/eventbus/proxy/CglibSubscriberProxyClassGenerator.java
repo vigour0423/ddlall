@@ -65,7 +65,11 @@ public class CglibSubscriberProxyClassGenerator implements SubscriberProxyClassG
             return instance;
         }
 
-
+        /**
+         * description:<生成cglib代理类>
+         * @author dongdongliu
+         * @date 2018/10/26 15:48
+         */
         @SuppressWarnings("unchecked")
         public Class<? extends EventSubscriber> create() {
 
@@ -103,7 +107,9 @@ public class CglibSubscriberProxyClassGenerator implements SubscriberProxyClassG
             createDelegateField(classEmitter);
             createConstructor(classEmitter);
             createGetEventTypeMethod(classEmitter);
+
             createIsAsyncMethod(classEmitter);
+            //创建事件订阅
             createHandleMessageMethod(classEmitter);
 
             classEmitter.end_class();

@@ -96,6 +96,7 @@ public class EventSubscriberBeanPostProcessor implements BeanDefinitionRegistryP
 
     private BeanDefinition createProxyBeanDefinition(EventSubscriberInfo subscriberInfo) {
 
+        //生成cglib代理
         Class<?> proxyClass = proxyClassGenerator.generate(subscriberInfo, beanFactory.getBeanClassLoader());
 
         return BeanDefinitionBuilder.genericBeanDefinition(proxyClass)
