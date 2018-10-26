@@ -13,6 +13,11 @@ import org.springframework.cglib.core.Constants;
 import org.springframework.cglib.core.Signature;
 import org.springframework.messaging.Message;
 
+/**
+ * description:<订阅通用代理>
+ * @author dongdongliu
+ * @date 2018/10/26 15:24
+ */
 public class CglibSubscriberProxyClassGenerator implements SubscriberProxyClassGenerator {
 
     @Override
@@ -25,12 +30,14 @@ public class CglibSubscriberProxyClassGenerator implements SubscriberProxyClassG
     private static class Generator extends AbstractClassGenerator {
 
         private static final Source SOURCE = new Source(CglibSubscriberProxyClassGenerator.class.getName());
+
         private static final Type MESSAGE_TYPE = Type.getType(Message.class);
 
         private static final Signature GETPAYLOAD_SIGNATURE =
                 new Signature("getPayload", Constants.TYPE_OBJECT, Constants.TYPES_EMPTY);
 
         private final EventSubscriberInfo subscriberInfo;
+
         private final ClassLoader classLoader;
 
 
@@ -89,9 +96,10 @@ public class CglibSubscriberProxyClassGenerator implements SubscriberProxyClassG
                     Constants.ACC_PUBLIC,
                     makeProxyClassName(),
                     Constants.TYPE_OBJECT,
-                    new Type[] { Type.getType(EventSubscriberProxy.class) },
+                    new Type[]{Type.getType(EventSubscriberProxy.class)},
                     null);
 
+            //构建代理委托
             createDelegateField(classEmitter);
             createConstructor(classEmitter);
             createGetEventTypeMethod(classEmitter);
@@ -114,7 +122,7 @@ public class CglibSubscriberProxyClassGenerator implements SubscriberProxyClassG
         private void createConstructor(ClassEmitter classEmitter) {
             Signature signature = new Signature(
                     Constants.CONSTRUCTOR_NAME, Type.VOID_TYPE,
-                    new Type[] { Type.getType(subscriberInfo.getBeanClass()) });
+                    new Type[]{Type.getType(subscriberInfo.getBeanClass())});
 
             CodeEmitter emitter = classEmitter.begin_method(Constants.ACC_PUBLIC, signature, null);
             emitter.load_this();
@@ -151,11 +159,11 @@ public class CglibSubscriberProxyClassGenerator implements SubscriberProxyClassG
 
         private void createHandleMessageMethod(ClassEmitter classEmitter) {
             Signature signature = new Signature(
-                    "handleMessage", Type.VOID_TYPE, new Type[] { MESSAGE_TYPE });
+                    "handleMessage", Type.VOID_TYPE, new Type[]{MESSAGE_TYPE});
             Signature subscriberMethodSignature = new Signature(
                     subscriberInfo.getSubscriberMethodName(),
                     Type.VOID_TYPE,
-                    new Type[] { Type.getType(subscriberInfo.getEventType()) });
+                    new Type[]{Type.getType(subscriberInfo.getEventType())});
 
             CodeEmitter emitter = classEmitter.begin_method(Constants.ACC_PUBLIC, signature, null);
 

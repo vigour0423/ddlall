@@ -22,6 +22,12 @@ final class ReflectiveSubscriberScanner implements SubscriberScanner {
 
     private final Logger logger = LoggerFactory.getLogger(ReflectiveSubscriberScanner.class);
 
+    /**
+     * description:<将含有订阅注解的bean存入信息返回>
+     * @param beanName, beanType
+     * @author dongdongliu
+     * @date 2018/10/26 15:26
+     */
     @Override
     public Stream<EventSubscriberInfo> scanForSubscriberMethods(String beanName, Class<?> beanType) {
 
