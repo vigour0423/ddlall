@@ -18,6 +18,7 @@
         <module>ddl-dto</module>
         <module>ddl-infrastructure</module>
         <module>ddl-servlet3.0</module>
+        <module>ddl-springannotation</module>
     </modules>
 
     <name>ddl-all</name>
@@ -141,6 +142,18 @@
                 <groupId>org.springframework.integration</groupId>
                 <artifactId>spring-integration-java-dsl</artifactId>
                 <version>1.2.3.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>4.3.19.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>4.3.19.RELEASE</version>
             </dependency>
 
             <!-- SLF4J -->
