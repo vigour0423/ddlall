@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
-	
-	@Autowired
+
+    @Autowired
     HelloService helloService;
-	
-	
-	@ResponseBody
-	@RequestMapping("/hello")
-	public String hello(){
-		String hello = helloService.sayHello("tomcat..");
-		return hello;
-	}
-	
-	//  /WEB-INF/views/success.jsp
-	@RequestMapping("/suc")
-	public String success(){
-		return "success";
-	}
-	
+
+
+    @ResponseBody
+    @RequestMapping("/hello")
+    public String hello() {
+        String hello = helloService.sayHello("tomcat..");
+        return hello;
+    }
+
+    //  /WEB-INF/views/success.jsp
+    @RequestMapping("/suc")
+    public String success() {
+        return "success";
+    }
+
 
 }
