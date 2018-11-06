@@ -1,6 +1,7 @@
 package com.ddl.learn.controller;
 
 
+import com.ddl.learn.Blue;
 import com.ddl.learn.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,13 @@ public class HelloController {
     @Autowired
     HelloService helloService;
 
+    @Autowired
+    Blue blue;
 
     @ResponseBody
     @RequestMapping("/hello")
     public String hello() {
+        System.out.println("开始了——————————————————————————"+blue);
         String hello = helloService.sayHello("tomcat..");
         return hello;
     }
