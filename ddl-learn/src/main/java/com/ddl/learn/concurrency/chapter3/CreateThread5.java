@@ -1,10 +1,6 @@
 package com.ddl.learn.concurrency.chapter3;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/16 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class CreateThread5 {
 
     private static int counter = 1;
@@ -20,7 +16,7 @@ public class CreateThread5 {
                         try {
                             add(1);
                         } catch (Error e) {
-//                            System.out.println(counter);
+                            //                            System.out.println(counter);
                         }
                     }
 
