@@ -1,10 +1,6 @@
 package com.ddl.learn.concurrency.chapter4;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/17 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class DaemonThread2 {
     public static void main(String[] args) {
 
@@ -13,7 +9,7 @@ public class DaemonThread2 {
                 try {
                     while (true) {
                         System.out.println("Do some thing for health check.");
-                        Thread.sleep(1_000);
+                        Thread.sleep(100_000);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();

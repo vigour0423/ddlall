@@ -1,10 +1,6 @@
 package com.ddl.learn.concurrency.chapter4;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/17 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class DaemonThread {
 
     public static void main(String[] args) throws InterruptedException {
@@ -34,5 +30,5 @@ public class DaemonThread {
 
 /**
  * A<---------------------------------->B
- *  ->daemonThread(health check)
- * */
+ * ->daemonThread(health check)
+ */
