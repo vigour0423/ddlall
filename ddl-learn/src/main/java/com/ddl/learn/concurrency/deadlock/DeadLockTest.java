@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.chapter8;
+package com.ddl.learn.concurrency.deadlock;
 
 
 public class DeadLockTest {

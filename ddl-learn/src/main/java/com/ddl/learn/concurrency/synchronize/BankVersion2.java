@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.chapter7;
+package com.ddl.learn.concurrency.synchronize;
 
 
 public class BankVersion2 {

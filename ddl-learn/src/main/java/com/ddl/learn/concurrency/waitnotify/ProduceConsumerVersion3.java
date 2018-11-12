@@ -1,12 +1,8 @@
-package com.ddl.learn.concurrency.chapter9;
+package com.ddl.learn.concurrency.waitnotify;
 
 import java.util.stream.Stream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/19 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ProduceConsumerVersion3 {
 
     private int i = 0;

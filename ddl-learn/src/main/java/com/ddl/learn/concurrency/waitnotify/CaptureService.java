@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.chapter9;
+package com.ddl.learn.concurrency.waitnotify;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,14 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/20 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class CaptureService {
 
     final static private LinkedList<Control> CONTROLS = new LinkedList<>();
+
     private final static int MAX_WORKER = 5;
 
     public static void main(String[] args) {
