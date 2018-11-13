@@ -1,10 +1,10 @@
 package com.ddl.learn.concurrency.waitnotify;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 
 public class CaptureService {
@@ -14,16 +14,15 @@ public class CaptureService {
     private final static int MAX_WORKER = 5;
 
     public static void main(String[] args) {
-
         List<Thread> worker = new ArrayList<>();
-        Arrays.asList("M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10").stream()
+        Stream.of("M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10")
                 .map(CaptureService::createCaptureThread)
                 .forEach(t -> {
                     t.start();
                     worker.add(t);
                 });
 
-        worker.stream().forEach(t -> {
+        worker.forEach(t -> {
             try {
                 t.join();
             } catch (InterruptedException e) {
@@ -66,6 +65,7 @@ public class CaptureService {
                 CONTROLS.removeFirst();
                 CONTROLS.notifyAll();
             }
+
         }, name);
     }
 

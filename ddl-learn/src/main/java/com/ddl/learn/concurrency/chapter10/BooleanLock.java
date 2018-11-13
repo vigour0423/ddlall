@@ -5,12 +5,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/22 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
-public class BooleanLock implements Lock {
+public class
+BooleanLock implements Lock {
 
     //The initValue is true indicated the lock have be get.
     //The initValue is false indicated the lock is free (other thread can get this.)

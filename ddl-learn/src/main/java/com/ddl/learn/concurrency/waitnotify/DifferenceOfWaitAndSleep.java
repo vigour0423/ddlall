@@ -13,7 +13,7 @@ public class DifferenceOfWaitAndSleep {
                 new Thread(name) {
                     @Override
                     public void run() {
-                        m2();
+                        m1();
                     }
                 }.start()
         );
