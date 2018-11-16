@@ -6,15 +6,10 @@ import java.util.stream.IntStream;
 
 import static java.lang.Thread.currentThread;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/11/8
- ***************************************/
-public class BucketTest
-{
 
-    public static void main(String[] args)
-    {
+public class BucketTest {
+
+    public static void main(String[] args) {
         final Bucket bucket = new Bucket();
         final AtomicInteger DATA_CREATOR = new AtomicInteger(0);
 
@@ -22,17 +17,13 @@ public class BucketTest
         {
             new Thread(() ->
             {
-                for (; ; )
-                {
+                for (; ; ) {
                     int data = DATA_CREATOR.getAndIncrement();
                     bucket.submit(data);
-                    try
-                    {
+                    try {
                         TimeUnit.MILLISECONDS.sleep(200L);
-                    } catch (Exception e)
-                    {
-                        if (e instanceof IllegalStateException)
-                        {
+                    } catch (Exception e) {
+                        if (e instanceof IllegalStateException) {
                             System.out.println(e.getMessage());
                         }
                     }
@@ -48,8 +39,7 @@ public class BucketTest
         IntStream.range(0, 5)
                 .forEach(i -> new Thread(() ->
                         {
-                            for (; ; )
-                            {
+                            for (; ; ) {
                                 bucket.takeThenConsume(x -> System.out.println(currentThread() + " W " + x));
                             }
                         }).start()

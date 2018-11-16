@@ -1,13 +1,7 @@
 package com.ddl.learn.guava.cache;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/11/13
- * QQ: 532500648
- * QQ群:463962286
- ***************************************/
-public interface LRUCache<K, V>
-{
+
+public interface LRUCache<K, V> {
 
     void put(K key, V value);
 

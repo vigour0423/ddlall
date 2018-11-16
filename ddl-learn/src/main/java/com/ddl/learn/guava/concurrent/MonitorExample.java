@@ -10,58 +10,45 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import static java.lang.Thread.currentThread;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/11/6
- * 532500648
- ***************************************/
-public class MonitorExample
-{
 
-    public static void main(String[] args)
-    {
+public class MonitorExample {
+
+    public static void main(String[] args) {
         final MonitorGuard mg = new MonitorGuard();
 
         final AtomicInteger COUNTER = new AtomicInteger(0);
 
-        for (int i = 0; i <= 3; i++)
-        {
+        for (int i = 0; i <= 3; i++) {
             new Thread(() ->
             {
                 for (; ; )
-                    try
-                    {
+                    try {
                         int data = COUNTER.getAndIncrement();
                         System.out.println(currentThread() + " offer " + data);
                         mg.offer(data);
                         TimeUnit.MILLISECONDS.sleep(2);
-                    } catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
             }).start();
         }
 
-        for (int i = 0; i <= 2; i++)
-        {
+        for (int i = 0; i <= 2; i++) {
             new Thread(() ->
             {
                 for (; ; )
-                    try
-                    {
+                    try {
                         int data = mg.take();
                         System.out.println(currentThread() + " take " + data);
                         TimeUnit.MILLISECONDS.sleep(1);
-                    } catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
             }).start();
         }
     }
 
-    static class MonitorGuard
-    {
+    static class MonitorGuard {
         private final LinkedList<Integer> queue = new LinkedList<>();
 
         private final int MAX = 10;
@@ -72,40 +59,31 @@ public class MonitorExample
 
         private final Monitor.Guard CAN_TAKE = monitor.newGuard(() -> !queue.isEmpty());
 
-        public void offer(int value)
-        {
-            try
-            {
+        public void offer(int value) {
+            try {
                 monitor.enterWhen(CAN_OFFER);
                 queue.addLast(value);
-            } catch (InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
-            } finally
-            {
+            } finally {
                 monitor.leave();
             }
         }
 
-        public int take()
-        {
-            try
-            {
+        public int take() {
+            try {
                 monitor.enterWhen(CAN_TAKE);
                 return queue.removeFirst();
-            } catch (InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 throw new RuntimeException(e);
-            } finally
-            {
+            } finally {
                 monitor.leave();
             }
         }
 
     }
 
-    static class LockCondition
-    {
+    static class LockCondition {
         private final ReentrantLock lock = new ReentrantLock();
 
         private final Condition FULL_CONDITION = lock.newCondition();
@@ -116,46 +94,36 @@ public class MonitorExample
 
         private final int MAX = 10;
 
-        public void offer(int value)
-        {
-            try
-            {
+        public void offer(int value) {
+            try {
                 lock.lock();
-                while (queue.size() >= MAX)
-                {
+                while (queue.size() >= MAX) {
                     FULL_CONDITION.await();
                 }
 
                 queue.addLast(value);
                 EMPTY_CONDITION.signalAll();
-            } catch (InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
-            } finally
-            {
+            } finally {
                 lock.unlock();
             }
         }
 
-        public int take()
-        {
+        public int take() {
 
             Integer value = null;
-            try
-            {
+            try {
                 lock.lock();
-                while (queue.isEmpty())
-                {
+                while (queue.isEmpty()) {
                     EMPTY_CONDITION.await();
                 }
 
                 value = queue.removeFirst();
                 FULL_CONDITION.signalAll();
-            } catch (InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
-            } finally
-            {
+            } finally {
                 lock.unlock();
             }
 
@@ -163,22 +131,17 @@ public class MonitorExample
         }
     }
 
-    static class Synchronized
-    {
+    static class Synchronized {
         private final LinkedList<Integer> queue = new LinkedList<>();
+
         private final int MAX = 10;
 
-        public void offer(int value)
-        {
-            synchronized (queue)
-            {
-                while (queue.size() >= MAX)
-                {
-                    try
-                    {
+        public void offer(int value) {
+            synchronized (queue) {
+                while (queue.size() >= MAX) {
+                    try {
                         queue.wait();
-                    } catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -188,17 +151,12 @@ public class MonitorExample
             }
         }
 
-        public int take()
-        {
-            synchronized (queue)
-            {
-                while (queue.isEmpty())
-                {
-                    try
-                    {
+        public int take() {
+            synchronized (queue) {
+                while (queue.isEmpty()) {
+                    try {
                         queue.wait();
-                    } catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }

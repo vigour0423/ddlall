@@ -5,16 +5,9 @@ import com.google.common.util.concurrent.*;
 import javax.annotation.Nullable;
 import java.util.concurrent.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/11/12
- * QQ: 532500648
- * QQ群:463962286
- ***************************************/
-public class ListenableFutureExample
-{
-    public static void main(String[] args) throws ExecutionException, InterruptedException
-    {
+
+public class ListenableFutureExample {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService service = Executors.newFixedThreadPool(2);
 
         /*Future<Integer> future = service.submit(() ->
@@ -54,29 +47,24 @@ public class ListenableFutureExample
 
         CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() ->
         {
-            try
-            {
+            try {
                 TimeUnit.SECONDS.sleep(5);
-            } catch (InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             return 100;
         }, service).whenComplete((v, t) -> System.out.println("I am finished and the result is " + v));
     }
 
-    static class MyCallBack implements FutureCallback<Integer>
-    {
+    static class MyCallBack implements FutureCallback<Integer> {
 
         @Override
-        public void onSuccess(@Nullable Integer result)
-        {
+        public void onSuccess(@Nullable Integer result) {
             System.out.println("I am finished and the result is " + result);
         }
 
         @Override
-        public void onFailure(Throwable t)
-        {
+        public void onFailure(Throwable t) {
             t.printStackTrace();
         }
     }

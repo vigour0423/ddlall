@@ -1,16 +1,9 @@
 package com.ddl.learn.guava.cache;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/11/13
- * QQ: 532500648
- * QQ群:463962286
- ***************************************/
-public class LinkedListLRUCacheExample
-{
 
-    public static void main(String[] args)
-    {
+public class LinkedListLRUCacheExample {
+
+    public static void main(String[] args) {
         LRUCache<String, String> cache = new LinkedListLRUCache<>(3);
         cache.put("1", "1");
         cache.put("2", "2");
