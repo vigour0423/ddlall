@@ -6,9 +6,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SimpleThreadPool extends Thread {
-
+    /**
+     * 线程大小
+     */
     private int size;
 
+    /**
+     *
+     */
     private final int queueSize;
 
     private final static int DEFAULT_TASK_QUEUE_SIZE = 2000;
@@ -50,6 +55,7 @@ public class SimpleThreadPool extends Thread {
         init();
     }
 
+
     private void init() {
         for (int i = 0; i < this.min; i++) {
             createWorkTask();
@@ -59,8 +65,9 @@ public class SimpleThreadPool extends Thread {
     }
 
     public void submit(Runnable runnable) {
-        if (destroy)
+        if (destroy) {
             throw new IllegalStateException("The thread pool already destroy and not allow submit task.");
+        }
 
         synchronized (TASK_QUEUE) {
             if (TASK_QUEUE.size() > queueSize)
@@ -248,5 +255,6 @@ public class SimpleThreadPool extends Thread {
        /* Thread.sleep(10000);
         threadPool.shutdown();
         threadPool.submit(() -> System.out.println("======="));*/
+
     }
 }
