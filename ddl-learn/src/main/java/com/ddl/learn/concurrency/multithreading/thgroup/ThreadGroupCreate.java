@@ -1,12 +1,8 @@
-package com.ddl.learn.concurrency.multithreading.chapter12;
+package com.ddl.learn.concurrency.multithreading.thgroup;
 
 import java.util.Arrays;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/25 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ThreadGroupCreate {
 
     public static void main(String[] args) {
@@ -18,9 +14,9 @@ public class ThreadGroupCreate {
             public void run() {
                 while (true) {
                     try {
-//                        System.out.println(getThreadGroup().getName());
-//                        System.out.println(getThreadGroup().getParent());
-//                        System.out.println(getThreadGroup().getParent().activeCount());
+                        //                        System.out.println(getThreadGroup().getName());
+                        //                        System.out.println(getThreadGroup().getParent());
+                        //                        System.out.println(getThreadGroup().getParent().activeCount());
                         Thread.sleep(10_000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -36,7 +32,7 @@ public class ThreadGroupCreate {
         Thread t2 = new Thread(tg2, "T2") {
             @Override
             public void run() {
-                System.out.println(">>>"+tg1.getName());
+                System.out.println(">>>" + tg1.getName());
                 Thread[] threads = new Thread[tg1.activeCount()];
                 tg1.enumerate(threads);
 
@@ -45,12 +41,13 @@ public class ThreadGroupCreate {
         };
 
         t2.start();
-//
-//        System.out.println(tg2.getName());
-//        System.out.println(tg2.getParent());
 
-//
-//        System.out.println(Thread.currentThread().getName());
-//        System.out.println(Thread.currentThread().getThreadGroup().getName());
+
+        System.out.println(tg2.getName());
+        System.out.println(tg2.getParent());
+
+
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getThreadGroup().getName());
     }
 }

@@ -8,11 +8,6 @@ import javax.annotation.Nullable;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/9
- * @QQ: 532500648
- ***************************************/
 public class FunctionExample {
     public static void main(String[] args) throws IOException {
         Function<String, Integer> function = new Function<String, Integer>() {

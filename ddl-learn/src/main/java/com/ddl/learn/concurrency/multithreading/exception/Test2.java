@@ -1,13 +1,8 @@
-package com.ddl.learn.concurrency.multithreading.chapter11;
+package com.ddl.learn.concurrency.multithreading.exception;
 
 import java.util.Arrays;
 import java.util.Optional;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/24 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
 public class Test2 {
 
     public void test() {

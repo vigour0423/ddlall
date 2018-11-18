@@ -2,11 +2,7 @@ package com.ddl.learn.guava.io;
 
 import com.google.common.base.Preconditions;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/15
- * @QQ: 532500648
- ***************************************/
+
 public final class Base64 {
 
     private final static String CODE_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";

@@ -22,20 +22,14 @@ import java.util.List;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/14
- * @QQ: 532500648
- ***************************************/
 public class FilesTest {
 
-    private final String SOURCE_FILE = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\source.txt";
-    private final String TARGET_FILE = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\target.txt";
+    private final String SOURCE_FILE = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\source.txt";
+
+    private final String TARGET_FILE = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\target.txt";
 
     /**
      * TODO alex will finish this in the future.
-     *
      * @throws IOException
      */
     @Test
@@ -52,8 +46,8 @@ public class FilesTest {
     @Test
     public void testCopyFileWithJDKNio2() throws IOException {
         java.nio.file.Files.copy(
-                Paths.get("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources", "io", "source.txt"),
-                Paths.get("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources", "io", "target.txt"),
+                Paths.get("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources", "io", "source.txt"),
+                Paths.get("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources", "io", "target.txt"),
                 StandardCopyOption.REPLACE_EXISTING
         );
         File targetFile = new File(TARGET_FILE);
@@ -69,6 +63,7 @@ public class FilesTest {
             assertThat(new File(TARGET_FILE).exists(), equalTo(true));
             assertThat(new File(SOURCE_FILE).exists(), equalTo(false));
         } finally {
+
             Files.move(new File(TARGET_FILE), new File(SOURCE_FILE));
         }
     }
@@ -101,7 +96,9 @@ public class FilesTest {
 
             @Override
             public boolean processLine(String line) throws IOException {
-                if (line.length() == 0) return false;
+                if (line.length() == 0) {
+                    return false;
+                }
                 lengthList.add(line.length());
                 return true;
             }
@@ -111,7 +108,9 @@ public class FilesTest {
                 return lengthList;
             }
         };
-        List<Integer> result = Files.asCharSource(new File(SOURCE_FILE), Charsets.UTF_8).readLines(lineProcessor);
+
+        List<Integer> result = Files.asCharSource(new File(SOURCE_FILE), Charsets.UTF_8)
+                .readLines(lineProcessor);
 
         System.out.println(result);
     }
@@ -120,14 +119,14 @@ public class FilesTest {
     public void testFileSha() throws IOException {
 
         File file = new File(SOURCE_FILE);
-//        Files.hash(file, Hashing.goodFastHash(128));
+        //Files.hash(file, Hashing.goodFastHash(128));
         HashCode hashCode = Files.asByteSource(file).hash(Hashing.sha256());
         System.out.println(hashCode);
     }
 
     @Test
     public void testFileWrite() throws IOException {
-        String testPath = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\testFileWrite.txt";
+        String testPath = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\testFileWrite.txt";
         File testFile = new File(testPath);
         testFile.deleteOnExit();
         String content1 = "content 1";
@@ -144,7 +143,7 @@ public class FilesTest {
 
     @Test
     public void testFileAppend() throws IOException {
-        String testPath = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\testFileAppend.txt";
+        String testPath = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\testFileAppend.txt";
         File testFile = new File(testPath);
         testFile.deleteOnExit();
         CharSink charSink = Files.asCharSink(testFile, Charsets.UTF_8, FileWriteMode.APPEND);
@@ -159,7 +158,7 @@ public class FilesTest {
 
     @Test
     public void testTouchFile() throws IOException {
-        File touchFile = new File("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\touch.txt");
+        File touchFile = new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\touch.txt");
         touchFile.deleteOnExit();
         Files.touch(touchFile);
         assertThat(touchFile.exists(), equalTo(true));
@@ -168,13 +167,15 @@ public class FilesTest {
     @Test
     public void testRecursive() {
         List<File> list = new ArrayList<>();
-        this.recursiveList(new File("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\main"), list);
+        this.recursiveList(new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\main"), list);
         list.forEach(System.out::println);
     }
 
     private void recursiveList(File root, List<File> fileList) {
-        /*if (root.isHidden())
+ /*       if (root.isHidden()) {
             return;
+        }
+
         fileList.add(root);
         if (!root.isFile()) {
             File[] files = root.listFiles();
@@ -197,32 +198,40 @@ public class FilesTest {
 
     @Test
     public void testTreeFilesPreOrderTraversal() {
-        File root = new File("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\main");
-//        FluentIterable<File> files = Files.fileTreeTraverser().preOrderTraversal(root);
-        FluentIterable<File> files = Files.fileTreeTraverser().preOrderTraversal(root).filter(File::isFile);
-        files.stream().forEach(System.out::println);
+        File root = new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\main");
+        //        FluentIterable<File> files = Files.fileTreeTraverser().preOrderTraversal(root);
+        FluentIterable<File> files = Files.fileTreeTraverser()
+                .preOrderTraversal(root)
+                .filter(File::isFile);
+        files.stream()
+                .forEach(System.out::println);
     }
 
     @Test
     public void testTreeFilesPostOrderTraversal() {
-        File root = new File("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\main");
-        FluentIterable<File> files = Files.fileTreeTraverser().postOrderTraversal(root);
-        files.stream().forEach(System.out::println);
+        File root = new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\main");
+        Files.fileTreeTraverser()
+                .postOrderTraversal(root)
+                .stream()
+                .forEach(System.out::println);
+
     }
 
     @Test
     public void testTreeFilesBreadthFirstTraversal() {
-        File root = new File("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\main");
-        FluentIterable<File> files = Files.fileTreeTraverser().breadthFirstTraversal(root);
-        files.stream().forEach(System.out::println);
+        File root = new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\main");
+        Files.fileTreeTraverser()
+                .breadthFirstTraversal(root)
+                .stream()
+                .forEach(System.out::println);
     }
 
     @Test
     public void testTreeFilesChild() {
-        File root = new File("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\main");
-        Iterable<File> children = Files.fileTreeTraverser().children(root);
-
-        children.forEach(System.out::println);
+        File root = new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\main");
+        Files.fileTreeTraverser()
+                .children(root)
+                .forEach(System.out::println);
     }
 
     @After

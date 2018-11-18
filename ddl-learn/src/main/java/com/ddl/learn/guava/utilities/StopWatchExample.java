@@ -6,11 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/11
- * @QQ: 532500648
- ***************************************/
+
 public class StopWatchExample {
     private final static Logger LOGGER = LoggerFactory.getLogger(StopWatchExample.class);
 
@@ -27,12 +23,9 @@ public class StopWatchExample {
 
         LOGGER.info("start process the order [{}]", orderNo);
         Stopwatch stopwatch = Stopwatch.createStarted();
-        TimeUnit.MILLISECONDS.sleep(100);
+        TimeUnit.MILLISECONDS.sleep(1000);
 
-        LOGGER.info("The orderNo [{}] process successful and elapsed [{}] min.", orderNo, stopwatch.stop().elapsed(TimeUnit.MINUTES));
+        LOGGER.info("The orderNo [{}] process successful and elapsed [{}] min.", orderNo, stopwatch.stop().elapsed(TimeUnit.MILLISECONDS));
 
-        /**
-         *
-         */
     }
 }

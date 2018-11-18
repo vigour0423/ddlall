@@ -27,7 +27,7 @@ public class StringsTest {
 
         assertThat(Strings.padStart("Alex", 3, 'H'), equalTo("Alex"));
         assertThat(Strings.padStart("Alex", 5, 'H'), equalTo("HAlex"));
-        assertThat(Strings.padEnd("Alex", 5, 'H'), equalTo("AlexH"));
+        assertThat(Strings.padEnd("Alex", 6, 'H'), equalTo("AlexHH"));
     }
 
     @Test
@@ -45,9 +45,17 @@ public class StringsTest {
         assertThat(CharMatcher.javaDigit().matches('x'), equalTo(false));
 
         assertThat(CharMatcher.is('A').countIn("Alex Sharing the Google Guava to Us"), equalTo(1));
-        assertThat(CharMatcher.breakingWhitespace().collapseFrom("      hello Guava     ", '*'), equalTo("*hello*Guava*"));
-        assertThat(CharMatcher.javaDigit().or(CharMatcher.whitespace()).removeFrom("hello 234 world"), equalTo("helloworld"));
-        assertThat(CharMatcher.javaDigit().or(CharMatcher.whitespace()).retainFrom("hello 234 world"), equalTo(" 234 "));
+        assertThat(CharMatcher.breakingWhitespace()
+                .collapseFrom("      hello Guava     ", '*'), equalTo("*hello*Guava*")
+        );
+        assertThat(CharMatcher.javaDigit()
+                .or(CharMatcher.whitespace())
+                .removeFrom("hello 234 world"), equalTo("helloworld")
+        );
+        assertThat(CharMatcher.javaDigit()
+                .or(CharMatcher.whitespace())
+                .retainFrom("hello 234 world"), equalTo(" 234 ")
+        );
 
     }
 

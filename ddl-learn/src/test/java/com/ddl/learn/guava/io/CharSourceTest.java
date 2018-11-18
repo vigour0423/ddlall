@@ -9,11 +9,6 @@ import java.io.IOException;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/14
- * @QQ: 532500648
- ***************************************/
 public class CharSourceTest {
 
     @Test

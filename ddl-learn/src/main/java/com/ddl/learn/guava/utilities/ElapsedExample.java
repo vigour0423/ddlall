@@ -2,11 +2,7 @@ package com.ddl.learn.guava.utilities;
 
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/11
- * @QQ: 532500648
- ***************************************/
+
 public class ElapsedExample {
 
     public static void main(String[] args) throws InterruptedException {

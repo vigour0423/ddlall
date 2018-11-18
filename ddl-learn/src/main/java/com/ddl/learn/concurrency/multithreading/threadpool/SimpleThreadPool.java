@@ -1,15 +1,10 @@
-package com.ddl.learn.concurrency.multithreading.chapter13;
+package com.ddl.learn.concurrency.multithreading.threadpool;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/25 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
 public class SimpleThreadPool extends Thread {
 
     private int size;
