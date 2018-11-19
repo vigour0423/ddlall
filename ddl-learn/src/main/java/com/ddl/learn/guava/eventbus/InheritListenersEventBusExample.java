@@ -3,15 +3,9 @@ package com.ddl.learn.guava.eventbus;
 import com.google.common.eventbus.EventBus;
 import com.ddl.learn.guava.eventbus.listeners.ConcreteListener;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/18
- * 532500648
- ***************************************/
-public class InheritListenersEventBusExample
-{
-    public static void main(String[] args)
-    {
+
+public class InheritListenersEventBusExample {
+    public static void main(String[] args) {
         final EventBus eventBus = new EventBus();
         eventBus.register(new ConcreteListener());
         System.out.println("post the string event");
