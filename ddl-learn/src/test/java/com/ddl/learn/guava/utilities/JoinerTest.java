@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static com.google.common.collect.ImmutableMap.of;
 import static java.util.stream.Collectors.joining;
@@ -65,7 +66,9 @@ public class JoinerTest {
     @Test
     public void testJoin_On_Append_To_StringBuilder() {
         final StringBuilder builder = new StringBuilder();
-        StringBuilder resultBuilder = Joiner.on("#").useForNull("DEFAULT").appendTo(builder, stringListWithNullValue);
+        StringBuilder resultBuilder = Joiner.on("#")
+                .useForNull("DEFAULT")
+                .appendTo(builder, stringListWithNullValue);
         assertThat(resultBuilder, sameInstance(builder));
         assertThat(resultBuilder.toString(), equalTo("Google#Guava#Java#Scala#DEFAULT"));
         assertThat(builder.toString(), equalTo("Google#Guava#Java#Scala#DEFAULT"));
@@ -75,13 +78,18 @@ public class JoinerTest {
     public void testJoin_On_Append_To_Writer() {
 
         try (FileWriter writer = new FileWriter(new File(targetFileName))) {
-            Joiner.on("#").useForNull("DEFAULT").appendTo(writer, stringListWithNullValue);
+            Joiner.on("#")
+                    .useForNull("DEFAULT")
+                    .appendTo(writer, stringListWithNullValue);
             assertThat(Files.isFile().test(new File(targetFileName)), equalTo(true));
         } catch (IOException e) {
             fail("append to the writer occur fetal error.");
         }
     }
 
+    /**
+     * jdk1.8以上简单实现（跳过空值）
+     */
     @Test
     public void testJoiningByStreamSkipNullValues() {
         String result = stringListWithNullValue.stream()
@@ -90,7 +98,9 @@ public class JoinerTest {
         assertThat(result, equalTo("Google#Guava#Java#Scala"));
     }
 
-
+    /**
+     * jdk1.8以上简单实现（使用默认值替代）
+     */
     @Test
     public void testJoiningByStreamWithDefaultValue() {
         String result = stringListWithNullValue.stream()
@@ -105,8 +115,9 @@ public class JoinerTest {
 
     @Test
     public void testJoinOnWithMap() {
-        assertThat(Joiner.on('#').withKeyValueSeparator("=")
-                .join(stringMap), equalTo("Hello=Guava#Java=Scala")
+        assertThat(
+                Joiner.on('#').withKeyValueSeparator("=").join(stringMap),
+                equalTo("Hello=Guava#Java=Scala")
         );
     }
 

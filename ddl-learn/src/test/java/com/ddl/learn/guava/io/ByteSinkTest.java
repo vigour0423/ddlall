@@ -13,14 +13,10 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/14
- * @QQ: 532500648
- ***************************************/
+
 public class ByteSinkTest {
 
-    private final String path = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\ByteSinkTest.dat";
+    private final String path = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\ByteSinkTest.dat";
 
     @Test
     public void testByteSink() throws IOException {
@@ -37,8 +33,8 @@ public class ByteSinkTest {
 
     @Test
     public void testFromSourceToSink() throws IOException {
-        String source = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\files.PNG";
-        String target = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\files-2.PNG";
+        String source = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\files.PNG";
+        String target = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\files-2.PNG";
         File sourceFile = new File(source);
         File targetFile = new File(target);
         targetFile.deleteOnExit();

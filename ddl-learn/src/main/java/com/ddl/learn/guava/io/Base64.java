@@ -45,7 +45,7 @@ public final class Base64 {
             String charBin = Integer.toBinaryString(source.charAt(index));
             int delta = 8 - charBin.length();
             for (int d = 0; d < delta; d++) {
-                charBin = "0" + charBin;
+                charBin = String.format("0%s", charBin);
             }
 
             binaryResult.append(charBin);

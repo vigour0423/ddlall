@@ -10,14 +10,10 @@ import java.io.IOException;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/14
- * @QQ: 532500648
- ***************************************/
+
 public class ByteSourceTest {
 
-    private final String path = "C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\files.PNG";
+    private final String path = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\files.PNG";
 
     @Test
     public void testAsByteSource() throws IOException {

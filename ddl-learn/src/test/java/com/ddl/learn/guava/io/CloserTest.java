@@ -9,16 +9,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/14
- * @QQ: 532500648
- ***************************************/
+
 public class CloserTest {
 
     @Test
     public void testCloser() throws IOException {
-        ByteSource byteSource = Files.asByteSource(new File("C:\\Users\\wangwenjun\\IdeaProjects\\guava_programming\\src\\test\\resources\\io\\files.PNG"));
+        ByteSource byteSource = Files.asByteSource(new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\files.PNG"));
         Closer closer = Closer.create();
         try {
             InputStream inputStream = closer.register(byteSource.openStream());
@@ -29,17 +25,18 @@ public class CloserTest {
         }
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testTryCatchFinally() {
         try {
-
             System.out.println("work area.");
             throw new IllegalArgumentException();
         } catch (Exception e) {
             System.out.println("exception area");
-            throw new RuntimeException();
+            throw new RuntimeException("1");
         } finally {
             System.out.println("finally area");
+            //finallly 抛出的异常会抑制catch里抛出的异常
+            //throw new RuntimeException("2");
         }
     }
 
@@ -53,7 +50,7 @@ public class CloserTest {
             throw e;
         } finally {
             try {
-                //close
+                //close出现了异常
                 throw new RuntimeException("2");
             } catch (Exception e) {
                 t.addSuppressed(e);

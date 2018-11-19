@@ -6,11 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/15
- * @QQ: 532500648
- ***************************************/
+
 public class BaseEncodingTest {
     @Test
     public void testBase64Encode() {

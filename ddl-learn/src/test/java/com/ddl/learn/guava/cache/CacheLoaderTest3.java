@@ -20,18 +20,11 @@ import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2018/1/9
- * QQ: 532500648
- * QQ群:463962286
- ***************************************/
-public class CacheLoaderTest3
-{
+
+public class CacheLoaderTest3 {
 
     @Test
-    public void testLoadNullValue()
-    {
+    public void testLoadNullValue() {
         CacheLoader<String, Employee> cacheLoader = CacheLoader
                 .from(k -> k.equals("null") ? null : new Employee(k, k, k));
         LoadingCache<String, Employee> loadingCache = CacheBuilder.newBuilder().build(cacheLoader);
@@ -39,25 +32,20 @@ public class CacheLoaderTest3
         Employee alex = loadingCache.getUnchecked("Alex");
 
         assertThat(alex.getName(), equalTo("Alex"));
-        try
-        {
+        try {
             assertThat(loadingCache.getUnchecked("null"), nullValue());
             fail("should not process to here.");
-        } catch (Exception e)
-        {
-//            (expected = CacheLoader.InvalidCacheLoadException.class)
+        } catch (Exception e) {
+            //            (expected = CacheLoader.InvalidCacheLoadException.class)
             assertThat(e instanceof CacheLoader.InvalidCacheLoadException, equalTo(true));
         }
     }
 
     @Test
-    public void testLoadNullValueUseOptional()
-    {
-        CacheLoader<String, Optional<Employee>> loader = new CacheLoader<String, Optional<Employee>>()
-        {
+    public void testLoadNullValueUseOptional() {
+        CacheLoader<String, Optional<Employee>> loader = new CacheLoader<String, Optional<Employee>>() {
             @Override
-            public Optional<Employee> load(String key) throws Exception
-            {
+            public Optional<Employee> load(String key) throws Exception {
                 if (key.equals("null"))
                     return Optional.fromNullable(null);
                 else
@@ -75,8 +63,7 @@ public class CacheLoaderTest3
 
 
     @Test
-    public void testCacheRefresh() throws InterruptedException
-    {
+    public void testCacheRefresh() throws InterruptedException {
         AtomicInteger counter = new AtomicInteger(0);
         CacheLoader<String, Long> cacheLoader = CacheLoader
                 .from(k ->
@@ -86,24 +73,22 @@ public class CacheLoaderTest3
                 });
 
         LoadingCache<String, Long> cache = CacheBuilder.newBuilder()
-//                .refreshAfterWrite(2, TimeUnit.SECONDS)
+                //                .refreshAfterWrite(2, TimeUnit.SECONDS)
                 .build(cacheLoader);
 
         Long result1 = cache.getUnchecked("Alex");
         TimeUnit.SECONDS.sleep(3);
         Long result2 = cache.getUnchecked("Alex");
         assertThat(counter.get(), equalTo(1));
-//        assertThat(result1.longValue() != result2.longValue(), equalTo(true));
+        //        assertThat(result1.longValue() != result2.longValue(), equalTo(true));
     }
 
     @Test
-    public void testCachePreLoad()
-    {
+    public void testCachePreLoad() {
         CacheLoader<String, String> loader = CacheLoader.from(String::toUpperCase);
         LoadingCache<String, String> cache = CacheBuilder.newBuilder().build(loader);
 
-        Map<String, String> preData = new HashMap<String, String>()
-        {
+        Map<String, String> preData = new HashMap<String, String>() {
             {
                 put("alex", "ALEX");
                 put("hello", "hello");
@@ -117,13 +102,11 @@ public class CacheLoaderTest3
     }
 
     @Test
-    public void testCacheRemovedNotification()
-    {
+    public void testCacheRemovedNotification() {
         CacheLoader<String, String> loader = CacheLoader.from(String::toUpperCase);
         RemovalListener<String, String> listener = notification ->
         {
-            if (notification.wasEvicted())
-            {
+            if (notification.wasEvicted()) {
                 RemovalCause cause = notification.getCause();
                 assertThat(cause, is(RemovalCause.SIZE));
                 assertThat(notification.getKey(), equalTo("Alex"));
