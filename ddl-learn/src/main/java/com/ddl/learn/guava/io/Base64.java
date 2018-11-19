@@ -20,7 +20,7 @@ public final class Base64 {
         int delta = 6 - binaryString.length() % 6;//should append
 
         for (int i = 0; i < delta && delta != 6; i++) {
-            binaryString += "0";
+            binaryString = String.format("%s0", binaryString);
         }
 
         for (int index = 0; index < binaryString.length() / 6; index++) {
@@ -42,7 +42,8 @@ public final class Base64 {
     private static String toBinary(final String source) {
         final StringBuilder binaryResult = new StringBuilder();
         for (int index = 0; index < source.length(); index++) {
-            String charBin = Integer.toBinaryString(source.charAt(index));
+            char c = source.charAt(index);
+            String charBin = Integer.toBinaryString(c);
             int delta = 8 - charBin.length();
             for (int d = 0; d < delta; d++) {
                 charBin = String.format("0%s", charBin);
@@ -81,7 +82,7 @@ public final class Base64 {
             String charBin = Integer.toBinaryString(i);
             int delta = 6 - charBin.length();
             for (int d = 0; d < delta; d++) {
-                charBin = "0" + charBin;
+                charBin = String.format("0%s", charBin);
             }
 
             binaryResult.append(charBin);
