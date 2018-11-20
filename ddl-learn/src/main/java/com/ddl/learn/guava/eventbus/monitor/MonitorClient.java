@@ -6,38 +6,28 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/19
- * 532500648
- ***************************************/
 
 /**
  * tail
  * Apache Flume 1.7 Spooling
- * <p>
  * .position
  */
-public class MonitorClient
-{
-    public static void main(String[] args) throws Exception
-    {
+public class MonitorClient {
+    public static void main(String[] args) throws Exception {
         final EventBus eventBus = new EventBus();
         eventBus.register(new FileChangeListener());
 
-        TargetMonitor monitor = new DirectoryTargetMonitor(eventBus, "G:\\Teaching\\汪文君Google Guava实战视频\\monitor");
+        TargetMonitor monitor = new DirectoryTargetMonitor(eventBus, "D:\\ddllearn\\monitor");
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.schedule(() ->
+     /*   executorService.schedule(() ->
         {
-            try
-            {
+            try {
                 monitor.stopMonitor();
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }, 2, TimeUnit.SECONDS);
-        executorService.shutdown();
+        executorService.shutdown();*/
         monitor.startMonitor();
 
     }

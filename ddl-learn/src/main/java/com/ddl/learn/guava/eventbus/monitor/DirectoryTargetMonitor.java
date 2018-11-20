@@ -6,13 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import java.nio.file.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/19
- * 532500648
- ***************************************/
-public class DirectoryTargetMonitor implements TargetMonitor
-{
+
+public class DirectoryTargetMonitor implements TargetMonitor {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(DirectoryTargetMonitor.class);
 
@@ -24,32 +19,29 @@ public class DirectoryTargetMonitor implements TargetMonitor
 
     private volatile boolean start = false;
 
-    public DirectoryTargetMonitor(final EventBus eventBus, final String targetPath)
-    {
+    public DirectoryTargetMonitor(final EventBus eventBus, final String targetPath) {
         this(eventBus, targetPath, "");
     }
 
-    public DirectoryTargetMonitor(final EventBus eventBus, final String targetPath, final String... morePaths)
-    {
+    public DirectoryTargetMonitor(final EventBus eventBus, final String targetPath, final String... morePaths) {
         this.eventBus = eventBus;
         this.path = Paths.get(targetPath, morePaths);
     }
 
 
     @Override
-    public void startMonitor() throws Exception
-    {
+    public void startMonitor() throws Exception {
         this.watchService = FileSystems.getDefault().newWatchService();
-        this.path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY,
-                StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_CREATE);
+        this.path.register(
+                watchService, StandardWatchEventKinds.ENTRY_MODIFY,
+                StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_CREATE
+        );
         LOGGER.info("The directory [{}] is monitoring... ", path);
 
         this.start = true;
-        while (start)
-        {
+        while (start) {
             WatchKey watchKey = null;
-            try
-            {
+            try {
                 watchKey = watchService.take();
                 watchKey.pollEvents().forEach(event ->
                 {
@@ -58,11 +50,9 @@ public class DirectoryTargetMonitor implements TargetMonitor
                     Path child = DirectoryTargetMonitor.this.path.resolve(path);
                     eventBus.post(new FileChangeEvent(child, kind));
                 });
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 this.start = false;
-            } finally
-            {
+            } finally {
                 if (watchKey != null)
                     watchKey.reset();
             }
@@ -70,8 +60,7 @@ public class DirectoryTargetMonitor implements TargetMonitor
     }
 
     @Override
-    public void stopMonitor() throws Exception
-    {
+    public void stopMonitor() throws Exception {
         LOGGER.info("The directory [{}] monitor will be stop...", path);
         Thread.currentThread().interrupt();
         this.start = false;
