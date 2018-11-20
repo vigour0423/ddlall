@@ -5,14 +5,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/21
- * 532500648
- ***************************************/
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface MySubscribe
-{
+public @interface MySubscribe {
     String topic() default "default-topic";
 }

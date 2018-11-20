@@ -2,15 +2,8 @@ package com.ddl.learn.guava.eventbus.test;
 
 import com.ddl.learn.guava.eventbus.internal.MyEventBus;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/21
- * 532500648
- ***************************************/
-public class MyEventBusExample
-{
-    public static void main(String[] args)
-    {
+public class MyEventBusExample {
+    public static void main(String[] args) {
         MyEventBus myEventBus = new MyEventBus((cause, context) ->
         {
             cause.printStackTrace();
@@ -23,7 +16,7 @@ public class MyEventBusExample
         myEventBus.register(new MySimpleListener());
         myEventBus.register(new MySimpleListener2());
         myEventBus.post(123131, "alex-topic");
-//        myEventBus.post(123131, "test-topic");
+        //        myEventBus.post(123131, "test-topic");
 
 
     }

@@ -2,13 +2,8 @@ package com.ddl.learn.guava.eventbus.internal;
 
 import java.lang.reflect.Method;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/21
- * 532500648
- ***************************************/
-public interface MyEventContext
-{
+
+public interface MyEventContext {
 
     String getSource();
 

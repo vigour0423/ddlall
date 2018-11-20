@@ -19,7 +19,7 @@ public class MonitorClient {
 
         TargetMonitor monitor = new DirectoryTargetMonitor(eventBus, "D:\\ddllearn\\monitor");
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-     /*   executorService.schedule(() ->
+        executorService.schedule(() ->
         {
             try {
                 monitor.stopMonitor();
@@ -27,7 +27,9 @@ public class MonitorClient {
                 e.printStackTrace();
             }
         }, 2, TimeUnit.SECONDS);
-        executorService.shutdown();*/
+
+        executorService.shutdown();
+
         monitor.startMonitor();
 
     }

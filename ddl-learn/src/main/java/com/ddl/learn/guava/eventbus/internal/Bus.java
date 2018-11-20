@@ -1,12 +1,7 @@
 package com.ddl.learn.guava.eventbus.internal;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/10/21
- * 532500648
- ***************************************/
-public interface Bus
-{
+
+public interface Bus {
 
     void register(Object subscriber);
 
