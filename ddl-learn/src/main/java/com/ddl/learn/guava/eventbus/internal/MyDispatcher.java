@@ -33,13 +33,15 @@ public class MyDispatcher {
             return;
         }
 
-        subscribers.stream().filter(subscriber -> !subscriber.isDisable())
+        subscribers.stream()
+                .filter(subscriber -> !subscriber.isDisable())
                 .filter(subscriber ->
                 {
                     Method subscribeMethod = subscriber.getSubscribeMethod();
                     Class<?> aClass = subscribeMethod.getParameterTypes()[0];
                     return (aClass.isAssignableFrom(event.getClass()));
-                }).forEach(subscriber -> realInvokeSubscribe(subscriber, event, bus));
+                })
+                .forEach(subscriber -> realInvokeSubscribe(subscriber, event, bus));
     }
 
     private void realInvokeSubscribe(MySubscriber subscriber, Object event, Bus bus) {
@@ -47,11 +49,15 @@ public class MyDispatcher {
         Object subscribeObject = subscriber.getSubscribeObject();
         executorService.execute(() ->
         {
+            //run
             try {
                 subscribeMethod.invoke(subscribeObject, event);
             } catch (Exception e) {
                 if (null != exceptionHandler) {
                     exceptionHandler.handle(e, new BaseMyEventContext(bus.getBusName(), subscriber, event));
+                } else {
+                    throw new RuntimeException(e);
+
                 }
             }
         });
@@ -98,6 +104,9 @@ public class MyDispatcher {
         }
     }
 
+    /**
+     * 上下文
+     */
     private static class BaseMyEventContext implements MyEventContext {
 
         private final String eventBusName;
