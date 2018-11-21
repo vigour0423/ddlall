@@ -1,17 +1,15 @@
 package com.ddl.learn.guava.cache;
 
-import com.google.common.base.Preconditions;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 
-/**
- * this class is not thread-safe class
- * @param <K>
- * @param <V>
- */
+
+@NotThreadSafe
 public class LinkedListLRUCache<K, V> implements LRUCache<K, V> {
     private final int limit;
 
@@ -25,8 +23,8 @@ public class LinkedListLRUCache<K, V> implements LRUCache<K, V> {
 
     @Override
     public void put(K key, V value) {
-        Preconditions.checkNotNull(key);
-        Preconditions.checkNotNull(value);
+        checkNotNull(key);
+        checkNotNull(value);
         if (keys.size() >= limit) {
             K oldestKey = keys.removeFirst();
             cache.remove(oldestKey);
@@ -39,9 +37,9 @@ public class LinkedListLRUCache<K, V> implements LRUCache<K, V> {
     @Override
     public V get(K key) {
         boolean exist = keys.remove(key);
-        if (!exist)
+        if (!exist){
             return null;
-
+        }
         keys.addLast(key);
         return cache.get(key);
     }

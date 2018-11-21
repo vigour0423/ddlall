@@ -15,14 +15,19 @@ public class Bucket {
 
     private final static int BUCKET_LIMIT = 1000;
 
-    private final RateLimiter limiter = RateLimiter.create(10);
+    private final RateLimiter limiter = RateLimiter.create(10d);
 
     private final Monitor offerMonitor = new Monitor();
 
     private final Monitor pollMonitor = new Monitor();
 
+    private final Monitor.Guard CAN_TAKE = offerMonitor.newGuard(()->container.size()<BUCKET_LIMIT);
+
+    private final Monitor.Guard CAN_POLL = pollMonitor.newGuard(()-> !container.isEmpty());
+
+
     public void submit(Integer data) {
-        if (offerMonitor.enterIf(offerMonitor.newGuard(() -> container.size() < BUCKET_LIMIT))) {
+        if (offerMonitor.enterIf(CAN_TAKE)) {
             try {
                 container.offer(data);
                 System.out.println(currentThread() + " submit data " + data + ",current size:" + container.size());
@@ -36,7 +41,7 @@ public class Bucket {
 
 
     public void takeThenConsume(Consumer<Integer> consumer) {
-        if (pollMonitor.enterIf(pollMonitor.newGuard(() -> !container.isEmpty()))) {
+        if (pollMonitor.enterIf(CAN_POLL)) {
             try {
                 System.out.println(currentThread() + " waiting " + limiter.acquire());
                 consumer.accept(container.poll());

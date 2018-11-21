@@ -4,7 +4,6 @@ import java.lang.ref.SoftReference;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
 public class SoftLRUCache<K, V> implements LRUCache<K, V> {
 
 

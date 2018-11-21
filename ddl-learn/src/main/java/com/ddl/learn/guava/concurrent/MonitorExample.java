@@ -16,6 +16,9 @@ public class MonitorExample {
     public static void main(String[] args) {
         final MonitorGuard mg = new MonitorGuard();
 
+        //final Synchronized mg = new Synchronized();
+        //final LockCondition mg = new LockCondition();
+
         final AtomicInteger COUNTER = new AtomicInteger(0);
 
         for (int i = 0; i <= 3; i++) {
@@ -46,8 +49,12 @@ public class MonitorExample {
                     }
             }).start();
         }
+
     }
 
+    /**
+     * 通过guava的monitor实现
+     */
     static class MonitorGuard {
         private final LinkedList<Integer> queue = new LinkedList<>();
 
@@ -83,6 +90,9 @@ public class MonitorExample {
 
     }
 
+    /**
+     * 通过condition实现的生产消费
+     */
     static class LockCondition {
         private final ReentrantLock lock = new ReentrantLock();
 
@@ -131,6 +141,9 @@ public class MonitorExample {
         }
     }
 
+    /**
+     * 通过jvm的synchronized
+     */
     static class Synchronized {
         private final LinkedList<Integer> queue = new LinkedList<>();
 

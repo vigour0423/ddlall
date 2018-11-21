@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 import static java.lang.Thread.currentThread;
 
 
-public class BucketTest {
+public class BucketExample {
 
     public static void main(String[] args) {
         final Bucket bucket = new Bucket();
@@ -39,7 +39,7 @@ public class BucketTest {
         IntStream.range(0, 5)
                 .forEach(i -> new Thread(() ->
                         {
-                            for (; ; ) {
+                            while (true) {
                                 bucket.takeThenConsume(x -> System.out.println(currentThread() + " W " + x));
                             }
                         }).start()

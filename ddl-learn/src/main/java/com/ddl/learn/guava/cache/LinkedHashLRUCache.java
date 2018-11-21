@@ -1,17 +1,16 @@
 package com.ddl.learn.guava.cache;
 
-import com.google.common.base.Preconditions;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static com.google.common.base.Preconditions.checkArgument;
 
-/**
- * This class is not the thread-safe class.
- * @param <K>
- * @param <V>
- */
+
+@NotThreadSafe
 public class LinkedHashLRUCache<K, V> implements LRUCache<K, V> {
+
     private static class InternalLRUCache<K, V> extends LinkedHashMap<K, V> {
         final private int limit;
 
@@ -32,7 +31,7 @@ public class LinkedHashLRUCache<K, V> implements LRUCache<K, V> {
 
 
     public LinkedHashLRUCache(int limit) {
-        Preconditions.checkArgument(limit > 0, "The limit big than zero.");
+        checkArgument(limit > 0, "The limit big than zero.");
         this.limit = limit;
         this.internalLRUCache = new InternalLRUCache<>(limit);
     }
