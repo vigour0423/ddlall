@@ -38,7 +38,9 @@ public class SoftLRUCache<K, V> implements LRUCache<K, V> {
     @Override
     public V get(K key) {
         SoftReference<V> reference = this.cache.get(key);
-        if (null == reference) return null;
+        if (null == reference) {
+            return null;
+        }
         return reference.get();
     }
 
