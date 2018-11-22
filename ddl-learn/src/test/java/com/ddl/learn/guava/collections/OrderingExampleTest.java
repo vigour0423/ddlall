@@ -10,18 +10,11 @@ import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2018/1/15
- * QQ: 532500648
- * QQ群:463962286
- ***************************************/
-public class OrderingExampleTest
-{
+
+public class OrderingExampleTest {
 
     @Test
-    public void testJDKOrder()
-    {
+    public void testJDKOrder() {
         List<Integer> list = Arrays.asList(1, 5, 3, 8, 2);
         System.out.println(list);
         Collections.sort(list);
@@ -29,8 +22,7 @@ public class OrderingExampleTest
     }
 
     @Test(expected = NullPointerException.class)
-    public void testJDKOrderIssue()
-    {
+    public void testJDKOrderIssue() {
         List<Integer> list = Arrays.asList(1, 5, null, 3, 8, 2);
         System.out.println(list);
         Collections.sort(list);
@@ -38,24 +30,21 @@ public class OrderingExampleTest
     }
 
     @Test
-    public void testOrderNaturalByNullFirst()
-    {
+    public void testOrderNaturalByNullFirst() {
         List<Integer> list = Arrays.asList(1, 5, null, 3, 8, 2);
         Collections.sort(list, Ordering.natural().nullsFirst());
         System.out.println(list);
     }
 
     @Test
-    public void testOrderNaturalByNullLast()
-    {
+    public void testOrderNaturalByNullLast() {
         List<Integer> list = Arrays.asList(1, 5, null, 3, 8, 2);
         Collections.sort(list, Ordering.natural().nullsLast());
         System.out.println(list);
     }
 
     @Test
-    public void testOrderNatural()
-    {
+    public void testOrderNatural() {
         List<Integer> list = Arrays.asList(1, 5, 3, 8, 2);
         Collections.sort(list);
         assertThat(Ordering.natural().isOrdered(list), is(true));
@@ -63,8 +52,7 @@ public class OrderingExampleTest
 
 
     @Test
-    public void testOrderReverse()
-    {
+    public void testOrderReverse() {
         List<Integer> list = Arrays.asList(1, 5, 3, 8, 2);
         Collections.sort(list, Ordering.natural().reverse());
         System.out.println(list);

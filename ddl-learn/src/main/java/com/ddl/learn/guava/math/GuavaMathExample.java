@@ -1,13 +1,10 @@
-package com.ddl.learn.guava1.math;
+package com.ddl.learn.guava.math;
 
 import com.google.common.math.IntMath;
 import com.google.common.math.LongMath;
 
-/**
- * @author dongdongliu
- * @version 1.0
- */
-public class GuavaMathDemo {
+
+public class GuavaMathExample {
 
     /**
      * @param args 运行参数

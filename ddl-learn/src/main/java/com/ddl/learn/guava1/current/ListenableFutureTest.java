@@ -43,7 +43,7 @@ public class ListenableFutureTest {
 
                     @Override
                     public Thread newThread(Runnable r) {
-                        return new Thread(r, "AsynsService-" + threadNumber.getAndIncrement());
+                        return new Thread(r, "AsyncService-" + threadNumber.getAndIncrement());
                     }
                 },
                 new ThreadPoolExecutor.AbortPolicy()

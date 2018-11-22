@@ -12,18 +12,10 @@ import java.util.Map;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2018/1/14
- * QQ: 532500648
- * QQ群:463962286
- ***************************************/
-public class MapsExampleTest
-{
+public class MapsExampleTest {
 
     @Test
-    public void testCreate()
-    {
+    public void testCreate() {
         ArrayList<String> valueList = Lists.newArrayList("1", "2", "3");
         ImmutableMap<String, String> map = Maps.uniqueIndex(valueList, v -> v + "_key");
         System.out.println(map);
@@ -32,8 +24,7 @@ public class MapsExampleTest
     }
 
     @Test
-    public void testTransform()
-    {
+    public void testTransform() {
         Map<String, String> map = Maps.asMap(Sets.newHashSet("1", "2", "3"), k -> k + "_value");
         Map<String, String> newMap = Maps.transformValues(map, v -> v + "_transform");
         System.out.println(newMap);
@@ -41,8 +32,7 @@ public class MapsExampleTest
     }
 
     @Test
-    public void testFilter()
-    {
+    public void testFilter() {
         Map<String, String> map = Maps.asMap(Sets.newHashSet("1", "2", "3"), k -> k + "_value");
         Map<String, String> newMap = Maps.filterKeys(map, k -> Lists.newArrayList("1", "2").contains(k));
         assertThat(newMap.containsKey("3"), is(false));

@@ -14,20 +14,13 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2018/1/14
- * QQ: 532500648
- * QQ群:463962286
- ***************************************/
-public class RangeExampleTest
-{
+
+public class RangeExampleTest {
     /**
      * {x|a<=x<=b}
      */
     @Test
-    public void testClosedRange()
-    {
+    public void testClosedRange() {
         Range<Integer> closedRange = Range.closed(0, 9);
         System.out.println(closedRange);
 
@@ -40,8 +33,7 @@ public class RangeExampleTest
      * {x|a<x<b}
      */
     @Test
-    public void testOpenRange()
-    {
+    public void testOpenRange() {
         Range<Integer> openRange = Range.open(0, 9);
         System.out.println(openRange);
 
@@ -57,8 +49,7 @@ public class RangeExampleTest
      * {x|a<x<=b}
      */
     @Test
-    public void testOpenClosedRange()
-    {
+    public void testOpenClosedRange() {
         Range<Integer> openClosedRange = Range.openClosed(0, 9);
         System.out.println(openClosedRange);
 
@@ -75,8 +66,7 @@ public class RangeExampleTest
      * {x|a<=x<b}
      */
     @Test
-    public void testClosedOpenRange()
-    {
+    public void testClosedOpenRange() {
         Range<Integer> closedOpen = Range.closedOpen(0, 9);
         System.out.println(closedOpen);
 
@@ -92,16 +82,14 @@ public class RangeExampleTest
      * {x|x>a}
      */
     @Test
-    public void testGreaterThan()
-    {
+    public void testGreaterThan() {
         Range<Integer> range = Range.greaterThan(10);
         assertThat(range.contains(10), is(false));
         assertThat(range.contains(Integer.MAX_VALUE), is(true));
     }
 
     @Test
-    public void testMapRange()
-    {
+    public void testMapRange() {
         TreeMap<String, Integer> treeMap = Maps.newTreeMap();
 
         treeMap.put("Scala", 1);
@@ -115,8 +103,7 @@ public class RangeExampleTest
     }
 
     @Test
-    public void testOtherMethod()
-    {
+    public void testOtherMethod() {
         Range<Integer> atLeastRange = Range.atLeast(2);
         System.out.println(atLeastRange);
         assertThat(atLeastRange.contains(2), is(true));
@@ -128,8 +115,7 @@ public class RangeExampleTest
     }
 
     @Test
-    public void testRangeMap()
-    {
+    public void testRangeMap() {
         RangeMap<Integer, String> gradeScale = TreeRangeMap.create();
         gradeScale.put(Range.closed(0, 60), "E");
         gradeScale.put(Range.closed(61, 70), "D");
