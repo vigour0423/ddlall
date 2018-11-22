@@ -10,6 +10,9 @@ public class Employee {
 
     private final String empID;
 
+    /**
+     * 设置成1M
+     */
     private final byte[] data = new byte[1024 * 1024];
 
     public Employee(String name, String dept, String empID) {
@@ -33,8 +36,10 @@ public class Employee {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("Name", this.getName()).add("Department", getDept())
-                .add("EmployeeID", this.getEmpID()).toString();
+                .add("Name", this.getName())
+                .add("Department", getDept())
+                .add("EmployeeID", this.getEmpID())
+                .toString();
     }
 
     @Override

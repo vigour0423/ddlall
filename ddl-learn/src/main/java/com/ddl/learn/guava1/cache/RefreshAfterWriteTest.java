@@ -26,7 +26,7 @@ public class RefreshAfterWriteTest {
 
     private static Callable<String> callable = () -> {
         // 模拟一个需要耗时2s的数据库查询任务
-        System.out.println("begin to mock query db...");
+        System.out.println(Thread.currentThread().getName()+"-begin to mock query db...");
         TimeUnit.SECONDS.sleep(2);
         System.out.println("success to mock query db...");
         return UUID.randomUUID().toString();
@@ -56,9 +56,11 @@ public class RefreshAfterWriteTest {
     public static void main(String[] args) throws Exception {
 
         // 手动添加一条缓存数据,睡眠1.5s让其过期
-        cache.put("name", "aty");
-        TimeUnit.MILLISECONDS.sleep(1500);
-        for (int i = 0; i < 8; i++) {
+        System.out.println(cache.getUnchecked("name"));
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println(cache.getUnchecked("name"));
+        TimeUnit.SECONDS.sleep(2);
+        for (int i = 0; i < 5; i++) {
             startThread(i);
         }
 
@@ -75,9 +77,9 @@ public class RefreshAfterWriteTest {
                     System.out.println(Thread.currentThread().getName() + "...begin");
                     latch.await();
                     Stopwatch watch = Stopwatch.createStarted();
-                    System.out.println(Thread.currentThread().getName() + "...value..." + cache.get("name"));
-                    watch.stop();
-                    System.out.println(Thread.currentThread().getName() + "...finish,cost time=" + watch.elapsed(TimeUnit.SECONDS));
+                    System.out.println(Thread.currentThread().getName() + "...value..." + cache.getUnchecked("name"));
+
+                    System.out.println(Thread.currentThread().getName() + "...finish,cost time=" + watch.stop());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

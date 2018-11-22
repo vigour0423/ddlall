@@ -20,12 +20,13 @@ public class CacheLoaderTest4 {
                 .maximumSize(5)
                 .recordStats()
                 .build(loader);
+
         assertCache(cache);
     }
 
     @Test
     public void testCacheSpec() {
-        String spec = "maximumSize=5,recordStats";
+        String spec = "recordStats";
         CacheBuilderSpec builderSpec = CacheBuilderSpec.parse(spec);
         CacheLoader<String, String> loader = CacheLoader.from(String::toUpperCase);
         LoadingCache<String, String> cache = CacheBuilder.from(builderSpec).build(loader);

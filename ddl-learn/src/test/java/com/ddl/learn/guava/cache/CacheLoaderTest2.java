@@ -22,9 +22,11 @@ public class CacheLoaderTest2 {
      */
     @Test
     public void testEvictionByAccessTime() throws InterruptedException {
-        LoadingCache<String, Employee> cache = CacheBuilder.newBuilder()
+        LoadingCache<String, Employee> cache = CacheBuilder
+                .newBuilder()
                 .expireAfterAccess(2, TimeUnit.SECONDS)
                 .build(this.createCacheLoader());
+
         assertThat(cache.getUnchecked("Alex"), notNullValue());
         assertThat(cache.size(), equalTo(1L));
 
@@ -35,6 +37,7 @@ public class CacheLoaderTest2 {
 
         TimeUnit.SECONDS.sleep(1);
         assertThat(cache.getIfPresent("Guava"), notNullValue());
+
         TimeUnit.SECONDS.sleep(1);
         assertThat(cache.getIfPresent("Guava"), notNullValue());
 
@@ -47,7 +50,8 @@ public class CacheLoaderTest2 {
      */
     @Test
     public void testEvictionByWriteTime() throws InterruptedException {
-        LoadingCache<String, Employee> cache = CacheBuilder.newBuilder()
+        LoadingCache<String, Employee> cache = CacheBuilder
+                .newBuilder()
                 .expireAfterWrite(2, TimeUnit.SECONDS)
                 .build(this.createCacheLoader());
 
@@ -58,6 +62,7 @@ public class CacheLoaderTest2 {
 
         TimeUnit.SECONDS.sleep(1);
         assertThat(cache.getIfPresent("Guava"), notNullValue());
+
         TimeUnit.MILLISECONDS.sleep(990);
         assertThat(cache.getIfPresent("Guava"), notNullValue());
 
@@ -70,11 +75,13 @@ public class CacheLoaderTest2 {
      */
     @Test
     public void testWeakKey() throws InterruptedException {
-        LoadingCache<String, Employee> cache = CacheBuilder.newBuilder()
+        LoadingCache<String, Employee> cache = CacheBuilder
+                .newBuilder()
                 .expireAfterWrite(2, TimeUnit.SECONDS)
                 .weakValues()
                 .weakKeys()
                 .build(this.createCacheLoader());
+
         assertThat(cache.getUnchecked("Alex"), notNullValue());
         assertThat(cache.getUnchecked("Guava"), notNullValue());
 
@@ -83,12 +90,14 @@ public class CacheLoaderTest2 {
         System.gc();
 
         TimeUnit.MILLISECONDS.sleep(100);
+
         assertThat(cache.getIfPresent("Alex"), nullValue());
     }
 
     @Test
     public void testSoftKey() throws InterruptedException {
-        LoadingCache<String, Employee> cache = CacheBuilder.newBuilder()
+        LoadingCache<String, Employee> cache = CacheBuilder
+                .newBuilder()
                 .expireAfterWrite(2, TimeUnit.SECONDS)
                 .softValues()
                 .build(this.createCacheLoader());
