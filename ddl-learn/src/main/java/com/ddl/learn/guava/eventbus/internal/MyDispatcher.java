@@ -56,7 +56,7 @@ public class MyDispatcher {
                 if (null != exceptionHandler) {
                     exceptionHandler.handle(e, new BaseMyEventContext(bus.getBusName(), subscriber, event));
                 } else {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
 
                 }
             }
@@ -64,8 +64,9 @@ public class MyDispatcher {
     }
 
     public void close() {
-        if (executorService instanceof ExecutorService)
+        if (executorService instanceof ExecutorService) {
             ((ExecutorService) executorService).shutdown();
+        }
     }
 
     static MyDispatcher newDispatcher(MyEventExceptionHandler exceptionHandler, Executor executor) {

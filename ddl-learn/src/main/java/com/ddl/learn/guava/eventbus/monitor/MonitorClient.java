@@ -7,11 +7,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 
-/**
- * tail
- * Apache Flume 1.7 Spooling
- * .position
- */
 public class MonitorClient {
     public static void main(String[] args) throws Exception {
         final EventBus eventBus = new EventBus();
@@ -26,7 +21,7 @@ public class MonitorClient {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }, 2, TimeUnit.SECONDS);
+        }, 2, TimeUnit.MINUTES);
 
         executorService.shutdown();
 

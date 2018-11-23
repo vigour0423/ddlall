@@ -10,6 +10,6 @@ public class ComEachOtherEventBusExample {
         final EventBus eventBus = new EventBus();
         QueryService queryService = new QueryService(eventBus);
         eventBus.register(new RequestQueryHandler(eventBus));
-        queryService.query("werwersdf");
+        queryService.query("3356987");
     }
 }

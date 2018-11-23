@@ -15,7 +15,7 @@ public class MyEventBusExample {
         });
         myEventBus.register(new MySimpleListener());
         myEventBus.register(new MySimpleListener2());
-        //myEventBus.post(123131, "alex-topic");
+       // myEventBus.post(123131, "alex-topic");
         myEventBus.post(123131, "test-topic");
 
 

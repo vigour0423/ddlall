@@ -2,13 +2,15 @@ package com.ddl.learn.guava.cache;
 
 import java.lang.ref.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ReferenceExample {
 
     public static void main(String[] args) throws InterruptedException {
         //Strong Reference
-    /*    int counter = 1;
+      /*  int counter = 1;
 
         List<Ref> container = new ArrayList<>();
 
@@ -25,7 +27,7 @@ public class ReferenceExample {
          *soft reference
          */
 
-       /* int counter = 1;
+      /*  int counter = 1;
 
         List<SoftReference<Ref>> container = new ArrayList<>();
 
@@ -42,7 +44,7 @@ public class ReferenceExample {
          * The reference will be collected when GC.
          */
 
-   /*     int counter = 1;
+       /* int counter = 1;
 
         List<WeakReference<Ref>> container = new ArrayList<>();
 
@@ -56,7 +58,7 @@ public class ReferenceExample {
 
 
 
-/*        Ref ref = new Ref(10);
+  /*      Ref ref = new Ref(10);
         WeakReference<Ref> reference = new WeakReference<>(ref);
         ref = null;
         System.gc();
@@ -70,7 +72,7 @@ public class ReferenceExample {
 
         //FileCleaningTracker
 
- /*       Ref ref = new Ref(10);
+        Ref ref = new Ref(10);
         ReferenceQueue queue = new ReferenceQueue<>();
         MyPhantomReference reference = new MyPhantomReference(ref, queue, 10);
         ref = null;
@@ -80,7 +82,7 @@ public class ReferenceExample {
         System.gc();
         TimeUnit.SECONDS.sleep(1);
         Reference object = queue.remove();
-        ((MyPhantomReference) object).doAction();*/
+        ((MyPhantomReference) object).doAction();
 
 
     }

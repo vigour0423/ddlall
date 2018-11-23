@@ -13,8 +13,6 @@ public class MyEventBus implements Bus {
 
     private final static String DEFAULT_TOPIC = "default-topic";
 
-    //    private final MyEventExceptionHandler exceptionHandler;
-
     private final MyDispatcher dispatcher;
 
     public MyEventBus() {

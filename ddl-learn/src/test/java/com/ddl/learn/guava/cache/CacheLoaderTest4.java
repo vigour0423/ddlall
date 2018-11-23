@@ -26,7 +26,7 @@ public class CacheLoaderTest4 {
 
     @Test
     public void testCacheSpec() {
-        String spec = "recordStats";
+        String spec = "maximumSize=3,recordStats";
         CacheBuilderSpec builderSpec = CacheBuilderSpec.parse(spec);
         CacheLoader<String, String> loader = CacheLoader.from(String::toUpperCase);
         LoadingCache<String, String> cache = CacheBuilder.from(builderSpec).build(loader);
