@@ -2,6 +2,7 @@ package com.ddl.learn.guava.collections;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.errorprone.annotations.Immutable;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -25,7 +26,8 @@ public class ImmutableCollectionsTest {
     @Test
     public void testCopy() {
         Integer[] array = {1, 2, 3, 4, 5};
-        System.out.println(ImmutableList.copyOf(array));
+        ImmutableList<Integer> copyOf = ImmutableList.copyOf(array);
+        System.out.println(copyOf);
     }
 
     @Test
@@ -39,8 +41,10 @@ public class ImmutableCollectionsTest {
 
     @Test
     public void testImmutableMap() {
-        ImmutableMap<String, String> map = ImmutableMap.<String, String>builder().put("Oracle", "12c")
-                .put("Mysql", "7.0").build();
+        ImmutableMap<String, String> map = ImmutableMap.<String, String>builder()
+                .put("Oracle", "12c")
+                .put("Mysql", "7.0")
+                .build();
         System.out.println(map);
         try {
             map.put("Scala", "2.3.0");

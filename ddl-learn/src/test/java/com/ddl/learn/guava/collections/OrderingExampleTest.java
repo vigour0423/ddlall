@@ -32,14 +32,16 @@ public class OrderingExampleTest {
     @Test
     public void testOrderNaturalByNullFirst() {
         List<Integer> list = Arrays.asList(1, 5, null, 3, 8, 2);
-        Collections.sort(list, Ordering.natural().nullsFirst());
+        list.sort(Ordering.natural().nullsFirst());
         System.out.println(list);
     }
 
     @Test
     public void testOrderNaturalByNullLast() {
         List<Integer> list = Arrays.asList(1, 5, null, 3, 8, 2);
-        Collections.sort(list, Ordering.natural().nullsLast());
+        Ordering<Integer> c = Ordering.natural().nullsLast();
+        list.sort(c);
+
         System.out.println(list);
     }
 

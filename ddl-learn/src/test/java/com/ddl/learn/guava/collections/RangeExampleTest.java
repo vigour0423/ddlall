@@ -124,6 +124,7 @@ public class RangeExampleTest {
         gradeScale.put(Range.closed(81, 90), "B");
         gradeScale.put(Range.closed(91, 100), "A");
 
+        System.out.println(gradeScale);
         assertThat(gradeScale.get(77), equalTo("C"));
     }
 }
