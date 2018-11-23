@@ -34,7 +34,11 @@ public class MapsExampleTest {
     @Test
     public void testFilter() {
         Map<String, String> map = Maps.asMap(Sets.newHashSet("1", "2", "3"), k -> k + "_value");
-        Map<String, String> newMap = Maps.filterKeys(map, k -> Lists.newArrayList("1", "2").contains(k));
+        System.out.println(map);
+        Map<String, String> newMap = Maps.filterKeys(
+                map,
+                k -> Lists.newArrayList("1", "2").contains(k)
+        );
         assertThat(newMap.containsKey("3"), is(false));
     }
 }

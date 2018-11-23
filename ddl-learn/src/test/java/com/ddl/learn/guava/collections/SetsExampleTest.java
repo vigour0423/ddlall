@@ -32,7 +32,11 @@ public class SetsExampleTest {
     @Test
     public void testCartesianProduct() {
 
-        Set<List<Integer>> set = Sets.cartesianProduct(Sets.newHashSet(1, 2), Sets.newHashSet(3, 4), Sets.newHashSet(5, 6));
+        Set<List<Integer>> set = Sets.cartesianProduct(
+                Sets.newHashSet(1, 2),
+                Sets.newHashSet(3, 4),
+                Sets.newHashSet(5, 6)
+        );
 
         System.out.println(set);
 

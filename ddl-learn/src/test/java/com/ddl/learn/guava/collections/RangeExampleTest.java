@@ -76,6 +76,7 @@ public class RangeExampleTest {
         assertThat(closedOpen.upperEndpoint(), equalTo(9));
         assertThat(closedOpen.contains(0), is(true));
         assertThat(closedOpen.contains(9), is(false));
+
     }
 
     /**

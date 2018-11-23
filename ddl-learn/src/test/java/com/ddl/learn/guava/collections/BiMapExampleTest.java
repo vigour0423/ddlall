@@ -52,6 +52,8 @@ public class BiMapExampleTest {
         HashBiMap<String, String> biMap = HashBiMap.create();
         biMap.put("1", "2");
         assertThat(biMap.containsKey("1"), is(true));
+
+        //force replace key
         biMap.forcePut("2", "2");
         assertThat(biMap.containsKey("1"), is(false));
         assertThat(biMap.containsKey("2"), is(true));

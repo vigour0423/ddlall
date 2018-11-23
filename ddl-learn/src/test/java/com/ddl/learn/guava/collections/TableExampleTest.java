@@ -29,12 +29,15 @@ public class TableExampleTest {
 
         Map<String, String> language = table.row("Language");
         assertThat(language.containsKey("Java"), is(true));
+
         //Map<String,Map<String,String>>
+
         assertThat(table.row("Language").get("Java"), equalTo("1.8"));
         Map<String, String> result = table.column("Java");
         System.out.println(result);
 
         Set<Table.Cell<String, String, String>> cells = table.cellSet();
+
         System.out.println(cells);
     }
 }
