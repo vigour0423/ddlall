@@ -13,10 +13,10 @@ public class MyEventBusExample {
             System.out.println(context.getEvent());
             System.out.println(context.getSubscriber());
         });
-        myEventBus.register(new MySimpleListener());
+        //myEventBus.register(new MySimpleListener());
         myEventBus.register(new MySimpleListener2());
-       // myEventBus.post(123131, "alex-topic");
-        myEventBus.post(123131, "test-topic");
+        myEventBus.post(123131, "alex-topic");
+        //myEventBus.post(123131, "test-topic");
 
 
 

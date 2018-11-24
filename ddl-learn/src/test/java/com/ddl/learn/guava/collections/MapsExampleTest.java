@@ -26,7 +26,7 @@ public class MapsExampleTest {
         ArrayList<String> valueList = Lists.newArrayList("1", "2", "3");
         ImmutableMap<String, String> map = Maps.uniqueIndex(valueList, v -> v + "_key");
         System.out.println(map);
-        Map<String, String> map2 = Maps.asMap(Sets.newHashSet("1", "2", "3"), k -> k + "_value");
+       /*   Map<String, String> map2 = Maps.asMap(Sets.newHashSet("1", "2", "3"), k -> k + "_value");
         System.out.println(map2);
 
         ImmutableSet<String> digits = ImmutableSet.of(
@@ -40,7 +40,7 @@ public class MapsExampleTest {
         Map<Integer, List<String>> digitsByLengthJDK = digits.stream()
                 .collect(Collectors.groupingBy(String::length));
 
-        System.out.println(digitsByLengthJDK);
+        System.out.println(digitsByLengthJDK);*/
     }
 
     @Test

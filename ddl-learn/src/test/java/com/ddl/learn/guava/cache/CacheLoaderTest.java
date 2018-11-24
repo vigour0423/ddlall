@@ -118,7 +118,7 @@ public class CacheLoaderTest {
     }
 
     private Employee findEmployeeByName(final String name) {
-        //System.out.println("The employee " + name + " is load from DB.");
+        System.out.println("The employee " + name + " is load from DB.");
         isTrue = true;
         return new Employee(name, name, name);
     }

@@ -35,7 +35,6 @@ public class OptionalTest {
     }
 
     class Godness {
-
         private String name;
 
         public Godness() { }
@@ -82,7 +81,6 @@ public class OptionalTest {
         System.out.println(getGodnessName(new Man().setGod(new Godness("jack"))));
     }
 
-    //需求：获取一个男人心中女神的名字
     private String getGodnessName(Man man) {
         return java.util.Optional.ofNullable(man)
                 .map(Man::getGod)

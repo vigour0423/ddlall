@@ -10,7 +10,7 @@ public class ReferenceExample {
 
     public static void main(String[] args) throws InterruptedException {
         //Strong Reference
-      /*  int counter = 1;
+       /* int counter = 1;
 
         List<Ref> container = new ArrayList<>();
 
@@ -27,7 +27,7 @@ public class ReferenceExample {
          *soft reference
          */
 
-      /*  int counter = 1;
+     /*   int counter = 1;
 
         List<SoftReference<Ref>> container = new ArrayList<>();
 
@@ -44,7 +44,7 @@ public class ReferenceExample {
          * The reference will be collected when GC.
          */
 
-       /* int counter = 1;
+     /*   int counter = 1;
 
         List<WeakReference<Ref>> container = new ArrayList<>();
 

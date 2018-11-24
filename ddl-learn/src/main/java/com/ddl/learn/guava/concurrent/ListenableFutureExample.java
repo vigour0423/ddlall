@@ -7,10 +7,10 @@ import java.util.concurrent.*;
 
 
 public class ListenableFutureExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService service = Executors.newFixedThreadPool(2);
 
-    /*    Future<Integer> future = service.submit(() ->
+       /* Future<Integer> future = service.submit(() ->
         {
             try {
                 TimeUnit.SECONDS.sleep(5);
@@ -25,7 +25,7 @@ public class ListenableFutureExample {
         System.out.println(result);*/
 
 
-       /* ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(service);
+     /*   ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(service);
         ListenableFuture<Integer> future1 = listeningExecutorService.submit(() ->
         {
             try {

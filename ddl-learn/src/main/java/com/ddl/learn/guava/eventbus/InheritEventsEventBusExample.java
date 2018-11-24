@@ -10,7 +10,7 @@ public class InheritEventsEventBusExample {
     public static void main(String[] args) {
         final EventBus eventBus = new EventBus();
         eventBus.register(new FruitEaterListener());
-        eventBus.post(new Apple("apple"));
+       // eventBus.post(new Apple("apple"));
         System.out.println("============================");
         eventBus.post(new Fruit("apple"));
     }

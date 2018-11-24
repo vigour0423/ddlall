@@ -6,6 +6,7 @@ import com.google.common.collect.FluentIterable;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
 import com.google.common.io.CharSink;
+import com.google.common.io.CharSource;
 import com.google.common.io.FileWriteMode;
 import com.google.common.io.Files;
 import com.google.common.io.LineProcessor;
@@ -29,7 +30,6 @@ public class FilesTest {
     private final String TARGET_FILE = "D:\\ddllearn\\gitReposit\\ddlall\\ddl-learn\\src\\test\\resources\\io\\target.txt";
 
     /**
-     * TODO alex will finish this in the future.
      * @throws IOException
      */
     @Test
@@ -85,8 +85,6 @@ public class FilesTest {
 
     @Test
     public void testToProcessString() throws IOException {
-        /*Files.readLines(new File(SOURCE_FILE), Charsets.UTF_8, new LineProcessor<Object>() {
-        })Files.as;*/
         /**
          * [43, 79, 46, 0, 47]
          */
@@ -152,7 +150,8 @@ public class FilesTest {
         assertThat(actullay, equalTo("content1"));
 
         charSink.write("content2");
-        actullay = Files.asCharSource(testFile, Charsets.UTF_8).read();
+        CharSource charSource = Files.asCharSource(testFile, Charsets.UTF_8);
+        actullay = charSource.read();
         assertThat(actullay, equalTo("content1content2"));
     }
 

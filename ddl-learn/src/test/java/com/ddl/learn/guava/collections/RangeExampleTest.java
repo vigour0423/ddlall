@@ -99,7 +99,7 @@ public class RangeExampleTest {
         treeMap.put("Kafka", 4);
         System.out.println(treeMap);
 
-        NavigableMap<String, Integer> result = Maps.subMap(treeMap, Range.openClosed("Guava", "Java"));
+        NavigableMap<String, Integer> result = Maps.subMap(treeMap, Range.closed("Guava", "Java"));
         System.out.println(result);
     }
 
