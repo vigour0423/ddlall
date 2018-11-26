@@ -1,10 +1,6 @@
 package com.ddl.learn.concurrency.designpattern.chapter4;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/18 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class OctalObserver extends Observer {
 
     public OctalObserver(Subject subject) {

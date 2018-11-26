@@ -2,11 +2,7 @@ package com.ddl.learn.concurrency.designpattern.chapter4;
 
 import java.util.List;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/18 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ThreadLifeCycleObserver implements LifeCycleListener {
 
     private final Object LOCK = new Object();

@@ -1,10 +1,6 @@
 package com.ddl.learn.concurrency.designpattern.chapter18;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/26 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 class Servant implements ActiveObject {
 
     @Override
