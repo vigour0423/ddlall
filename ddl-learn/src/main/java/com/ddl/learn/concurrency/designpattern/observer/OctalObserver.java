@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter4;
+package com.ddl.learn.concurrency.designpattern.observer;
 
 
 public class OctalObserver extends Observer {

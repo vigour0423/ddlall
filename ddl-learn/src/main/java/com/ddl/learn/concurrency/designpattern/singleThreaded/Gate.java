@@ -1,22 +1,18 @@
-package com.ddl.learn.concurrency.designpattern.chapter5;
+package com.ddl.learn.concurrency.designpattern.singleThreaded;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/19 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
 
 /**
  * SharedResource
  */
 public class Gate {
     private int counter = 0;
+
     private String name = "Nobody";
+
     private String address = "Nowhere";
 
     /**
      * 临界值
-     *
      * @param name
      * @param address
      */

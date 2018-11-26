@@ -1,10 +1,6 @@
-package com.ddl.learn.concurrency.designpattern.chapter5;
+package com.ddl.learn.concurrency.designpattern.singleThreaded;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/19 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class User extends Thread {
 
     private final String myName;

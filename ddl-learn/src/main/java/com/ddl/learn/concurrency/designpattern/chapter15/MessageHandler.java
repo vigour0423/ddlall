@@ -5,11 +5,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/24 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class MessageHandler {
     private final static Random random = new Random(System.currentTimeMillis());
 

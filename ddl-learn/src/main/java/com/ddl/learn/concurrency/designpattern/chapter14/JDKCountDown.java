@@ -4,11 +4,7 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/24 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class JDKCountDown {
 
     private static final Random random = new Random(System.currentTimeMillis());
