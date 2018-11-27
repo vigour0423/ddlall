@@ -1,12 +1,9 @@
-package com.ddl.learn.concurrency.designpattern.chapter7;
+package com.ddl.learn.concurrency.designpattern.immutable;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/22 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 final public class Person {
     private final String name;
+
     private final String address;
 
     public Person(final String name, final String address) {

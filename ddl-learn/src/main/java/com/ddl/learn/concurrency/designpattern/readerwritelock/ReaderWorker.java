@@ -1,10 +1,5 @@
-package com.ddl.learn.concurrency.designpattern.chapter6;
+package com.ddl.learn.concurrency.designpattern.readerwritelock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/19 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
 public class ReaderWorker extends Thread {
 
     private final SharedData data;

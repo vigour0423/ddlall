@@ -1,18 +1,15 @@
-package com.ddl.learn.concurrency.designpattern.chapter7;
+package com.ddl.learn.concurrency.designpattern.immutable;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/22 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
 public class ImmutableTest {
 
     private final int age;
+
     private final String name;
+
     private final List<String> list;
 
 

@@ -1,10 +1,5 @@
-package com.ddl.learn.concurrency.designpattern.chapter8;
+package com.ddl.learn.concurrency.designpattern.future;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/22 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
 
 /**
  * Future        ->代表的是未来的一个凭据

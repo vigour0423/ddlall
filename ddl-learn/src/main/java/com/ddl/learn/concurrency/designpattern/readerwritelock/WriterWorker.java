@@ -1,12 +1,8 @@
-package com.ddl.learn.concurrency.designpattern.chapter6;
+package com.ddl.learn.concurrency.designpattern.readerwritelock;
 
 import java.util.Random;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/19 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class WriterWorker extends Thread {
 
     private static final Random random = new Random(System.currentTimeMillis());
@@ -38,8 +34,9 @@ public class WriterWorker extends Thread {
     private char nextChar() {
         char c = filler.charAt(index);
         index++;
-        if (index >= filler.length())
+        if (index >= filler.length()){
             index = 0;
+        }
         return c;
     }
 }

@@ -1,10 +1,5 @@
-package com.ddl.learn.concurrency.designpattern.chapter6;
+package com.ddl.learn.concurrency.designpattern.readerwritelock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/19 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
 
 /**
  * ReadWriteLock design pattern
@@ -18,7 +13,10 @@ public class ReadWritLockClient {
         new ReaderWorker(sharedData).start();
         new ReaderWorker(sharedData).start();
         new ReaderWorker(sharedData).start();
-        new WriterWorker(sharedData, "qwertyuiopasdfg").start();
-        new WriterWorker(sharedData, "QWERTYUIOPASDFG").start();
+
+        new WriterWorker(sharedData, "qwertyuiopasdfg")
+                .start();
+        new WriterWorker(sharedData, "QWERTYUIOPASDFG")
+                .start();
     }
 }

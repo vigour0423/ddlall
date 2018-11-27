@@ -1,34 +1,30 @@
-package com.ddl.learn.concurrency.designpattern.chapter7;
+package com.ddl.learn.concurrency.designpattern.immutable;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/22 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ImmutablePerformance {
     public static void main(String[] args) throws InterruptedException {
 
         //36470
         //35857 immutable
         long startTimestamp = System.currentTimeMillis();
-        SyncObj synObj = new SyncObj();
-        synObj.setName("Alex");
+        ImmutableObj immutableObj = new ImmutableObj("Alex");
+    /*    SyncObj synObj = new SyncObj();
+        synObj.setName("Alex");*/
 
-        Thread t1 = new Thread() {
-            @Override
-            public void run() {
-                for (long l = 0L; l < 1000000; l++) {
-                    System.out.println(Thread.currentThread().getName() + "=" + synObj.toString());
-                }
-            }
-        };
+        Thread t1 = new Thread(
+                () -> {
+                    for (long l = 0L; l < 1000000; l++) {
+                        System.out.println(Thread.currentThread().getName() + "=" + immutableObj.toString());
+                    }
+                });
         t1.start();
+
 
         Thread t2 = new Thread() {
             @Override
             public void run() {
                 for (long l = 0L; l < 1000000; l++) {
-                    System.out.println(Thread.currentThread().getName() + "=" + synObj.toString());
+                    System.out.println(Thread.currentThread().getName() + "=" + immutableObj.toString());
                 }
             }
         };

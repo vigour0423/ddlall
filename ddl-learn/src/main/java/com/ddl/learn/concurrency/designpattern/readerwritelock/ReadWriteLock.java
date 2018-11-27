@@ -1,15 +1,15 @@
-package com.ddl.learn.concurrency.designpattern.chapter6;
+package com.ddl.learn.concurrency.designpattern.readerwritelock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/19 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ReadWriteLock {
     private int readingReaders = 0;
+
     private int waitingReaders = 0;
+
     private int writingWriters = 0;
+
     private int waitingWriters = 0;
+
     private boolean preferWriter = true;
 
     public ReadWriteLock() {
