@@ -1,7 +1,7 @@
 package com.ddl.learn.concurrency.designpattern.future;
 
 
-public class AsynFuture<T> implements Future<T> {
+public class AsyncFuture<T> implements Future<T> {
 
     private volatile boolean done = false;
 

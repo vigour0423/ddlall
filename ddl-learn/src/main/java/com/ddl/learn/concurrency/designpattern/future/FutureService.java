@@ -5,21 +5,25 @@ import java.util.function.Consumer;
 public class FutureService {
 
     public <T> Future<T> submit(final FutureTask<T> task) {
-        AsynFuture<T> asynFuture = new AsynFuture<>();
+
+        AsyncFuture<T> asyncFuture = new AsyncFuture<>();
         new Thread(() -> {
             T result = task.call();
-            asynFuture.done(result);
+            asyncFuture.done(result);
         }).start();
-        return asynFuture;
+
+        return asyncFuture;
     }
 
     public <T> Future<T> submit(final FutureTask<T> task, final Consumer<T> consumer) {
-        AsynFuture<T> asynFuture = new AsynFuture<>();
+
+        AsyncFuture<T> asyncFuture = new AsyncFuture<>();
         new Thread(() -> {
             T result = task.call();
-            asynFuture.done(result);
+            asyncFuture.done(result);
             consumer.accept(result);
         }).start();
-        return asynFuture;
+
+        return asyncFuture;
     }
 }
