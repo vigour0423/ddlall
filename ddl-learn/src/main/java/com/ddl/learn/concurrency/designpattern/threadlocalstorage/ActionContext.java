@@ -1,10 +1,6 @@
-package com.ddl.learn.concurrency.designpattern.chapter11;
+package com.ddl.learn.concurrency.designpattern.threadlocalstorage;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/23 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public final class ActionContext {
 
     private static final ThreadLocal<Context> threadLocal = new ThreadLocal<Context>() {
@@ -14,6 +10,9 @@ public final class ActionContext {
         }
     };
 
+    /**
+     *单例
+     */
     private static class ContextHolder {
         private final static ActionContext actionContext = new ActionContext();
     }
@@ -26,7 +25,7 @@ public final class ActionContext {
         return threadLocal.get();
     }
 
-    private ActionContext(){
+    private ActionContext() {
 
     }
 }

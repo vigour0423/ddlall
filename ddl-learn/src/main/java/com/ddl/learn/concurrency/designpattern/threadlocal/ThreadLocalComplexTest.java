@@ -1,19 +1,10 @@
-package com.ddl.learn.concurrency.designpattern.chapter10;
+package com.ddl.learn.concurrency.designpattern.threadlocal;
 
 import java.util.Random;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/23 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
-public class ThreadLocalSimulatorTest {
-    private final static ThreadLocalSimulator<String> threadLocal = new ThreadLocalSimulator<String>() {
-        @Override
-        public String initialValue() {
-            return "No Value";
-        }
-    };
+public class ThreadLocalComplexTest {
+
+    private final static ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
     //seed
     private final static Random random = new Random(System.currentTimeMillis());

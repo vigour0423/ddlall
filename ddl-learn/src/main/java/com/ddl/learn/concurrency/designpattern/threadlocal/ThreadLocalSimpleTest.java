@@ -1,10 +1,6 @@
-package com.ddl.learn.concurrency.designpattern.chapter10;
+package com.ddl.learn.concurrency.designpattern.threadlocal;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/23 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ThreadLocalSimpleTest {
 
     private static ThreadLocal<String> threadLocal = new ThreadLocal<String>() {
@@ -16,7 +12,7 @@ public class ThreadLocalSimpleTest {
 
     //JVM start main thread
     public static void main(String[] args) throws InterruptedException {
-//        threadLocal.set("Alex");
+        //        threadLocal.set("Alex");
         Thread.sleep(1000);
         String value = threadLocal.get();
         System.out.println(value);
