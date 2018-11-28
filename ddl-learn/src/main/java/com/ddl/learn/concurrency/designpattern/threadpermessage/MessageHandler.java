@@ -24,7 +24,7 @@ public class MessageHandler {
 
 
         /**
-         * 不断的创建线程池比较消耗资源
+         * 不断的创建线程池比较消耗资源，cpu上下文切换消耗资源重
          */
 
    /*     new Thread(() -> {

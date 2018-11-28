@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter16;
+package com.ddl.learn.concurrency.designpattern.twophasetermination;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,11 +8,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/24 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ClientHandler implements Runnable {
 
     private final Socket socket;
@@ -38,7 +34,7 @@ public class ClientHandler implements Runnable {
                 printWriter.flush();
             }
         } catch (IOException e) {
-//            e.printStackTrace();
+            //            e.printStackTrace();
             this.running = false;
         } finally {
             this.stop();

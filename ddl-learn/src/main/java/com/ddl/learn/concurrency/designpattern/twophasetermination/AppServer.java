@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter16;
+package com.ddl.learn.concurrency.designpattern.twophasetermination;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -8,11 +8,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/24 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class AppServer extends Thread {
 
     private final int port;
@@ -46,7 +42,7 @@ public class AppServer extends Thread {
                 this.clientHandlers.add(clientHandler);
             }
         } catch (IOException e) {
-//            throw new RuntimeException(e);
+            //            throw new RuntimeException(e);
         } finally {
             this.dispose();
         }
