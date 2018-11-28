@@ -42,7 +42,7 @@ public class AppServer extends Thread {
                 this.clientHandlers.add(clientHandler);
             }
         } catch (IOException e) {
-            //            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
         } finally {
             this.dispose();
         }
@@ -50,7 +50,7 @@ public class AppServer extends Thread {
 
     private void dispose() {
         System.out.println("dispose");
-        this.clientHandlers.stream().forEach(ClientHandler::stop);
+        this.clientHandlers.forEach(ClientHandler::stop);
         this.executor.shutdown();
     }
 

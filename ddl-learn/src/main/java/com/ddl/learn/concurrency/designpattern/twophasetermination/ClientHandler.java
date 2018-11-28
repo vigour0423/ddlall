@@ -21,20 +21,23 @@ public class ClientHandler implements Runnable {
 
     @Override
     public void run() {
-        try (InputStream inputStream = socket.getInputStream();
-             OutputStream outputStream = socket.getOutputStream();
-             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-             PrintWriter printWriter = new PrintWriter(outputStream)) {
+        try (
+                InputStream inputStream = socket.getInputStream();
+                OutputStream outputStream = socket.getOutputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+                PrintWriter printWriter = new PrintWriter(outputStream)
+        ) {
             while (running) {
                 String message = br.readLine();
-                if (message == null)
+                if (message == null) {
                     break;
+                }
                 System.out.println("Come from client >" + message);
                 printWriter.write("echo " + message + "\n");
                 printWriter.flush();
             }
         } catch (IOException e) {
-            //            e.printStackTrace();
+            //e.printStackTrace();
             this.running = false;
         } finally {
             this.stop();
