@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter15;
+package com.ddl.learn.concurrency.designpattern.threadpermessage;
 
 import java.util.stream.IntStream;
 

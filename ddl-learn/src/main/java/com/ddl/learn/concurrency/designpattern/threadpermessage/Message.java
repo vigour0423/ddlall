@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter15;
+package com.ddl.learn.concurrency.designpattern.threadpermessage;
 
 public class Message {
     private final String value;

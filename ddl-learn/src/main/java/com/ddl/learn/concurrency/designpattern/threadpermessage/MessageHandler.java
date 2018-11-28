@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter15;
+package com.ddl.learn.concurrency.designpattern.threadpermessage;
 
 import java.util.Random;
 import java.util.concurrent.Executor;
@@ -20,13 +20,19 @@ public class MessageHandler {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });/*
-        new Thread(() -> {
+        });
+
+
+        /**
+         * 不断的创建线程池比较消耗资源
+         */
+
+   /*     new Thread(() -> {
             String value = message.getValue();
 
             try {
                 Thread.sleep(random.nextInt(1000));
-                System.out.println("The message will be handle by " + Thread.currentThread().getName());
+                System.out.println("The message will be handle by " + Thread.currentThread().getName()+"-"+value);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

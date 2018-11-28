@@ -8,6 +8,7 @@ public class ProducerAndConsumerClient {
         new ProducerThread(messageQueue, 1).start();
         new ProducerThread(messageQueue, 2).start();
         new ProducerThread(messageQueue, 3).start();
+
         new ConsumerThread(messageQueue, 1).start();
         new ConsumerThread(messageQueue, 2).start();
     }
