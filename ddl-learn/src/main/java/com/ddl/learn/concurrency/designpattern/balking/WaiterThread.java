@@ -1,12 +1,8 @@
-package com.ddl.learn.concurrency.designpattern.chapter12;
+package com.ddl.learn.concurrency.designpattern.balking;
 
 import java.io.IOException;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/24 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class WaiterThread extends Thread {
 
     private final BalkingData balkingData;
@@ -22,9 +18,7 @@ public class WaiterThread extends Thread {
             try {
                 balkingData.save();
                 Thread.sleep(1_000L);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         }

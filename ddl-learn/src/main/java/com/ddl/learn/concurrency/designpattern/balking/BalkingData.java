@@ -1,14 +1,10 @@
-package com.ddl.learn.concurrency.designpattern.chapter12;
+package com.ddl.learn.concurrency.designpattern.balking;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/24 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class BalkingData {
     private final String fileName;
 
