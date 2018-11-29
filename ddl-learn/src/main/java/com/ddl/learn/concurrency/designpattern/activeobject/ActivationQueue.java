@@ -2,6 +2,9 @@ package com.ddl.learn.concurrency.designpattern.activeobject;
 
 import java.util.LinkedList;
 
+/**
+ * 负责临时存储由Proxy的异步方法被调用时所创建的MethodRequest实例的缓冲区。
+ */
 public class ActivationQueue {
 
     private final static int MAX_METHOD_REQUEST_QUEUE_SIZE = 100;
