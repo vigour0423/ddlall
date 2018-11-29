@@ -2,6 +2,9 @@ package com.ddl.learn.concurrency.designpattern.guardsuspen;
 
 import java.util.Random;
 
+/**
+ * 客户收快递方（忙于在厨房煮饭，不能暂停手中的事，忙完在拿快递）
+ */
 public class ServerThread extends Thread {
 
     private final RequestQueue queue;

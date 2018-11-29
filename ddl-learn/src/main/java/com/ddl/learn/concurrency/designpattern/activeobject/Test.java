@@ -1,10 +1,9 @@
-package com.ddl.learn.concurrency.designpattern.chapter18;
+package com.ddl.learn.concurrency.designpattern.activeobject;
 
 
 public class Test {
 
     //A a-> B b
-    //
     //main
     public static void main(String[] args) {
         //System.gc();

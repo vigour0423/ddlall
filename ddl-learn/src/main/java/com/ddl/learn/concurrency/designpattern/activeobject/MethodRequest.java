@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter18;
+package com.ddl.learn.concurrency.designpattern.activeobject;
 
 /**
  * 对应ActiveObject的每一个方法

@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.designpattern.chapter18;
+package com.ddl.learn.concurrency.designpattern.activeobject;
 
 /**
  * 接受异步消息的主动对象

@@ -2,7 +2,9 @@ package com.ddl.learn.concurrency.designpattern.guardsuspen;
 
 import java.util.LinkedList;
 
-
+/**
+ * 桥梁角色
+ */
 public class RequestQueue {
 
     private final LinkedList<Request> queue = new LinkedList<>();

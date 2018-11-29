@@ -2,6 +2,9 @@ package com.ddl.learn.concurrency.designpattern.guardsuspen;
 
 import java.util.Random;
 
+/**
+ * 快递员送快递
+ */
 public class ClientThread extends Thread {
 
     private final RequestQueue queue;
