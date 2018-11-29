@@ -1,10 +1,6 @@
-package com.ddl.learn.concurrency.designpattern.chapter17;
+package com.ddl.learn.concurrency.designpattern.workthread;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/25 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class Request {
 
     private final String name;

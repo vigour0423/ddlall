@@ -1,12 +1,10 @@
-package com.ddl.learn.concurrency.designpattern.chapter17;
+package com.ddl.learn.concurrency.designpattern.workthread;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/25 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class WorkerClient {
     public static void main(String[] args) {
+        //工人流水线模式
+
         final Channel channel = new Channel(5);
         channel.startWorker();
 

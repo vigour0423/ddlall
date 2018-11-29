@@ -1,12 +1,10 @@
-package com.ddl.learn.concurrency.designpattern.chapter17;
+package com.ddl.learn.concurrency.designpattern.workthread;
 
 import java.util.Arrays;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/25 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+/**
+ * 传送带
+ */
 public class Channel {
 
     private final static int MAX_REQUEST = 100;
