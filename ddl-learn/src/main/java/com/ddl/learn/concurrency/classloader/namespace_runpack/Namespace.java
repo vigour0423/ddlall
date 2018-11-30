@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter5;
+package com.ddl.learn.concurrency.classloader.namespace_runpack;
 
 
 public class Namespace {

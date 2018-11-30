@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter5;
+package com.ddl.learn.concurrency.classloader.namespace_runpack;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class SimpleClassLoader extends ClassLoader {
 
-    private final static String DEFAULT_DIR = "G:\\Teaching\\app\\revert";
+    private final static String DEFAULT_DIR = "D:\\ddllearn\\classloader_revert";
 
     private String dir = DEFAULT_DIR;
 
@@ -41,7 +41,7 @@ public class SimpleClassLoader extends ClassLoader {
         String classPath = name.replace(".", "/");
         File classFile = new File(dir, classPath + ".class");
         if (!classFile.exists()) {
-            throw new ClassNotFoundException("The class " + name + " not found under " + dir);
+            throw new ClassNotFoundException("The class " + name + " not found under to" + dir);
         }
 
         byte[] classBytes = loadClassBytes(classFile);
@@ -87,10 +87,10 @@ public class SimpleClassLoader extends ClassLoader {
     private byte[] loadClassBytes(File classFile) {
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
              FileInputStream fis = new FileInputStream(classFile)) {
+            int length;
             byte[] buffer = new byte[1024];
-            int len;
-            while ((len = fis.read(buffer)) != -1) {
-                baos.write(buffer, 0, len);
+            while ((length = fis.read(buffer)) != -1) {
+                baos.write(buffer, 0, length);
             }
             baos.flush();
             return baos.toByteArray();
