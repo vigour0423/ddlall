@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter6;
+package com.ddl.learn.concurrency.classloader.threadcontextloader;
 
 import com.ddl.learn.concurrency.classloader.customloader.MyClassLoader;
 
