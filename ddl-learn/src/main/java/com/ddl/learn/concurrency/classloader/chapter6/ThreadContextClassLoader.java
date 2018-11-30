@@ -1,6 +1,6 @@
 package com.ddl.learn.concurrency.classloader.chapter6;
 
-import com.ddl.learn.concurrency.classloader.chapter3.MyClassLoader;
+import com.ddl.learn.concurrency.classloader.customloader.MyClassLoader;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

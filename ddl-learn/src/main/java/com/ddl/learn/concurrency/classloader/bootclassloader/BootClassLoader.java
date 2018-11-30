@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter2;
+package com.ddl.learn.concurrency.classloader.bootclassloader;
 
 
 public class BootClassLoader {
@@ -8,7 +8,7 @@ public class BootClassLoader {
         System.out.println(System.getProperty("java.ext.dirs"));
 
 
-        Class<?> klass = Class.forName("com.ddl.learn.concurrency.classloader.chapter2.SimpleObject");
+        Class<?> klass = Class.forName("com.ddl.learn.concurrency.classloader.bootclassloader.SimpleObject");
         System.out.println(klass.getClassLoader());
         System.out.println(klass.getClassLoader().getParent());
         System.out.println(klass.getClassLoader().getParent().getParent());

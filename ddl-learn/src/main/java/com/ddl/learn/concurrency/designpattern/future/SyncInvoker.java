@@ -21,13 +21,14 @@ public class SyncInvoker {
             }
             return "FINISH";
         }, System.out::println);
+        System.out.println(future);
+
+        //System.out.println(future.get());
 
         System.out.println("===========");
         System.out.println(" do other thing.");
         Thread.sleep(1000);
         System.out.println("===========");
-
-        //System.out.println(future.get());
 
 
     }

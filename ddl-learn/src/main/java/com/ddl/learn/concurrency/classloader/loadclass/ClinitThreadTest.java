@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter1;
+package com.ddl.learn.concurrency.classloader.loadclass;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -7,11 +7,9 @@ public class ClinitThreadTest {
 
     public static void main(String[] args) {
 
-        //        System.out.println(System.getProperty("sun.boot.class.path"));
-        //
-        //        new Thread(() -> new SimpleObject()).start();
-        //
-        //        new Thread(() -> new SimpleObject()).start();
+        //System.out.println(System.getProperty("sun.boot.class.path"));
+        new Thread(() -> new SimpleObject()).start();
+        new Thread(() -> new SimpleObject()).start();
     }
 
     static class SimpleObject {

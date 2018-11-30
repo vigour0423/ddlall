@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter3;
+package com.ddl.learn.concurrency.classloader.customloader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class MyClassLoader extends ClassLoader {
 
-    private final static String DEFAULT_DIR = "G:\\Teaching\\app\\classloader1";
+    private final static String DEFAULT_DIR = "D:\\ddllearn\\classloader";
 
     private String dir = DEFAULT_DIR;
 

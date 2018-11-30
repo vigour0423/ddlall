@@ -1,9 +1,9 @@
-package com.ddl.learn.concurrency.classloader.chapter1;
+package com.ddl.learn.concurrency.classloader.loadclass;
 
 
 public class LoaderClass {
     public static void main(String[] args) {
-/*        MyObject myObject1 = new MyObject();
+/*       MyObject myObject1 = new MyObject();
         MyObject myObject2 = new MyObject();
         MyObject myObject3 = new MyObject();
         MyObject myObject4 = new MyObject();
@@ -26,12 +26,11 @@ class MyObject {
     static {
         System.out.println(x);
         x = 10 + 1;
-        //
-        //        y = 200;
-        //        System.out.println(y);
+        //y = 200;
+        //System.out.println(y);
     }
 
-    //    private static int y = 20;
+    //private static int y = 20;
 
 }
 

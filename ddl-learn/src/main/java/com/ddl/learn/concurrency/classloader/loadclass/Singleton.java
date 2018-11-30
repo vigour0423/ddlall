@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter1;
+package com.ddl.learn.concurrency.classloader.loadclass;
 
 public class Singleton {
 
