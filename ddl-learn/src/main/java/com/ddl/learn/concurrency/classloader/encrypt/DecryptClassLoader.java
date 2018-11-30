@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter4;
+package com.ddl.learn.concurrency.classloader.encrypt;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class DecryptClassLoader extends ClassLoader {
 
-    private final static String DEFAULT_DIR = "G:\\Teaching\\app\\classloader3";
+    private final static String DEFAULT_DIR = "D:\\ddllearn\\classloader3";
 
     private String dir = DEFAULT_DIR;
 

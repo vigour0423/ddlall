@@ -1,4 +1,4 @@
-package com.ddl.learn.concurrency.classloader.chapter4;
+package com.ddl.learn.concurrency.classloader.encrypt;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,14 +22,14 @@ public final class EncryptUtils {
                 fos.write(data ^ ENCRYPT_FACTOR);
             }
             fos.flush();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-        doEncrypt("G:\\Teaching\\app\\classloader3\\com\\wangwenjun\\concurrent\\classloader\\chapter3\\MyObject.class", "G:\\Teaching\\app\\classloader3\\com\\wangwenjun\\concurrent\\classloader\\chapter3\\MyObject.class1");
+        doEncrypt(
+                "D:\\ddllearn\\classloader3\\com\\ddl\\learn\\concurrency\\classloader\\customloader\\MyObject.class",
+                "D:\\ddllearn\\classloader3\\com\\ddl\\learn\\concurrency\\classloader\\customloader\\MyObjectA.class");
     }
 }

@@ -1,5 +1,7 @@
-package com.ddl.learn.concurrency.classloader.chapter4;
+package com.ddl.learn.concurrency.classloader.encrypt;
 
+
+import com.google.common.base.Charsets;
 
 public class SimpleEncrypt {
 
@@ -9,7 +11,7 @@ public class SimpleEncrypt {
 
 
     public static void main(String[] args) {
-        byte[] bytes = plain.getBytes();
+        byte[] bytes = plain.getBytes(Charsets.UTF_8);
         byte[] encrypt = new byte[bytes.length];
         for (int i = 0; i < bytes.length; i++) {
             encrypt[i] = (byte) (bytes[i] ^ ENCRYPT_FACTOR);

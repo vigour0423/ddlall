@@ -6,11 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/4/4 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ThreadContextClassLoader {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
