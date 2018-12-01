@@ -4,7 +4,8 @@ package com.ddl.learn.concurrency.classloader.bootclassloader;
 public class BootClassLoader {
 
     public static void main(String[] args) throws ClassNotFoundException {
-        System.out.println(System.getProperty("sun.boot.class.path"));
+      /*  System.getProperties().list(System.out);*/
+        System.out.println(System.getProperty("sun.boot.library.path"));
         System.out.println(System.getProperty("java.ext.dirs"));
 
 
