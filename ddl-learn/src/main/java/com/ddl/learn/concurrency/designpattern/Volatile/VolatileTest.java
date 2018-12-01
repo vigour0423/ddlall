@@ -3,11 +3,11 @@ package com.ddl.learn.concurrency.designpattern.Volatile;
 
 public class VolatileTest {
 
-    private static volatile int INIT_VALUE = 0;
+    private static  int INIT_VALUE = 0;
 
     private final static int MAX_LIMIT = 50;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         new Thread(() -> {
             int localValue = INIT_VALUE;
             while (localValue < MAX_LIMIT) {
@@ -18,6 +18,7 @@ public class VolatileTest {
             }
         }, "READER").start();
 
+        Thread.sleep(1000);
         new Thread(() -> {
             int localValue = INIT_VALUE;
             while (INIT_VALUE < MAX_LIMIT) {
