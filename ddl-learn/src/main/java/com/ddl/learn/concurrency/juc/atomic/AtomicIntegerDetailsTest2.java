@@ -12,9 +12,7 @@ public class AtomicIntegerDetailsTest2 {
                 public void run() {
                     try {
                         doSomething2();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (GetLockException e) {
+                    } catch (InterruptedException | GetLockException e) {
                         e.printStackTrace();
                     }
                 }

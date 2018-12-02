@@ -12,15 +12,17 @@ public class CompareAndSetLock {
         boolean success = value.compareAndSet(0, 1);
         if (!success)
             throw new GetLockException("Get the Lock failed");
-        else
+        else {
             lockedThread = Thread.currentThread();
+        }
     }
 
     public void unlock() {
         if (0 == value.get()) {
             return;
         }
-        if (lockedThread == Thread.currentThread())
+        if (lockedThread == Thread.currentThread()) {
             value.compareAndSet(1, 0);
+        }
     }
 }

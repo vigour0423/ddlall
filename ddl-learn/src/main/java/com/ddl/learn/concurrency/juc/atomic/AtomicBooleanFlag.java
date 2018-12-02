@@ -1,25 +1,23 @@
 package com.ddl.learn.concurrency.juc.atomic;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/4
- * QQ交流群:601980517，463962286
- ***************************************/
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class AtomicBooleanFlag {
 
-    private static boolean flag = true;
+    private static AtomicBoolean flag = new AtomicBoolean();
 
     public static void main(String[] args) throws InterruptedException {
         new Thread() {
             @Override
             public void run() {
-                while (flag) {
-                    try {
+                while (flag.get()) {
+               /*     try {
                         Thread.sleep(1000);
-                        //System.out.println("I am working.");
+                        System.out.println("I am working.");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
+                    }*/
                 }
                 System.out.println("I am finished.");
             }
@@ -30,7 +28,8 @@ public class AtomicBooleanFlag {
         new Thread() {
             @Override
             public void run() {
-                flag = false;
+                   flag.set(false);
+
             }
         }.start();
 
