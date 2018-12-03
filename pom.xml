@@ -20,6 +20,7 @@
         <module>ddl-servlet3.0</module>
         <module>ddl-springannotation</module>
         <module>ddl-springmvcannotation</module>
+        <module>ddl-concurrency</module>
     </modules>
 
     <name>ddl-all</name>
