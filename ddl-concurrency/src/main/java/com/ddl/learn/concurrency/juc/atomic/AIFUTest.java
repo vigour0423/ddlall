@@ -3,11 +3,7 @@ package com.ddl.learn.concurrency.juc.atomic;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/13
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class AIFUTest {
 
     private volatile int i;

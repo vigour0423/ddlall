@@ -26,31 +26,30 @@ public class UnsafeFooTest {
     public static void main(String[] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException, NoSuchFieldException, IOException, NoSuchMethodException, InvocationTargetException {
         /*Simple simple = new Simple();
         System.out.println(simple.get());*/
-        //        Simple simple = Simple.class.newInstance();
+        //Simple simple = Simple.class.newInstance();
 
 
-        //        Class.forName("com.wangwenjun.jcu.atomic.UnsafeFooTest$Simple");
+        //Class.forName("com.wangwenjun.jcu.atomic.UnsafeFooTest$Simple");
+        Unsafe unsafe = getUnsafe();
 
-
-/*        Simple simple = (Simple) unsafe.allocateInstance(Simple.class);
+        Simple simple = (Simple) unsafe.allocateInstance(Simple.class);
 
         System.out.println(simple.get());
         System.out.println(simple.getClass());
-        System.out.println(simple.getClass().getClassLoader());*/
+        System.out.println(simple.getClass().getClassLoader());
 
-/*
         Guard guard = new Guard();
         guard.work();
 
         Field f = guard.getClass().getDeclaredField("ACCESS_ALLOWED");
         unsafe.putInt(guard, unsafe.objectFieldOffset(f), 42);
-        guard.work();*/
+        guard.work();
 
-        /*byte[] bytes = loadClassContent();
-        Class aClass = unsafe.defineClass(null, bytes, 0, bytes.length);
-        int v = (Integer) aClass.getMethod("get").invoke(aClass.newInstance(), null);
-        System.out.println(v);*/
-
+        byte[] bytes = loadClassContent();
+        Class aClass = unsafe.defineClass(null, bytes, 0, bytes.length, null, null);
+        int v = (Integer) aClass.getMethod("get")
+                .invoke(aClass.newInstance());
+        System.out.println(v);
         System.out.println(sizeOf(new Simple()));
 
     }
@@ -81,7 +80,7 @@ public class UnsafeFooTest {
     }
 
     private static byte[] loadClassContent() throws IOException {
-        File f = new File("G:\\Teaching\\A.class");
+        File f = new File("D:\\ddllearn\\gitReposit\\ddlall\\ddl-concurrency\\target\\classes\\com\\ddl\\learn\\concurrency\\juc\\A.class");
         FileInputStream fis = new FileInputStream(f);
         byte[] content = new byte[(int) f.length()];
         fis.read(content);
@@ -107,9 +106,9 @@ public class UnsafeFooTest {
     static class Simple {
         private long l = 0;
 
-        private int i = 10;
+       private static int i = 10;
 
-        private byte b = (byte) 0x01;
+       private byte b = (byte) 0x01;
 
 
         public Simple() {

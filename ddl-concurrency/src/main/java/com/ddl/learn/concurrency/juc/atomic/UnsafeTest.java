@@ -49,11 +49,11 @@ public class UnsafeTest {
          *Time passed in ms:3875s
          */
         ExecutorService service = Executors.newFixedThreadPool(1000);
-        Counter counter = new CasCounter();
+        Counter counter = new SyncCounter();
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < 1000; i++) {
-            service.submit(new CounterRunnable(counter, 10000));
+            service.submit(new CounterRunnable(counter, 100000));
         }
         service.shutdown();
         service.awaitTermination(1, TimeUnit.HOURS);
@@ -83,10 +83,12 @@ public class UnsafeTest {
 
         private long counter = 0;
 
+        @Override
         public void increment() {
             counter++;
         }
 
+        @Override
         public long getCounter() {
             return counter;
         }
@@ -96,10 +98,12 @@ public class UnsafeTest {
 
         private long counter = 0;
 
+        @Override
         public synchronized void increment() {
             counter++;
         }
 
+        @Override
         public long getCounter() {
             return counter;
         }
@@ -111,6 +115,7 @@ public class UnsafeTest {
 
         private final Lock lock = new ReentrantLock();
 
+        @Override
         public void increment() {
             try {
                 lock.lock();
@@ -120,6 +125,7 @@ public class UnsafeTest {
             }
         }
 
+        @Override
         public long getCounter() {
             return counter;
         }
@@ -129,10 +135,12 @@ public class UnsafeTest {
 
         private AtomicLong counter = new AtomicLong();
 
+        @Override
         public void increment() {
             counter.incrementAndGet();
         }
 
+        @Override
         public long getCounter() {
             return counter.get();
         }
@@ -152,6 +160,7 @@ public class UnsafeTest {
             offset = unsafe.objectFieldOffset(CasCounter.class.getDeclaredField("counter"));
         }
 
+        @Override
         public void increment() {
             long current = counter;
             while (!unsafe.compareAndSwapLong(this, offset, current, current + 1)) {
@@ -159,6 +168,7 @@ public class UnsafeTest {
             }
         }
 
+        @Override
         public long getCounter() {
             return counter;
         }
@@ -174,6 +184,7 @@ public class UnsafeTest {
             this.num = num;
         }
 
+        @Override
         public void run() {
             for (int i = 0; i < num; i++) {
                 counter.increment();
