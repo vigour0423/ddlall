@@ -25,7 +25,7 @@ public class ListenableFutureExample {
         System.out.println(result);*/
 
 
-     /*   ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(service);
+        ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(service);
         ListenableFuture<Integer> future1 = listeningExecutorService.submit(() ->
         {
             try {
@@ -39,7 +39,7 @@ public class ListenableFutureExample {
         //future1.addListener(() -> System.out.println("I am finished"), service);
 
         Futures.addCallback(future1, new MyCallBack(), service);
-        System.out.println("=============");*/
+        System.out.println("=============");
 
         //jdk 1.8
         CompletableFuture.supplyAsync(() ->

@@ -7,11 +7,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/18
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CountDownLatchExample4 {
 
     private static Random random = new Random(System.currentTimeMillis());
@@ -26,7 +22,7 @@ public class CountDownLatchExample4 {
 
     interface Watcher {
 
-//        void startWatch();
+        //void startWatch();
 
         void done(Table table);
     }
@@ -42,6 +38,7 @@ public class CountDownLatchExample4 {
             this.countDownLatch = new CountDownLatch(size);
         }
 
+        @Override
         public void done(Table table) {
             countDownLatch.countDown();
             if (countDownLatch.getCount() == 0) {
@@ -63,6 +60,7 @@ public class CountDownLatchExample4 {
             this.countDownLatch = new CountDownLatch(size);
         }
 
+        @Override
         public void done(Table table) {
             countDownLatch.countDown();
             if (countDownLatch.getCount() == 0) {
@@ -74,9 +72,13 @@ public class CountDownLatchExample4 {
 
     static class Table {
         String tableName;
+
         long sourceRecordCount = 10;
+
         long targetCount;
+
         String sourceColumnSchema = "<table name='a'><column name='col1' type='varchar2'/></table>";
+
         String targetColumnSchema = "";
 
         public Table(String tableName, long sourceRecordCount) {
@@ -136,6 +138,7 @@ public class CountDownLatchExample4 {
             this.taskBatch = taskBatch;
         }
 
+        @Override
         public void run() {
             try {
                 Thread.sleep(random.nextInt(10000));
@@ -161,6 +164,7 @@ public class CountDownLatchExample4 {
             this.taskBatch = taskBatch;
         }
 
+        @Override
         public void run() {
             try {
                 Thread.sleep(random.nextInt(10000));

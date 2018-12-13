@@ -2,11 +2,7 @@ package com.ddl.learn.concurrency.juc.utils.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/18
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CountDownLatchExample2 {
 
     public static void main(String[] args) throws InterruptedException {
@@ -28,6 +24,7 @@ public class CountDownLatchExample2 {
         }.start();
 
         new Thread() {
+            @Override
             public void run() {
                 try {
                     latch.await();
@@ -39,6 +36,7 @@ public class CountDownLatchExample2 {
         }.start();
 
         new Thread() {
+            @Override
             public void run() {
                 System.out.println("asyn prepare for some data.");
                 try {
@@ -53,7 +51,7 @@ public class CountDownLatchExample2 {
             }
         }.start();
 
-        Thread.currentThread().join();
+        //Thread.currentThread().join();
 
     }
 }

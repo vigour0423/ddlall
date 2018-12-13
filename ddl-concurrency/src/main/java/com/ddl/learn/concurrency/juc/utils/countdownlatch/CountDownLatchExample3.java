@@ -3,11 +3,7 @@ package com.ddl.learn.concurrency.juc.utils.countdownlatch;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/18
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CountDownLatchExample3 {
 
     public static void main(String[] args) throws InterruptedException {
@@ -25,11 +21,12 @@ public class CountDownLatchExample3 {
                 }
                 latch.countDown();
 
-//                mainThread.interrupt();
+               // mainThread.interrupt();
             }
         }.start();
 
-        latch.await(1000, TimeUnit.MILLISECONDS);
+        latch.await();
+        //latch.await(1000, TimeUnit.MILLISECONDS);
         System.out.println("=============");
         latch.countDown();
 

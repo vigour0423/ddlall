@@ -3,11 +3,7 @@ package com.ddl.learn.concurrency.juc.utils.countdownlatch;
 import java.util.Random;
 import java.util.concurrent.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/17
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CountDownLatchExample1 {
 
     private static Random random = new Random(System.currentTimeMillis());
@@ -36,6 +32,7 @@ public class CountDownLatchExample1 {
         private final int[] data;
 
         private final int index;
+
         private final CountDownLatch latch;
 
         SimpleRunnable(int[] data, int index, CountDownLatch latch) {
@@ -44,6 +41,7 @@ public class CountDownLatchExample1 {
             this.latch = latch;
         }
 
+        @Override
         public void run() {
             try {
                 Thread.sleep(random.nextInt(2000));
