@@ -6,5 +6,6 @@ public class SimpleClassLoaderTest {
         SimpleClassLoader simpleClassLoader = new SimpleClassLoader();
         Class<?> aClass = simpleClassLoader.loadClass("com.ddl.learn.concurrency.classloader.namespace_runpack.SimpleObject");
         System.out.println(aClass.getClassLoader());
+
     }
 }

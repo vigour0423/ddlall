@@ -46,8 +46,9 @@ public class MyClassLoader extends ClassLoader {
         }
 
         byte[] classBytes = loadClassBytes(classFile);
-        if (null == classBytes || classBytes.length == 0)
+        if (null == classBytes || classBytes.length == 0) {
             throw new ClassNotFoundException("load the class " + name + " failed");
+        }
 
         return this.defineClass(name, classBytes, 0, classBytes.length);
     }

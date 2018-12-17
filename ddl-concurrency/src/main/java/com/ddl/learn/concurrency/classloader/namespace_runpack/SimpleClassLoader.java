@@ -61,8 +61,9 @@ public class SimpleClassLoader extends ClassLoader {
                 ClassLoader system = ClassLoader.getSystemClassLoader();
                 clazz = system.loadClass(name);
                 if (clazz != null) {
-                    if (resolve)
+                    if (resolve){
                         resolveClass(clazz);
+                    }
                     return clazz;
                 }
             } catch (Exception e) {

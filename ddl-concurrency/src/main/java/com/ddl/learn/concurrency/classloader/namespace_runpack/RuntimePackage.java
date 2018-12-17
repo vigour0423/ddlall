@@ -7,7 +7,7 @@ public class RuntimePackage {
     //Boot.Ext.App.com.ddl.learn.concurrency.classloader.namespace_runpack
 
     //Boot.Ext.App.com.ddl.learn.concurrency.classloader.namespace_runpack.SimpleClassLoaderTest
-    //Boot.Ext.App.SimpleClassLoader.com.ddl.learn.concurrency.classloader.namespace_runpack.SimpleClassLoaderTest
+    //Boot.Ext.App.SimpleClassLoader.com.ddl.learn.concurrency.classloader.namespace_runpack.SimpleObject
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         SimpleClassLoader simpleClassLoader = new SimpleClassLoader();

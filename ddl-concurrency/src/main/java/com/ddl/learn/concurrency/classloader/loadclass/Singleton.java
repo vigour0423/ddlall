@@ -39,7 +39,9 @@ public class Singleton {
 
     public static void main(String[] args) {
         Singleton singleton = getInstance();
+
         System.out.println(singleton.x);
+
         System.out.println(singleton.y);
     }
 }
