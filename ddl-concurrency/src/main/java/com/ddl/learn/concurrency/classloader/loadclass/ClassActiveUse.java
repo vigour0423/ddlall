@@ -10,10 +10,10 @@ public class ClassActiveUse {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-/*        new Obj();
-        System.out.println(I.a);*/
+        //new Obj();
+       /* System.out.println(I.a);*/
 
-        // System.out.println(Obj.salary);
+         //System.out.println(Obj.salary);
         //Obj.printSalary();
 
         //Class.forName("com.ddl.learn.concurrency.classloader.chapter1.Obj");
@@ -22,7 +22,7 @@ public class ClassActiveUse {
         //System.out.println(Child.age);
 
         //(1)通过子类访问父类的static变量，不会导致子类的初始化.
-        //System.out.println(Child.salary);
+        //System.out.println(C.salary);
 
         //(2）定义引用数组，不会初始化类
         //Obj[] arrays = new Obj[10];
@@ -31,7 +31,7 @@ public class ClassActiveUse {
         //(3)final修饰的常量会在编译期间放到常量池中，不会初始化类
         //System.out.println(Obj.salary);
         //(4)final修饰的复杂类型，在编译期间无法计算得出，会初始化类
-        System.out.println(Obj.x);
+        System.out.println(Child.x);
     }
 
 
