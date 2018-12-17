@@ -2,16 +2,11 @@ package com.ddl.learn.concurrency.juc.utils.exchanger;
 
 import java.util.concurrent.Exchanger;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/6
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ExchangerExample2 {
 
     /**
      * Actor
-     *
      * @param args
      */
     public static void main(String[] args) {

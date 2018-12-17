@@ -111,7 +111,7 @@ public class CountDownLatchExample4 {
         Event[] events = {new Event(1), new Event(2)};
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
-        for (Event event : events) {
+            for (Event event : events) {
             List<Table> tables = capture(event);
             TaskGroup taskGroup = new TaskGroup(tables.size(), event);
 

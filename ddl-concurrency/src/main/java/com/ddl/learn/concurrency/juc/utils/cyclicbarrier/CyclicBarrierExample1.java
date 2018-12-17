@@ -4,15 +4,13 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/19
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CyclicBarrierExample1 {
+
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
 
         final CyclicBarrier cyclicBarrier = new CyclicBarrier(2, new Runnable() {
+            @Override
             public void run() {
                 System.out.println("all of finished.");
             }
@@ -51,14 +49,14 @@ public class CyclicBarrierExample1 {
             }
         }.start();
 
-//        cyclicBarrier.await();
+        //cyclicBarrier.await();
 
-        while (true) {
+   /*     while (true) {
             System.out.println(cyclicBarrier.getNumberWaiting());
             System.out.println(cyclicBarrier.getParties());
             System.out.println(cyclicBarrier.isBroken());
             TimeUnit.MILLISECONDS.sleep(1);
-        }
+        }*/
 
     }
 }

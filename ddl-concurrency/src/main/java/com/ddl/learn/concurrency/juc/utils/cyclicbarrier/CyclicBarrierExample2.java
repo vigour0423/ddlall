@@ -4,11 +4,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/19
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CyclicBarrierExample2 {
     public static void main(String[] args) throws InterruptedException {
         final CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
@@ -30,7 +26,7 @@ public class CyclicBarrierExample2 {
             @Override
             public void run() {
                 try {
-//                    TimeUnit.SECONDS.sleep(5);
+                    //TimeUnit.SECONDS.sleep(5);
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -44,7 +40,7 @@ public class CyclicBarrierExample2 {
             @Override
             public void run() {
                 try {
-//                    TimeUnit.SECONDS.sleep(5);
+                    // TimeUnit.SECONDS.sleep(5);
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -54,7 +50,7 @@ public class CyclicBarrierExample2 {
             }
         }.start();
 
-/*        //reset==initial==finished
+        //reset==initial==finished
         TimeUnit.SECONDS.sleep(4);
         System.out.println(cyclicBarrier.getNumberWaiting());
         System.out.println(cyclicBarrier.getParties());
@@ -66,6 +62,6 @@ public class CyclicBarrierExample2 {
 
         System.out.println(cyclicBarrier.getNumberWaiting());
         System.out.println(cyclicBarrier.getParties());
-        System.out.println(cyclicBarrier.isBroken());*/
+        System.out.println(cyclicBarrier.isBroken());
     }
 }

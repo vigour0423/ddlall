@@ -3,11 +3,6 @@ package com.ddl.learn.concurrency.juc.utils.exchanger;
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/6
- * QQ交流群:601980517，463962286
- ***************************************/
 public class ExchangerExample1 {
     /**
      * V r=exchange(V v)
@@ -27,6 +22,7 @@ public class ExchangerExample1 {
         final Exchanger<String> exchanger = new Exchanger<String>();
 
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName() + " start.");
                 try {
@@ -40,6 +36,7 @@ public class ExchangerExample1 {
         }, "==A==").start();
 
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName() + " start.");
                 try {
@@ -53,6 +50,7 @@ public class ExchangerExample1 {
         }, "==A=1=").start();
 
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName() + " start.");
                 try {

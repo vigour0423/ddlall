@@ -4,11 +4,7 @@ import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/6
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ExchangerExample3 {
     public static void main(String[] args) {
 

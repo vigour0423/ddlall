@@ -3,11 +3,7 @@ package com.ddl.learn.concurrency.juc.utils.cyclicbarrier;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/7/19
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CyclicBarrierExample3 {
 
     static class MyCountDownLatch extends CountDownLatch {
@@ -18,6 +14,7 @@ public class CyclicBarrierExample3 {
             this.runnable = runnable;
         }
 
+        @Override
         public void countDown() {
             super.countDown();
             if (getCount() == 0) {
@@ -29,6 +26,7 @@ public class CyclicBarrierExample3 {
     public static void main(String[] args) {
 
         final MyCountDownLatch myCountDownLatch = new MyCountDownLatch(2, new Runnable() {
+            @Override
             public void run() {
                 System.out.println("all of work finish done.");
             }
