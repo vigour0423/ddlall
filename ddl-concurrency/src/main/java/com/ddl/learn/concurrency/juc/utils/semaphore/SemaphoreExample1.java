@@ -3,17 +3,12 @@ package com.ddl.learn.concurrency.juc.utils.semaphore;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/6
- * QQ交流群:601980517，463962286
- ***************************************/
 public class SemaphoreExample1 {
     public static void main(String[] args) {
 
         final SemaphoreLock lock = new SemaphoreLock();
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++) {
             new Thread() {
                 @Override
                 public void run() {
@@ -31,6 +26,7 @@ public class SemaphoreExample1 {
                     System.out.println(Thread.currentThread().getName() + " Released #SemaphoreLock");
                 }
             }.start();
+        }
 
 
     }

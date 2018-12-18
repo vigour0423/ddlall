@@ -3,11 +3,7 @@ package com.ddl.learn.concurrency.juc.utils.semaphore;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/7
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class SemaphoreExample2 {
 
     /**
@@ -18,7 +14,6 @@ public class SemaphoreExample2 {
      * 3.discard
      * 4.Get then throw exception
      * 5.get->register the callback,-> call you.
-     *
      * @param args
      */
     public static void main(String[] args) throws InterruptedException {

@@ -3,11 +3,7 @@ package com.ddl.learn.concurrency.juc.utils.semaphore;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/8
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class SemaphoreExample5 {
 
     private final static Semaphore semaphore = new Semaphore(3);

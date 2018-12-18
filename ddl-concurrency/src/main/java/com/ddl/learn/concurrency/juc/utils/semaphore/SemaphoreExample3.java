@@ -3,11 +3,6 @@ package com.ddl.learn.concurrency.juc.utils.semaphore;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/7
- * QQ交流群:601980517，463962286
- ***************************************/
 public class SemaphoreExample3 {
     /**
      * public void acquire(int permits)
@@ -18,7 +13,6 @@ public class SemaphoreExample3 {
      * <p>
      * semaphore.acquireUninterruptibly();
      * semaphore.acquireUninterruptibly(int permits);
-     *
      * @param args
      * @throws InterruptedException
      */
@@ -49,7 +43,7 @@ public class SemaphoreExample3 {
             public void run() {
                 try {
                     semaphore.acquireUninterruptibly();
-//                    TimeUnit.SECONDS.sleep(5);
+                    //                    TimeUnit.SECONDS.sleep(5);
                 } finally {
                     semaphore.release();
                 }
