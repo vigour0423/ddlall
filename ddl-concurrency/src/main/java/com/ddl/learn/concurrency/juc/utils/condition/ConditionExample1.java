@@ -5,11 +5,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/10
- * QQ交流群:601980517，463962286
- ***************************************/
 public class ConditionExample1 {
 
     private final static ReentrantLock lock = new ReentrantLock();
@@ -26,30 +21,35 @@ public class ConditionExample1 {
                 buildData();
             }
         }).start();
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++) {
             new Thread(() -> {
                 for (; ; ) {
                     useData();
                 }
             }).start();
+        }
     }
 
     private static void buildData() {
         try {
-            lock.lock();    //synchronized key word #monitor enter
+            //synchronized key word #monitor enter
+            lock.lock();
             while (noUse) {
-                condition.await();  //monitor.wait()
+                //monitor.wait()
+                condition.await();
             }
 
             data++;
             Optional.of("P:" + data).ifPresent(System.out::println);
             TimeUnit.SECONDS.sleep(1);
             noUse = true;
-            condition.signalAll();     //monitor.notify
+            //monitor.notify
+            condition.signalAll();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            lock.unlock();      //synchronized end #monitor end
+            //synchronized end #monitor end
+            lock.unlock();
         }
     }
 
@@ -60,7 +60,7 @@ public class ConditionExample1 {
                 condition.await();
             }
 
-//            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             Optional.of("C:" + data).ifPresent(System.out::println);
             noUse = false;
 

@@ -2,11 +2,7 @@ package com.ddl.learn.concurrency.juc.utils.condition;
 
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/10
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ComBetweenThreads {
 
     private static int data = 0;

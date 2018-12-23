@@ -5,11 +5,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/10
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ConditionExample2 {
     private final static ReentrantLock lock = new ReentrantLock();
 
@@ -24,7 +20,6 @@ public class ConditionExample2 {
      * 2.the producer get the lock but invoke await method and not jump out the lock statement block
      * why the consumer can get the lock still?
      * 3.not use the lock only use the condition? NO
-     *
      * @param args
      */
     public static void main(String[] args) {
