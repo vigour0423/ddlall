@@ -9,11 +9,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.StampedLock;
 import java.util.stream.Collectors;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/12
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class StampedLockExample2 {
     private final static StampedLock lock = new StampedLock();
 

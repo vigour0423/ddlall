@@ -4,11 +4,6 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/9
- * QQ交流群:601980517，463962286
- ***************************************/
 public class ReentrantLockExample {
 
     private static final ReentrantLock lock = new ReentrantLock();
@@ -68,7 +63,8 @@ public class ReentrantLockExample {
 
         if (lock.tryLock()) {
             try {
-                Optional.of("The thread-" + Thread.currentThread().getName() + " get lock and will do working.").ifPresent(System.out::println);
+                Optional.of("The thread-" + Thread.currentThread().getName() + " get lock and will do working.")
+                        .ifPresent(System.out::println);
                 while (true) {
 
                 }
@@ -76,7 +72,8 @@ public class ReentrantLockExample {
                 lock.unlock();
             }
         } else {
-            Optional.of("The thread-" + Thread.currentThread().getName() + " not get lock.").ifPresent(System.out::println);
+            Optional.of("The thread-" + Thread.currentThread().getName() + " not get lock.")
+                    .ifPresent(System.out::println);
         }
     }
 
@@ -85,8 +82,10 @@ public class ReentrantLockExample {
 
         try {
             lock.lockInterruptibly();
-            Optional.of(Thread.currentThread().getName() + ":" + lock.getHoldCount()).ifPresent(System.out::println);
-            Optional.of("The thread-" + Thread.currentThread().getName() + " get lock and will do working.").ifPresent(System.out::println);
+            Optional.of(Thread.currentThread().getName() + ":" + lock.getHoldCount())
+                    .ifPresent(System.out::println);
+            Optional.of("The thread-" + Thread.currentThread().getName() + " get lock and will do working.")
+                    .ifPresent(System.out::println);
             while (true) {
 
             }
@@ -100,7 +99,8 @@ public class ReentrantLockExample {
     public static void needLock() {
         try {
             lock.lock();
-            Optional.of("The thread-" + Thread.currentThread().getName() + " get lock and will do working.").ifPresent(System.out::println);
+            Optional.of("The thread-" + Thread.currentThread().getName() + " get lock and will do working.")
+                    .ifPresent(System.out::println);
             TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();

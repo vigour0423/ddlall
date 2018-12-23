@@ -28,7 +28,7 @@ public class SemaphoreExample4 {
         t1.start();
 
         TimeUnit.SECONDS.sleep(1);
-        Thread t2 = new Thread() {
+        Thread t2 =  new Thread() {
             @Override
             public void run() {
                 try {

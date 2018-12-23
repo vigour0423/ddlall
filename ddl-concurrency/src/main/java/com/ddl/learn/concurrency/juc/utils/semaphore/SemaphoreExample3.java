@@ -14,7 +14,6 @@ public class SemaphoreExample3 {
      * semaphore.acquireUninterruptibly();
      * semaphore.acquireUninterruptibly(int permits);
      * @param args
-     * @throws InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
         final Semaphore semaphore = new Semaphore(1);
@@ -43,7 +42,7 @@ public class SemaphoreExample3 {
             public void run() {
                 try {
                     semaphore.acquireUninterruptibly();
-                    //                    TimeUnit.SECONDS.sleep(5);
+                    //TimeUnit.SECONDS.sleep(5);
                 } finally {
                     semaphore.release();
                 }
@@ -55,5 +54,7 @@ public class SemaphoreExample3 {
         t2.start();
 
         TimeUnit.MILLISECONDS.sleep(50);
+
+        t2.interrupt();
     }
 }

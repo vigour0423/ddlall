@@ -20,7 +20,7 @@ public class SemaphoreExample2 {
 
         final Semaphore semaphore = new Semaphore(2);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) {
             new Thread() {
                 @Override
                 public void run() {
@@ -37,6 +37,7 @@ public class SemaphoreExample2 {
                     System.out.println(Thread.currentThread().getName() + " out");
                 }
             }.start();
+        }
 
 
         while (true) {

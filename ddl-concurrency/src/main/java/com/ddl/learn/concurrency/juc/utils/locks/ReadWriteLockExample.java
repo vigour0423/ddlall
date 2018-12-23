@@ -6,11 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/9
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ReadWriteLockExample {
 
     /**
