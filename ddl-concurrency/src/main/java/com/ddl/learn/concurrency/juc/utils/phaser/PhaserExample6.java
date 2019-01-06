@@ -4,24 +4,19 @@ import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/19
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class PhaserExample6 {
     //awaitAdvance
 
     /**
      * awaitAdvance can decremental the arrived parties?
-     *
      * @param args
      */
     public static void main(String[] args) throws InterruptedException {
 
-       /* final Phaser phaser = new Phaser(6);
+        /* final Phaser phaser = new Phaser(6);
 
-       *//* new Thread(() -> phaser.awaitAdvance(phaser.getPhase())).start();
+         *//* new Thread(() -> phaser.awaitAdvance(phaser.getPhase())).start();
 
         TimeUnit.SECONDS.sleep(3);
 
@@ -57,8 +52,8 @@ public class PhaserExample6 {
                 e.printStackTrace();
             }
 
-            phaser.arrive();
             System.out.println(getName() + " finished work.");
+            phaser.arrive();
         }
     }
 }

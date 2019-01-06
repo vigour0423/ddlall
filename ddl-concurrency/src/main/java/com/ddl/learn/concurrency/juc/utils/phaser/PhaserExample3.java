@@ -4,11 +4,7 @@ import java.util.Random;
 import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/16
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class PhaserExample3 {
     private final static Random random = new Random(System.currentTimeMillis());
 
@@ -18,16 +14,16 @@ public class PhaserExample3 {
      * bicycle
      * <p>
      * long jump
-     *
      * @param args
      */
     public static void main(String[] args) {
         final Phaser phaser = new Phaser(5);
 
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i < 5; i++) {
             new Athletes(i, phaser).start();
+        }
 
-        new InjuredAthletes(6, phaser).start();
+        new InjuredAthletes(5, phaser).start();
     }
 
     static class InjuredAthletes extends Thread {
@@ -47,7 +43,7 @@ public class PhaserExample3 {
 
                 sport(phaser, no + ": start bicycle.", no + ": end bicycle.");
 
-//                System.out.println("Oh shit, i am injured.");
+                // System.out.println("Oh shit, i am injured.");
 
                 System.out.println("Oh shit, i am injured, i will be exited.");
                 phaser.arriveAndDeregister();

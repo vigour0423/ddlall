@@ -3,14 +3,9 @@ package com.ddl.learn.concurrency.juc.utils.phaser;
 import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/16
- * QQ交流群:601980517，463962286
- ***************************************/
 public class PhaserExample4 {
     public static void main(String[] args) throws InterruptedException {
-//        final Phaser phaser = new Phaser(1);
+        //final Phaser phaser = new Phaser(1);
 
 /*        System.out.println(phaser.getPhase());
 
@@ -55,7 +50,7 @@ public class PhaserExample4 {
         final Phaser phaser = new Phaser(2) {
             @Override
             protected boolean onAdvance(int phase, int registeredParties) {
-                return false;
+                return true;
             }
         };
 
@@ -79,7 +74,9 @@ public class PhaserExample4 {
         @Override
         public void run() {
             System.out.println(getName() + " I am start and the phase " + phaser.getPhase());
+            System.out.println("isTerminated1->" + phaser.isTerminated());
             phaser.arriveAndAwaitAdvance();
+            System.out.println("isTerminated2->" + phaser.isTerminated());
             System.out.println(getName() + " I am end!");
 
             System.out.println("isTerminated->" + phaser.isTerminated());

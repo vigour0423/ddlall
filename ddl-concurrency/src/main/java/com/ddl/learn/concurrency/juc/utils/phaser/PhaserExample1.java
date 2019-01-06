@@ -5,11 +5,7 @@ import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/15
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class PhaserExample1 {
 
     private final static Random random = new Random(System.currentTimeMillis());
