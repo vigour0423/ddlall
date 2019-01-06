@@ -25,7 +25,7 @@ public class ReadWriteLockExample {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Thread thread1 = new Thread(ReadWriteLockExample::read);
+        Thread thread1 = new Thread(ReadWriteLockExample::write);
         thread1.start();
 
         TimeUnit.SECONDS.sleep(1);

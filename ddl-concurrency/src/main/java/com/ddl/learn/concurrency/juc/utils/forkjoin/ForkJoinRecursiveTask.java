@@ -6,11 +6,7 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/13
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ForkJoinRecursiveTask {
 
     private final static int MAX_THRESHOLD = 200;

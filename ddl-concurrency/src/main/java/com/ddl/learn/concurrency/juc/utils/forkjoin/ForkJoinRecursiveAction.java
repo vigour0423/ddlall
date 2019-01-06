@@ -7,11 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/13
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ForkJoinRecursiveAction {
 
     private final static int MAX_THRESHOLD = 3;

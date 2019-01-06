@@ -66,7 +66,8 @@ public class StampedLockExample1 {
         try {
             stamped = lock.readLock();
             Optional.of(
-                    DATA.stream().map(String::valueOf).collect(Collectors.joining("#", "R-", ""))
+                    DATA.stream().map(String::valueOf)
+                            .collect(Collectors.joining("#", "R-", ""))
             ).ifPresent(System.out::println);
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {

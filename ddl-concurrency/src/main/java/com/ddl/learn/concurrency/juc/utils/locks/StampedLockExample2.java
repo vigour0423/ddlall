@@ -17,7 +17,7 @@ public class StampedLockExample2 {
 
     public static void main(String[] args) {
 
-        final ExecutorService executor = Executors.newFixedThreadPool(10);
+        final ExecutorService executor = Executors.newFixedThreadPool(20);
         Runnable readTask = () -> {
             for (; ; ) {
                 read();
@@ -30,6 +30,16 @@ public class StampedLockExample2 {
             }
         };
 
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
+        executor.submit(readTask);
         executor.submit(readTask);
         executor.submit(readTask);
         executor.submit(readTask);
@@ -79,8 +89,9 @@ public class StampedLockExample2 {
         long stamp = -1;
         try {
             stamp = lock.writeLock();
+            System.out.println("write==============");
             DATA.add(System.currentTimeMillis());
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
