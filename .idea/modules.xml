@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/data-structures/data-structures.iml" filepath="$PROJECT_DIR$/data-structures/data-structures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-api/ddl-api.iml" filepath="$PROJECT_DIR$/ddl-api/ddl-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-common/ddl-common.iml" filepath="$PROJECT_DIR$/ddl-common/ddl-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-concurrency/ddl-concurrency.iml" filepath="$PROJECT_DIR$/ddl-concurrency/ddl-concurrency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-dto/ddl-dto.iml" filepath="$PROJECT_DIR$/ddl-dto/ddl-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-entity/ddl-entity.iml" filepath="$PROJECT_DIR$/ddl-entity/ddl-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-infrastructure/ddl-infrastructure.iml" filepath="$PROJECT_DIR$/ddl-infrastructure/ddl-infrastructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-learn/ddl-learn.iml" filepath="$PROJECT_DIR$/ddl-learn/ddl-learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-service/ddl-service.iml" filepath="$PROJECT_DIR$/ddl-service/ddl-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-servlet3.0/ddl-servlet3.0.iml" filepath="$PROJECT_DIR$/ddl-servlet3.0/ddl-servlet3.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-springannotation/ddl-springannotation.iml" filepath="$PROJECT_DIR$/ddl-springannotation/ddl-springannotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-springmvcannotation/ddl-springmvcannotation.iml" filepath="$PROJECT_DIR$/ddl-springmvcannotation/ddl-springmvcannotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-web/ddl-web.iml" filepath="$PROJECT_DIR$/ddl-web/ddl-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ddlall.iml" filepath="$PROJECT_DIR$/.idea/ddlall.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="data-structures" />
+        <module name="ddl-api" />
+        <module name="ddl-common" />
+        <module name="ddl-concurrency" />
+        <module name="ddl-dto" />
+        <module name="ddl-entity" />
+        <module name="ddl-infrastructure" />
+        <module name="ddl-learn" />
+        <module name="ddl-service" />
+        <module name="ddl-servlet3.0" />
+        <module name="ddl-springannotation" />
+        <module name="ddl-springmvcannotation" />
+        <module name="ddl-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="data-structures" target="1.8" />
+      <module name="ddl-api" target="10.0.1" />
+      <module name="ddl-common" target="10.0.1" />
+      <module name="ddl-concurrency" target="1.8" />
+      <module name="ddl-dto" target="10.0.1" />
+      <module name="ddl-entity" target="10.0.1" />
+      <module name="ddl-infrastructure" target="10.0.1" />
+      <module name="ddl-learn" target="10.0.1" />
+      <module name="ddl-service" target="10.0.1" />
+      <module name="ddl-servlet3.0" target="10.0.1" />
+      <module name="ddl-springannotation" target="10.0.1" />
+      <module name="ddl-springmvcannotation" target="10.0.1" />
+      <module name="ddl-web" target="10.0.1" />
+      <module name="ddlall" target="10.0.1" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
