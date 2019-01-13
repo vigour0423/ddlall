@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 public class ForkJoinRecursiveTask {
 
-    private final static int MAX_THRESHOLD = 200;
+    private final static int MAX_THRESHOLD = 20;
 
     public static void main(String[] args) {
         final ForkJoinPool forkJoinPool = new ForkJoinPool();
