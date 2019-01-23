@@ -21,7 +21,7 @@
         <module>ddl-springannotation</module>
         <module>ddl-springmvcannotation</module>
         <module>ddl-concurrency</module>
-        <module>data-structures</module>
+        <module>ddl-datastructures</module>
     </modules>
 
     <name>ddl-all</name>

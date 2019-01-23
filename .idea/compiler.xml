@@ -6,10 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="data-structures" />
         <module name="ddl-api" />
         <module name="ddl-common" />
         <module name="ddl-concurrency" />
+        <module name="ddl-datastructures" />
         <module name="ddl-dto" />
         <module name="ddl-entity" />
         <module name="ddl-infrastructure" />
@@ -26,6 +26,7 @@
       <module name="ddl-api" target="10.0.1" />
       <module name="ddl-common" target="10.0.1" />
       <module name="ddl-concurrency" target="1.8" />
+      <module name="ddl-datastructures" target="1.8" />
       <module name="ddl-dto" target="10.0.1" />
       <module name="ddl-entity" target="10.0.1" />
       <module name="ddl-infrastructure" target="10.0.1" />
