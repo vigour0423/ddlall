@@ -1,5 +1,7 @@
 package com.ddl.learn.stack;
 
+import java.util.Stack;
+
 /**
  * 括号匹配
  */
@@ -7,7 +9,8 @@ class Solution {
 
     public boolean isValid(String s) {
 
-        ArrayStack<Character> stack = new ArrayStack<>();
+        //ArrayStack<Character> stack = new ArrayStack<>();
+        Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == '(' || c == '[' || c == '{') {

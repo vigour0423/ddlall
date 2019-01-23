@@ -4,11 +4,15 @@ public class LoopQueue<E> implements Queue<E> {
 
     private E[] data;
 
+    /**
+     * 队首和下一个空位置索引
+     */
     private int front, tail;
 
     private int size;
 
     public LoopQueue(int capacity) {
+        // 因为会有一个浪费
         data = (E[]) new Object[capacity + 1];
         front = 0;
         tail = 0;
