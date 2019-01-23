@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ddl-api/ddl-api.iml" filepath="$PROJECT_DIR$/ddl-api/ddl-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-common/ddl-common.iml" filepath="$PROJECT_DIR$/ddl-common/ddl-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-concurrency/ddl-concurrency.iml" filepath="$PROJECT_DIR$/ddl-concurrency/ddl-concurrency.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ddl-datastructures/ddl-datastructures.iml" filepath="$PROJECT_DIR$/ddl-datastructures/ddl-datastructures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-datastructure/ddl-datastructure.iml" filepath="$PROJECT_DIR$/ddl-datastructure/ddl-datastructure.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-dto/ddl-dto.iml" filepath="$PROJECT_DIR$/ddl-dto/ddl-dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-entity/ddl-entity.iml" filepath="$PROJECT_DIR$/ddl-entity/ddl-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-infrastructure/ddl-infrastructure.iml" filepath="$PROJECT_DIR$/ddl-infrastructure/ddl-infrastructure.iml" />

@@ -9,7 +9,7 @@
         <module name="ddl-api" />
         <module name="ddl-common" />
         <module name="ddl-concurrency" />
-        <module name="ddl-datastructures" />
+        <module name="ddl-datastructure" />
         <module name="ddl-dto" />
         <module name="ddl-entity" />
         <module name="ddl-infrastructure" />
@@ -26,7 +26,7 @@
       <module name="ddl-api" target="10.0.1" />
       <module name="ddl-common" target="10.0.1" />
       <module name="ddl-concurrency" target="1.8" />
-      <module name="ddl-datastructures" target="1.8" />
+      <module name="ddl-datastructure" target="1.8" />
       <module name="ddl-dto" target="10.0.1" />
       <module name="ddl-entity" target="10.0.1" />
       <module name="ddl-infrastructure" target="10.0.1" />
