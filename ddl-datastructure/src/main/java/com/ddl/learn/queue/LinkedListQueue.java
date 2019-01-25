@@ -48,11 +48,14 @@ public class LinkedListQueue<E> implements Queue<E> {
 
     @Override
     public void enqueue(E e) {
+        // 如果队尾为空，说明队列是空的。因为tail一直指向最后一个非空节点。
         if (tail == null) {
             tail = new Node(e);
             head = tail;
         } else {
+            // 使用tail.next把新Node挂载上来。
             tail.next = new Node(e);
+            // tail后挪
             tail = tail.next;
         }
         size++;
@@ -65,8 +68,11 @@ public class LinkedListQueue<E> implements Queue<E> {
         }
 
         Node retNode = head;
+        // head后移
         head = head.next;
+        // 元素置空
         retNode.next = null;
+        // 如果头结点都没得删了
         if (head == null) {
             tail = null;
         }
@@ -105,7 +111,7 @@ public class LinkedListQueue<E> implements Queue<E> {
 
             if (i % 3 == 2) {
                 queue.dequeue();
-                System.out.println(queue);
+                System.out.println("出队->" + queue);
             }
         }
     }

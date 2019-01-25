@@ -178,10 +178,13 @@ public class LinkedList<E> {
     public String toString() {
         StringBuilder res = new StringBuilder();
 
-        Node cur = dummyHead.next;
+     /*   Node cur = dummyHead.next;
         while (cur != null) {
             res.append(cur + "->");
             cur = cur.next;
+        }*/
+        for (Node cur = dummyHead.next; cur != null; cur = cur.next) {
+            res.append(cur.e+ "->");
         }
         res.append("NULL");
 
