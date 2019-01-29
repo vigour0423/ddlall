@@ -10,10 +10,11 @@ class Solution3 {
 
         ListNode prev = dummyHead;
         while (prev.next != null) {
-            if (prev.next.val == val)
+            if (prev.next.val == val) {
                 prev.next = prev.next.next;
-            else
+            } else {
                 prev = prev.next;
+            }
         }
 
         return dummyHead.next;

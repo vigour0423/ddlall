@@ -4,15 +4,18 @@ package com.ddl.learn.recursion.leetcode;/// Leetcode 203. Remove Linked List El
 class Solution4 {
 
     public ListNode removeElements(ListNode head, int val) {
-
+        // 求解最基本问题
         if (head == null) {
             return head;
         }
 
+        // 将原问题转换为更小问题
         ListNode res = removeElements(head.next, val);
         if (head.val == val) {
+            //头结点需要删除
             return res;
         } else {
+            // 这个head不需要删除，继续连接上链表。
             head.next = res;
             return head;
         }
