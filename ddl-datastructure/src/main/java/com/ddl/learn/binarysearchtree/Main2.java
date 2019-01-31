@@ -10,13 +10,17 @@ public class Main2 {
         BST<Integer> bst = new BST<>();
         Random random = new Random();
 
-        int n = 1000;
+        int n = 5;
 
         // test removeMin
-        for (int i = 0; i < n; i++) {
-            bst.add(random.nextInt(10000));
-        }
-
+     /*   for (int i = 0; i < n; i++) {
+            bst.add(random.nextInt(10));
+        }*/
+        bst.add(6);
+        bst.add(4);
+        bst.add(5);
+        bst.add(3);
+        bst.add(7);
         ArrayList<Integer> nums = new ArrayList<>();
         while (!bst.isEmpty()) {
             nums.add(bst.removeMin());

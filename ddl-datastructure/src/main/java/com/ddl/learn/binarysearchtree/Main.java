@@ -19,6 +19,7 @@ public class Main {
         /////////////////
         bst.preOrder();
         System.out.println();
+        System.out.println(bst);
 
         bst.inOrder();
         System.out.println();
@@ -30,6 +31,9 @@ public class Main {
         System.out.println();
 
         bst.preOrderNR();
+        System.out.println();
+
+        bst.inOrderNR();
         System.out.println();
     }
 }
