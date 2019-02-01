@@ -1,6 +1,5 @@
 package com.ddl.learn.setandmap;
 
-import java.util.ArrayList;
 
 public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
@@ -38,14 +37,18 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         return size == 0;
     }
 
-    // 向二分搜索树中添加新的元素(key, value)
+    /**
+     * 向二分搜索树中添加新的元素(key, value)
+     */
     @Override
     public void add(K key, V value) {
         root = add(root, key, value);
     }
 
-    // 向以node为根的二分搜索树中插入元素(key, value)，递归算法
-    // 返回插入新节点后二分搜索树的根
+    /**
+     * 向以node为根的二分搜索树中插入元素(key, value)，递归算法
+     * 返回插入新节点后二分搜索树的根
+     */
     private Node add(Node node, K key, V value) {
 
         if (node == null) {
@@ -65,7 +68,9 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         return node;
     }
 
-    // 返回以node为根节点的二分搜索树中，key所在的节点
+    /**
+     * 返回以node为根节点的二分搜索树中，key所在的节点
+     */
     private Node getNode(Node node, K key) {
 
         if (node == null) {
@@ -104,7 +109,9 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         node.value = newValue;
     }
 
-    // 返回以node为根的二分搜索树的最小值所在的节点
+    /**
+     * 返回以node为根的二分搜索树的最小值所在的节点
+     */
     private Node minimum(Node node) {
         if (node.left == null) {
             return node;
@@ -112,8 +119,10 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         return minimum(node.left);
     }
 
-    // 删除掉以node为根的二分搜索树中的最小节点
-    // 返回删除节点后新的二分搜索树的根
+    /**
+     * 删除掉以node为根的二分搜索树中的最小节点
+     * 返回删除节点后新的二分搜索树的根
+     */
     private Node removeMin(Node node) {
 
         if (node.left == null) {
@@ -127,7 +136,9 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         return node;
     }
 
-    // 从二分搜索树中删除键为key的节点
+    /**
+     * 从二分搜索树中删除键为key的节点
+     */
     @Override
     public V remove(K key) {
 
