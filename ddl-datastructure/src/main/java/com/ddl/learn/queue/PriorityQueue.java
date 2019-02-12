@@ -1,6 +1,6 @@
 package com.ddl.learn.queue;
 
-import com.ddl.learn.heap.MaxHeap;
+        import com.ddl.learn.heap.MaxHeap;
 
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
 

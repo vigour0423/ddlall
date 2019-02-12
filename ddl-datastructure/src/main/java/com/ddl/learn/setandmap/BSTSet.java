@@ -1,6 +1,6 @@
 package com.ddl.learn.setandmap;
 
-import com.ddl.learn.binarysearchtree.BST;
+import com.ddl.learn.tree.binarysearch.BST;
 
 
 public class BSTSet<E extends Comparable<E>> implements Set<E> {

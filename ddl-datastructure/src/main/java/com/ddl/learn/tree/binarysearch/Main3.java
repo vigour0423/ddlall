@@ -1,4 +1,4 @@
-package com.ddl.learn.binarysearchtree;
+package com.ddl.learn.tree.binarysearch;
 
 import java.util.Random;
 
