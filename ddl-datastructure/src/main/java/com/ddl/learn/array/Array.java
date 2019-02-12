@@ -6,33 +6,55 @@ public class Array<E> {
 
     private int size;
 
-    // 构造函数，传入数组的容量capacity构造Array
+    /**
+     * 构造函数，传入数组的容量capacity构造Array
+     */
     public Array(int capacity) {
         data = (E[]) new Object[capacity];
         size = 0;
     }
 
-    // 无参数的构造函数，默认数组的容量capacity=10
+    /**
+     * 无参数的构造函数，默认数组的容量capacity=10
+     */
     public Array() {
         this(10);
     }
 
-    // 获取数组的容量
+    /**
+     * 将任意数组整理成堆的形状
+     * @param arr
+     */
+    public Array(E[] arr) {
+        data = (E[]) new Object[arr.length];
+        System.arraycopy(arr, 0, data, 0, arr.length);
+        size = arr.length;
+    }
+
+    /**
+     * 获取数组的容量
+     */
     public int getCapacity() {
         return data.length;
     }
 
-    // 获取数组中的元素个数
+    /**
+     * 获取数组中的元素个数
+     */
     public int getSize() {
         return size;
     }
 
-    // 返回数组是否为空
+    /**
+     * 返回数组是否为空
+     */
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // 在index索引的位置插入一个新元素e
+    /**
+     * 在index索引的位置插入一个新元素e
+     */
     public void add(int index, E e) {
 
         if (index < 0 || index > size) {
@@ -52,17 +74,23 @@ public class Array<E> {
         size++;
     }
 
-    // 向所有元素后添加一个新元素
+    /**
+     * 向所有元素后添加一个新元素
+     */
     public void addLast(E e) {
         add(size, e);
     }
 
-    // 在所有元素前添加一个新元素
+    /**
+     * 在所有元素前添加一个新元素
+     */
     public void addFirst(E e) {
         add(0, e);
     }
 
-    // 获取index索引位置的元素
+    /**
+     * 获取index索引位置的元素
+     */
     public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Get failed. Index is illegal.");
@@ -78,7 +106,9 @@ public class Array<E> {
         return get(0);
     }
 
-    // 修改index索引位置的元素为e
+    /**
+     * 修改index索引位置的元素为e
+     */
     public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Set failed. Index is illegal.");
@@ -86,7 +116,9 @@ public class Array<E> {
         data[index] = e;
     }
 
-    // 查找数组中是否有元素e
+    /**
+     * 查找数组中是否有元素e
+     */
     public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(e)) {
@@ -96,7 +128,9 @@ public class Array<E> {
         return false;
     }
 
-    // 查找数组中元素e所在的索引，如果不存在元素e，则返回-1
+    /**
+     * 查找数组中元素e所在的索引，如果不存在元素e，则返回-1
+     */
     public int find(E e) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(e)) {
@@ -106,7 +140,9 @@ public class Array<E> {
         return -1;
     }
 
-    // 从数组中删除index位置的元素, 返回删除的元素
+    /**
+     * 从数组中删除index位置的元素, 返回删除的元素
+     */
     public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
@@ -117,7 +153,8 @@ public class Array<E> {
             data[i - 1] = data[i];
         }
         size--;
-        data[size] = null; // loitering objects != memory leak
+        data[size] = null;
+        //loitering objects != memory leak
 
         if (size == data.length / 4 && data.length / 2 != 0) {
             resize(data.length / 2);
@@ -125,22 +162,44 @@ public class Array<E> {
         return ret;
     }
 
-    // 从数组中删除第一个元素, 返回删除的元素
+    /**
+     * 从数组中删除第一个元素,返回删除的元素
+     */
     public E removeFirst() {
         return remove(0);
     }
 
-    // 从数组中删除最后一个元素, 返回删除的元素
+    /**
+     * 从数组中删除最后一个元素,返回删除的元素
+     */
     public E removeLast() {
         return remove(size - 1);
     }
 
-    // 从数组中删除元素e
+    /**
+     * 从数组中删除元素e
+     */
     public void removeElement(E e) {
         int index = find(e);
         if (index != -1) {
             remove(index);
         }
+    }
+
+    /**
+     * 交换传入的索引两个位置的元素值
+     * @param i
+     * @param j
+     */
+    public void swap(int i, int j) {
+
+        if (i < 0 || i >= size || j < 0 || j >= size) {
+            throw new IllegalArgumentException("Index is illegal.");
+        }
+
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
     }
 
     @Override
@@ -159,7 +218,9 @@ public class Array<E> {
         return res.toString();
     }
 
-    // 将数组空间的容量变成newCapacity大小
+    /**
+     * 将数组空间的容量变成newCapacity大小
+     */
     private void resize(int newCapacity) {
 
         E[] newData = (E[]) new Object[newCapacity];
