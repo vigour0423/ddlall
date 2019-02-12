@@ -1,4 +1,4 @@
-package com.ddl.learn.queue.priorityqueuesolu;
+package com.ddl.learn.queue.prioritysolution;
 
 import java.util.*;
 
