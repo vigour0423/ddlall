@@ -1,7 +1,9 @@
-package com.ddl.learn.tree.avl;
+package com.ddl.learn.tree;
 
 import com.ddl.learn.FileOperation;
 import com.ddl.learn.setandmap.BSTMap;
+import com.ddl.learn.tree.avl.AVLTree;
+import com.ddl.learn.tree.hashtable.HashTable;
 import com.ddl.learn.tree.rbtree.RBTree;
 
 import java.util.ArrayList;
@@ -60,7 +62,6 @@ public class Main {
             System.out.println("AVL: " + time + " s");
 
 
-
             // Test RBTree
             startTime = System.nanoTime();
 
@@ -72,15 +73,38 @@ public class Main {
                     rbt.add(word, 1);
             }
 
-            for(String word: words)
+            for (String word : words)
                 rbt.contains(word);
 
             endTime = System.nanoTime();
 
             time = (endTime - startTime) / 1000000000.0;
             System.out.println("RBTree: " + time + " s");
+
+
+            // Test HashTable
+            startTime = System.nanoTime();
+
+            HashTable<String, Integer> ht = new HashTable<>();
+            //HashTable<String, Integer> ht = new HashTable<>(131071);
+            for (String word : words) {
+                if (ht.contains(word))
+                    ht.set(word, ht.get(word) + 1);
+                else
+                    ht.add(word, 1);
+            }
+
+            for (String word : words)
+                ht.contains(word);
+
+            endTime = System.nanoTime();
+
+            time = (endTime - startTime) / 1000000000.0;
+            System.out.println("HashTable: " + time + " s");
         }
 
         System.out.println();
+
+
     }
 }
