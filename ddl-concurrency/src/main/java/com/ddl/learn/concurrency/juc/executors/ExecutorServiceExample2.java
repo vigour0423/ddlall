@@ -2,17 +2,12 @@ package com.ddl.learn.concurrency.juc.executors;
 
 import java.util.concurrent.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/26
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ExecutorServiceExample2 {
     public static void main(String[] args) throws InterruptedException {
         //testAbortPolicy();
-//        testDiscardPolicy();
-
-//        testCallerRunsPolicy();
+        //testDiscardPolicy();
+        // testCallerRunsPolicy();
         testDiscardOldestPolicy();
     }
 
@@ -91,7 +86,7 @@ public class ExecutorServiceExample2 {
             return t;
         }, new ThreadPoolExecutor.DiscardOldestPolicy());
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) {
             executorService.execute(() -> {
                 try {
                     TimeUnit.SECONDS.sleep(5);
@@ -100,6 +95,7 @@ public class ExecutorServiceExample2 {
                     e.printStackTrace();
                 }
             });
+        }
 
         TimeUnit.SECONDS.sleep(1);
         executorService.execute(() -> {

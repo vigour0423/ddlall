@@ -6,16 +6,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/21
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ExecutorsExample1 {
     public static void main(String[] args) throws InterruptedException {
-//        useCachedThreadPool();
-//        useFixedSizePool();
-        useSinglePool();
+        useCachedThreadPool();
+        //        useFixedSizePool();
+        //useSinglePool();
     }
 
     /**
@@ -39,7 +35,7 @@ public class ExecutorsExample1 {
      */
     private static void useSinglePool() throws InterruptedException {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-//        System.out.println(((ThreadPoolExecutor) executorService).getActiveCount());
+        // System.out.println(((ThreadPoolExecutor) executorService).getActiveCount());
 
         IntStream.range(0, 10).boxed().forEach(i -> executorService
                 .execute(() -> {
@@ -52,7 +48,7 @@ public class ExecutorsExample1 {
                 }));
 
         TimeUnit.SECONDS.sleep(1);
-//        System.out.println(((ThreadPoolExecutor) executorService).getActiveCount());
+        // System.out.println(((ThreadPoolExecutor) executorService).getActiveCount());
     }
 
     /**

@@ -6,11 +6,7 @@ import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/22
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ExecutorsExample2 {
     public static void main(String[] args) throws InterruptedException {
 
@@ -39,7 +35,6 @@ public class ExecutorsExample2 {
 
     /**
      * sleep the specify seconds.
-     *
      * @param seconds
      */
     private static void sleep(long seconds) {

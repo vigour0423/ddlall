@@ -3,26 +3,23 @@ package com.ddl.learn.concurrency.juc.executors;
 import java.util.concurrent.*;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/26
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ExecutorServiceExample3 {
 
     public static void main(String[] args) throws InterruptedException {
 
-//        test();
-//        testAllowCoreThreadTimeOut();
-//        testRemove();
-//        testPrestartCoreThread();
-//        testPrestartAllThread();
+        //test();
+        //testAllowCoreThreadTimeOut();
+        //testRemove();
+        //testPrestartCoreThread();
+        //testPrestartAllThread();
         testThreadPoolAdvice();
     }
 
     private static void test() throws InterruptedException {
         ThreadPoolExecutor executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(5);
         System.out.println(executorService.getActiveCount());
+        System.out.println(executorService.getCorePoolSize());
         executorService.execute(() -> {
             try {
                 TimeUnit.SECONDS.sleep(10);
@@ -32,6 +29,9 @@ public class ExecutorServiceExample3 {
         });
         TimeUnit.MILLISECONDS.sleep(20);
         System.out.println(executorService.getActiveCount());
+        TimeUnit.SECONDS.sleep(11);
+        System.out.println(executorService.getActiveCount());
+        System.out.println(executorService.getCorePoolSize());
 
     }
 
@@ -74,33 +74,34 @@ public class ExecutorServiceExample3 {
 
     }
 
-    private static void testPrestartCoreThread() {
+    private static void testPrestartCoreThread() throws InterruptedException {
         ThreadPoolExecutor executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
-        System.out.println(executorService.getActiveCount());
+        System.out.println("1-" + executorService.getActiveCount());
 
 
-        System.out.println(executorService.prestartCoreThread());
-        System.out.println(executorService.getActiveCount());
+        System.out.println("2-" + executorService.prestartCoreThread());
+        System.out.println("3-" + executorService.getActiveCount());
 
-        System.out.println(executorService.prestartCoreThread());
-        System.out.println(executorService.getActiveCount());
+        System.out.println("4-" + executorService.prestartCoreThread());
+        TimeUnit.SECONDS.sleep(3);
+        System.out.println("5-" + executorService.getActiveCount());
         executorService.execute(() -> {
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
         executorService.execute(() -> {
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
 
-        System.out.println(executorService.prestartCoreThread());
-        System.out.println(executorService.getActiveCount());
+        System.out.println("6-" + executorService.prestartCoreThread());
+        System.out.println("7-" + executorService.getActiveCount());
 
     }
 
@@ -113,33 +114,14 @@ public class ExecutorServiceExample3 {
         System.out.println(num);
         System.out.println(executorService.getActiveCount());
 
-   /*     System.out.println(executorService.prestartCoreThread());
-        System.out.println(executorService.getActiveCount());
-
-        System.out.println(executorService.prestartCoreThread());
-        System.out.println(executorService.getActiveCount());
-        executorService.execute(() -> {
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        executorService.execute(() -> {
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-        System.out.println(executorService.prestartCoreThread());
-        System.out.println(executorService.getActiveCount());*/
-
     }
 
     private static void testThreadPoolAdvice() {
-        ThreadPoolExecutor executorService = new MyThreadPoolExecutor(1, 2, 30, TimeUnit.SECONDS,
+        ThreadPoolExecutor executorService = new MyThreadPoolExecutor(
+                1,
+                2,
+                30,
+                TimeUnit.SECONDS,
                 new ArrayBlockingQueue<>(1), r -> {
             Thread t = new Thread(r);
             return t;
@@ -156,7 +138,7 @@ public class ExecutorServiceExample3 {
         executorService.execute(new MyRunnable(1) {
             @Override
             public void run() {
-                System.out.println(1/0);
+                System.out.println(1 / 0);
             }
         });
     }
@@ -176,8 +158,19 @@ public class ExecutorServiceExample3 {
 
     private static class MyThreadPoolExecutor extends ThreadPoolExecutor {
 
-        public MyThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handler) {
-            super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
+        public MyThreadPoolExecutor(int corePoolSize,
+                                    int maximumPoolSize,
+                                    long keepAliveTime,
+                                    TimeUnit unit,
+                                    BlockingQueue<Runnable> workQueue,
+                                    ThreadFactory threadFactory,
+                                    RejectedExecutionHandler handler) {
+            super(corePoolSize,
+                    maximumPoolSize,
+                    keepAliveTime,
+                    unit, workQueue,
+                    threadFactory,
+                    handler);
         }
 
         @Override

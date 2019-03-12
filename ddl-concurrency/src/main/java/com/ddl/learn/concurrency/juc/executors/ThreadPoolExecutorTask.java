@@ -7,18 +7,17 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/21
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ThreadPoolExecutorTask {
-    public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = new ThreadPoolExecutor(10, 20, 30, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(10), r -> {
-            Thread t = new Thread(r);
-            return t;
-        }, new ThreadPoolExecutor.AbortPolicy());
+    public static void main(String[] args){
+        ExecutorService executorService = new ThreadPoolExecutor(
+                10,
+                20,
+                30,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(10),
+                Thread::new,
+                new ThreadPoolExecutor.AbortPolicy());
 
         IntStream.range(0, 20).boxed().forEach(i ->
                 executorService.execute(() -> {
@@ -26,7 +25,7 @@ public class ThreadPoolExecutorTask {
                         TimeUnit.SECONDS.sleep(20);
                         System.out.println(Thread.currentThread().getName() + " [" + i + "] finish done.");
                     } catch (InterruptedException e) {
-//                        e.printStackTrace();
+                        e.printStackTrace();
                     }
                 })
         );
@@ -37,7 +36,7 @@ public class ThreadPoolExecutorTask {
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        executorService.awaitTermination(1, TimeUnit.HOURS);
+        //executorService.awaitTermination(1, TimeUnit.HOURS);
         System.out.println("==============over=================");
         System.out.println(runnableList);
         System.out.println(runnableList.size());

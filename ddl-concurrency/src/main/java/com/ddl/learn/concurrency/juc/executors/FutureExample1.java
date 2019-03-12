@@ -2,14 +2,10 @@ package com.ddl.learn.concurrency.juc.executors;
 
 import java.util.concurrent.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/26
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class FutureExample1 {
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
-//        testGet();
+        //testGet();
         testGetWithTimeOut();
     }
 
@@ -47,16 +43,15 @@ public class FutureExample1 {
 
     /**
      * dist cp
-     *
+     * <p>
      * yarn applicationJobId
-     *
+     * <p>
      * process
-     *
+     * <p>
      * kill -9 process
      * yarn -kill applicationJobId
      * <p>
      * 5 hours
-     *
      * @throws ExecutionException
      * @throws InterruptedException
      * @throws TimeoutException

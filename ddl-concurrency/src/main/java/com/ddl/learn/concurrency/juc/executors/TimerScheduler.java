@@ -4,11 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/23
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class TimerScheduler {
 
     /**
@@ -33,7 +29,6 @@ public class TimerScheduler {
      * interval correct
      * <p>
      * Control-M
-     *
      * @param args
      */
     public static void main(String[] args) {

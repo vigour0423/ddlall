@@ -3,16 +3,12 @@ package com.ddl.learn.concurrency.juc.executors;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/26
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class FutureExample2 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-//        testIsDone();
-//        testCancel();
-        testCancel2();
+        //testIsDone();
+        //testCancel();
+       testCancel2();
     }
 
     /**
@@ -23,12 +19,16 @@ public class FutureExample2 {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
         Future<Integer> future = executorService.submit(() -> {
-            throw new RuntimeException();
+            //throw new RuntimeException();
+            TimeUnit.SECONDS.sleep(10);
+            return 10;
         });
         try {
-            Integer result = future.get();
-            System.out.println(result);
+            //Integer result = future.get();
+            //System.out.println(result);
+            System.out.println(" is done " + future.isDone());
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println(" is done " + future.isDone());
         }
     }
@@ -44,16 +44,17 @@ public class FutureExample2 {
         ExecutorService executorService = Executors.newCachedThreadPool();
         AtomicBoolean running = new AtomicBoolean(true);
         Future<Integer> future = executorService.submit(() -> {
-            /*try {
+            try {
                 TimeUnit.SECONDS.sleep(10);
             } catch (InterruptedException e) {
+                System.out.println("eeeeee");
                 e.printStackTrace();
-            }*/
-            while (running.get()) {
             }
+           /* while (running.get()) {
+            }*/
             return 10;
         });
-
+        //future.get();
         TimeUnit.MILLISECONDS.sleep(10);
         System.out.println(future.cancel(true));
         System.out.println(future.isDone());
@@ -72,14 +73,13 @@ public class FutureExample2 {
         ExecutorService executorService = Executors.newCachedThreadPool();
         AtomicBoolean running = new AtomicBoolean(true);
         Future<Integer> future = executorService.submit(() -> {
-            /*try {
-                TimeUnit.SECONDS.sleep(10);
+         /*   try {
+                TimeUnit.SECONDS.sleep(60);
                 System.out.println("=======================");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/
-/*            while (running.get()) {
-            }*/
+
             while (!Thread.interrupted()) {
                 //sdfsdfs
 

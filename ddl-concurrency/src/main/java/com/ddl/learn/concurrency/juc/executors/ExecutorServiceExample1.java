@@ -4,22 +4,16 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/25
- * QQ交流群:601980517，463962286
- ***************************************/
 public class ExecutorServiceExample1 {
     /**
      * The demo for class {@link ExecutorService}
-     *
      * @param args
      */
     public static void main(String[] args) throws InterruptedException {
-//        isShutDown();
-//        isTerminated();
-//        executeRunnableError();
-        executeRunnableTask();
+        //isShutDown();
+        //isTerminated();
+        executeRunnableError();
+       // executeRunnableTask();
     }
 
 
@@ -43,7 +37,7 @@ public class ExecutorServiceExample1 {
         });
 
         System.out.println(executorService.isShutdown());
-//        executorService.shutdown();
+        //        executorService.shutdown();
         System.out.println(executorService.isShutdown());
         executorService.execute(() -> System.out.println("i will be executed after shutdown???"));
     }

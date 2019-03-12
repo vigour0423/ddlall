@@ -5,15 +5,11 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/27
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ScheduledExecutorServiceExample2 {
     public static void main(String[] args) throws InterruptedException {
-//        testScheduleWithFixedDelay();
-//        test1();
+        //testScheduleWithFixedDelay();
+        //test1();
         test2();
     }
 
@@ -70,7 +66,7 @@ public class ScheduledExecutorServiceExample2 {
     private static void test2() throws InterruptedException {
         ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(2);
         System.out.println(executor.getExecuteExistingDelayedTasksAfterShutdownPolicy());
-        executor.setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
+        //executor.setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
         final AtomicLong interval = new AtomicLong(0L);
         ScheduledFuture<?> future = executor.scheduleWithFixedDelay(() -> {
                     long currentTimeMillis = System.currentTimeMillis();
@@ -90,7 +86,7 @@ public class ScheduledExecutorServiceExample2 {
                 1, 2, TimeUnit.SECONDS);
 
         TimeUnit.MILLISECONDS.sleep(1200);
-        executor.shutdown();
+        executor.shutdownNow();
         System.out.println("==over==");
     }
 

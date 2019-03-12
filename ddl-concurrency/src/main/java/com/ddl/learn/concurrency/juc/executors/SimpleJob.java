@@ -6,11 +6,7 @@ import org.quartz.JobExecutionException;
 
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/23
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class SimpleJob implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {

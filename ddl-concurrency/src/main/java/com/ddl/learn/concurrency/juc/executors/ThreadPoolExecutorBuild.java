@@ -5,11 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/20
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ThreadPoolExecutorBuild {
 
     public static void main(String[] args) {
@@ -49,11 +45,14 @@ public class ThreadPoolExecutorBuild {
      * RejectedExecutionHandler handler
      */
     private static ExecutorService buildThreadPoolExecutor() {
-        ExecutorService executorService = new ThreadPoolExecutor(1, 2, 30, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(1), r -> {
-            Thread t = new Thread(r);
-            return t;
-        }, new ThreadPoolExecutor.AbortPolicy());
+        ExecutorService executorService = new ThreadPoolExecutor(
+                1,
+                2,
+                30,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(1),
+                Thread::new,
+                new ThreadPoolExecutor.AbortPolicy());
         System.out.println("== The ThreadPoolExecutor create done.");
         executorService.execute(() -> sleepSeconds(100));
         executorService.execute(() -> sleepSeconds(10));

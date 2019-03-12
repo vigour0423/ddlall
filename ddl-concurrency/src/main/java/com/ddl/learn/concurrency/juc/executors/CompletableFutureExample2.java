@@ -5,23 +5,20 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/2
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CompletableFutureExample2 {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        //supplyAsync();
+        supplyAsync();
 
-//        Future<?> future = runAsync();
-//        future.get();
-/*
-        Future<Void> future = completed("HEllo");
+       /* Future<?> future = runAsync();
+        future.get();*/
+
+      /*  Future<Void> future = completed("HEllo");
         System.out.println(future.isDone());*/
 
-//        System.out.println(">>>>>"+anyOf().get());
-        allOf();
+        //System.out.println(">>>>>"+anyOf().get());
+
+       // allOf();
         Thread.currentThread().join();
     }
 
@@ -69,7 +66,7 @@ public class CompletableFutureExample2 {
                 CompletableFuture.supplyAsync(() -> {
                     try {
                         System.out.println("2=====Start");
-                        TimeUnit.SECONDS.sleep(4);
+                        TimeUnit.SECONDS.sleep(10);
                         System.out.println("2=====End");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -129,7 +126,7 @@ public class CompletableFutureExample2 {
                 .thenAcceptAsync(s -> {
                     try {
                         System.out.println("String=====Start");
-                        TimeUnit.SECONDS.sleep(3);
+                        TimeUnit.SECONDS.sleep(1);
 
                         System.out.println("String=====" + s);
                     } catch (InterruptedException e) {

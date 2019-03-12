@@ -3,18 +3,14 @@ package com.ddl.learn.concurrency.juc.executors;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/3
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CompletableFutureExample4 {
     public static void main(String[] args) throws InterruptedException {
-//        thenAcceptBoth();
-//        acceptEither();
-//        runAfterBoth();
-//        runAfterEither();
-//        combine();
+        //thenAcceptBoth();
+        //acceptEither();
+        //runAfterBoth();
+        //runAfterEither();
+        //combine();
         compose();
         Thread.currentThread().join();
     }
@@ -106,7 +102,6 @@ public class CompletableFutureExample4 {
 
     /**
      * Sleep the specify seconds.
-     *
      * @param seconds
      */
     private static void sleep(long seconds) {

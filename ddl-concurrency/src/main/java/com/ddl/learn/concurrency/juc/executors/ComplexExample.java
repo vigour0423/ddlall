@@ -6,11 +6,6 @@ import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/2
- * QQ交流群:601980517，463962286
- ***************************************/
 public class ComplexExample {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
@@ -64,13 +59,18 @@ public class ComplexExample {
 
 
         @Override
-        public Integer call() throws Exception {
+        public Integer call() {
 
             System.out.printf("The Task [%d] will be executed.\n", value);
-            TimeUnit.SECONDS.sleep(value * 5 + 10);
-            System.out.printf("The Task [%d] execute done.\n", value);
-            success = true;
+            try {
+                TimeUnit.SECONDS.sleep(value * 5 + 10);
+                System.out.printf("The Task [%d] execute done.\n", value);
+                success = true;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return value;
+            //TimeUnit.SECONDS.sleep(value * 5 + 10);
         }
 
         public boolean isSuccess() {

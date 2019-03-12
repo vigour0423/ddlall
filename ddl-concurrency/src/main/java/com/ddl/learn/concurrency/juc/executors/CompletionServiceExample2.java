@@ -1,27 +1,24 @@
 package com.ddl.learn.concurrency.juc.executors;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/26
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CompletionServiceExample2 {
     /**
      * 100
      * 10
-     *
+     * <p>
      * get
      * 100
      * 10
-     *
+     * <p>
      * take
      * 10
-     *
+     * <p>
      * 100
-     *
-     *
      * @param args
      * @throws InterruptedException
      * @throws ExecutionException
@@ -49,11 +46,13 @@ public class CompletionServiceExample2 {
         Future<Integer> future;
         while ((future = completionService.take()) != null) {
             System.out.println(future.get());
-        }*/
+        }
+*/
+
         /*Future<Integer> future = completionService.poll();
         System.out.println(future);*/
 
-//        System.out.println(completionService.poll(11, TimeUnit.SECONDS).get());
+        //        System.out.println(completionService.poll(11, TimeUnit.SECONDS).get());
 
 
         ExecutorService service = Executors.newFixedThreadPool(2);
@@ -82,6 +81,7 @@ public class CompletionServiceExample2 {
 
     private static class Event {
         final private int eventId;
+
         private String result;
 
         private Event(int eventId) {
@@ -103,7 +103,6 @@ public class CompletionServiceExample2 {
 
     /**
      * sleep the specify seconds
-     *
      * @param seconds
      */
     private static void sleep(long seconds) {

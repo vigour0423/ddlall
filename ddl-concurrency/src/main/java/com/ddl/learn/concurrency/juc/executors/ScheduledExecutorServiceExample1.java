@@ -6,11 +6,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/27
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ScheduledExecutorServiceExample1 {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -29,26 +25,26 @@ public class ScheduledExecutorServiceExample1 {
 */
 
 
-/**
- * period 2 seconds execute a task.
- * but the task spend 5 seconds actually
- *
- * solution 1: (crontab/quartz/Control-M)
- *
- * period first policy
- *
- * 0:5
- * 2:5
- * 4:5
- *
- * solution 2:(JDK timer)
- *
- * 0:5
- * 5:5
- * 10:5
- * 15:5
- *
- */
+        /**
+         * period 2 seconds execute a task.
+         * but the task spend 5 seconds actually
+         *
+         * solution 1: (crontab/quartz/Control-M)
+         *
+         * period first policy
+         *
+         * 0:5
+         * 2:5
+         * 4:5
+         *
+         * solution 2:(JDK timer)
+         *
+         * 0:5
+         * 5:5
+         * 10:5
+         * 15:5
+         *
+         */
         final AtomicLong interval = new AtomicLong(0L);
         ScheduledFuture<?> future = executor.scheduleAtFixedRate(() ->
         {

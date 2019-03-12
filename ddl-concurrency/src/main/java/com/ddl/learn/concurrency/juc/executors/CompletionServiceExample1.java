@@ -5,28 +5,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/26
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CompletionServiceExample1 {
 
     /**
      * Demo the Future defect.
-     *
      * @param args
      * @throws ExecutionException
      * @throws InterruptedException
      */
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-//        futureDefect1();
+        //        futureDefect1();
         futureDefect2();
     }
 
     /**
      * No callback
-     *
      * @throws ExecutionException
      * @throws InterruptedException
      */
@@ -71,7 +65,6 @@ public class CompletionServiceExample1 {
 
     /**
      * sleep the specify seconds
-     *
      * @param seconds
      */
     private static void sleep(long seconds) {

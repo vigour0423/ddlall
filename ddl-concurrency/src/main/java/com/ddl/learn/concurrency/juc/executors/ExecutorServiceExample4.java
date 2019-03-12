@@ -7,19 +7,15 @@ import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/8/26
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ExecutorServiceExample4 {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
-//        testInvokeAny();
-//        testInvokeAnyTimeOut();
-//        testInvokeAll();
-//        testInvokeAllTimeOut();
-//        testSubmitRunnable();
+        //testInvokeAny();
+        //testInvokeAnyTimeOut();
+        //testInvokeAll();
+        //testInvokeAllTimeOut();
+        //testSubmitRunnable();
         testSubmitRunnableWithResult();
     }
 
@@ -63,7 +59,8 @@ public class ExecutorServiceExample4 {
                             System.out.println(Thread.currentThread().getName() + " :" + i);
                             return i;
                         }
-                ).collect(toList()), 1, TimeUnit.SECONDS
+                ).collect(toList()),
+                1, TimeUnit.SECONDS
         );
         System.out.println("===========finished=============");
         System.out.println(value);
@@ -73,7 +70,6 @@ public class ExecutorServiceExample4 {
      * {@link ExecutorService#invokeAll(Collection)}
      * <p>
      * RxJava
-     *
      * @throws InterruptedException
      * @throws ExecutionException
      */
@@ -101,7 +97,6 @@ public class ExecutorServiceExample4 {
     /**
      * {@link ExecutorService#invokeAll(Collection, long, TimeUnit)}
      * <p>
-     *
      * @throws InterruptedException
      * @throws ExecutionException
      */

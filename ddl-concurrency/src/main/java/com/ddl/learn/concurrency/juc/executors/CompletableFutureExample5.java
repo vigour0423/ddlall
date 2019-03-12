@@ -4,21 +4,18 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/3
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CompletableFutureExample5 {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-//        getNow();
-//        complete();
-//        testJoin();
-//        completeExceptionally();
-//        obtrudeException();
+        //getNow();
+        //complete();
+        //testJoin();
+        //completeExceptionally();
+        //obtrudeException();
 
         CompletableFuture<String> future = errorHandle();
         future.whenComplete((v, t) -> System.out.println(v));
+
         Thread.currentThread().join();
     }
 
@@ -30,6 +27,7 @@ public class CompletableFutureExample5 {
         });
 
         future1.thenApply(s -> {
+            sleep(5);
             Integer.parseInt(s);
             System.out.println("===========keep move=====");
             return s + " WORLD";
@@ -45,12 +43,13 @@ public class CompletableFutureExample5 {
             return "HELLO";
         });
         future.obtrudeException(new Exception("i am error."));
+        //future.obtrudeValue("hahahha");
         System.out.println(future.get());
     }
 
     private static void completeExceptionally() throws ExecutionException, InterruptedException {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-//            sleep(5);
+            //sleep(5);
             System.out.println("======i will be still process...");
             return "HELLO";
         });

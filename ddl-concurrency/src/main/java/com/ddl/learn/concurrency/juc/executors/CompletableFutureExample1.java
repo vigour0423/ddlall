@@ -5,11 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/2
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CompletableFutureExample1 {
     public static void main(String[] args) throws InterruptedException {
 
