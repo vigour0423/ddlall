@@ -1,10 +1,6 @@
 package com.ddl.learn.concurrency.juc.collections.custom;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/7
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class PriorityLinkedList<E extends Comparable<E>> {
     private Node<E> first;
 
@@ -102,6 +98,7 @@ public class PriorityLinkedList<E extends Comparable<E>> {
 
     private static class Node<E> {
         E value;
+
         Node<E> next;
 
         public Node(E value) {
@@ -110,8 +107,9 @@ public class PriorityLinkedList<E extends Comparable<E>> {
 
         @Override
         public String toString() {
-            if (null != value)
+            if (null != value) {
                 return value.toString();
+            }
             return PLAIN_NULL;
         }
     }

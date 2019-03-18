@@ -2,11 +2,7 @@ package com.ddl.learn.concurrency.juc.collections.blocking;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/12
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class LinkedBlockingQueueExample {
 
     public <T> LinkedBlockingQueue<T> create() {

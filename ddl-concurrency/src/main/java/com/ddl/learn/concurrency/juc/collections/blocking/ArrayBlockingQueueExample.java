@@ -2,11 +2,7 @@ package com.ddl.learn.concurrency.juc.collections.blocking;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/10
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ArrayBlockingQueueExample {
 
     /**

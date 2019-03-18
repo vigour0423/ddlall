@@ -1,11 +1,5 @@
 package com.ddl.learn.concurrency.juc.collections.blocking;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/13
- * QQ交流群:601980517，463962286
- ***************************************/
-
 
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
@@ -29,7 +23,6 @@ public class DelayQueueExample {
      * <p>
      * <p>
      * }
-     *
      * @param <T>
      * @return
      */

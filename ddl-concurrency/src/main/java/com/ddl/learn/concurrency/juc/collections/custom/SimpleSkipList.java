@@ -1,13 +1,17 @@
 package com.ddl.learn.concurrency.juc.collections.custom;
 
+import com.google.common.collect.Lists;
+
+import java.util.ArrayList;
 import java.util.Random;
 
-/**
- *
- */
+
 public class SimpleSkipList {
+
     private final static byte HEAD_BIT = (byte) -1;
+
     private final static byte TAIL_BIT = (byte) 1;
+
     private final static byte DATA_BIT = (byte) 0;
 
     private static class Node {
@@ -34,6 +38,7 @@ public class SimpleSkipList {
     }
 
     private Node head;
+
     private Node tail;
 
     private int size;
@@ -63,7 +68,8 @@ public class SimpleSkipList {
                 break;
             }
         }
-        return current;     //the current<=element< current.right(if exist)
+        //the current<=element< current.right(if exist)
+        return current;
     }
 
     public void add(Integer element) {
@@ -106,7 +112,6 @@ public class SimpleSkipList {
             upNode.right = nearNode.right;
             upNode.down = newNode;
 
-
             nearNode.right.left = upNode;
             nearNode.right = upNode;
 
@@ -138,12 +143,12 @@ public class SimpleSkipList {
 
     public boolean contains(Integer element) {
         Node node = this.find(element);
-        return (node.value == element);
+        return (node.value.equals(element));
     }
 
     public Integer get(Integer element) {
         Node node = this.find(element);
-        return (node.value == element) ? node.value : null;
+        return (node.value.equals(element)) ? node.value : null;
     }
 
 
@@ -161,6 +166,8 @@ public class SimpleSkipList {
         skipList.add(10);
         skipList.dumpSkipList();
 
+
+        ArrayList<Object> objects = Lists.newArrayList();
         skipList.add(1);
         skipList.dumpSkipList();
 
