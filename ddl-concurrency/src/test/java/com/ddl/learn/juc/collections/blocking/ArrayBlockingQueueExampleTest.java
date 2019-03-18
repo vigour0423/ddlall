@@ -18,11 +18,7 @@ import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/10
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ArrayBlockingQueueExampleTest {
 
     private ArrayBlockingQueueExample example;
@@ -105,7 +101,6 @@ public class ArrayBlockingQueueExampleTest {
     /**
      * Inserts the specified element at the tail of this queue, waiting
      * for space to become available if the queue is full.
-     *
      * @throws InterruptedException
      */
     @Test

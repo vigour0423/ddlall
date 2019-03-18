@@ -11,11 +11,6 @@ import java.util.concurrent.TimeUnit;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/15
- * QQ交流群:601980517，463962286
- ***************************************/
 
 /**
  * This class is used for unit test {@link LinkedBlockingDeque}

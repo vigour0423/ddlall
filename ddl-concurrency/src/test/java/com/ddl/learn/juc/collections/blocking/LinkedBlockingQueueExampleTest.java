@@ -11,15 +11,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/12
- * QQ交流群:601980517，463962286
- ***************************************/
 
 /**
  * This class is used for unit test the class {@link LinkedBlockingQueueExample}
- *
  * @see {@link LinkedBlockingQueue}
  */
 public class LinkedBlockingQueueExampleTest {

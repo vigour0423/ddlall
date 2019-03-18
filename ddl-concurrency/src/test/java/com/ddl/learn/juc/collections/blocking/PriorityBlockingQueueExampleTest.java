@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Comparator;
 import java.util.concurrent.Executors;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
@@ -14,11 +15,6 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/11
- * QQ交流群:601980517，463962286
- ***************************************/
 public class PriorityBlockingQueueExampleTest {
 
     private PriorityBlockingQueueExample example;
@@ -110,12 +106,12 @@ public class PriorityBlockingQueueExampleTest {
     @Test
     public void testAddObject_WithNoComparable_WithComparator() {
         PriorityBlockingQueue<UserWithNoComparable> queue = example.create(3,
-                (o1, o2) -> o1.hashCode() - o2.hashCode());
+                Comparator.comparingInt(Object::hashCode));
         queue.add(new UserWithNoComparable());
     }
 
 
-    static class UserWithNoComparable implements Comparable<UserWithNoComparable>{
+    static class UserWithNoComparable implements Comparable<UserWithNoComparable> {
 
         @Override
         public int compareTo(UserWithNoComparable o) {

@@ -11,11 +11,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/12
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class SynchronousQueueExampleTest {
 
     @Test
@@ -24,7 +20,7 @@ public class SynchronousQueueExampleTest {
 
         Executors.newSingleThreadExecutor().submit(() -> {
             try {
-                assertThat(queue.remove(), equalTo("SynchronousQueue"));
+                assertThat(queue.take(), equalTo("SynchronousQueue"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -36,10 +32,9 @@ public class SynchronousQueueExampleTest {
 
     /**
      * Producer Consumer
-     *
+     * <p>
      * P------>queue<-----Consumer
-     *
-     * @throws InterruptedException
+     * @throws
      */
     @Test
     public void testOffer() throws InterruptedException {
@@ -61,10 +56,9 @@ public class SynchronousQueueExampleTest {
 
     /**
      * Producer Consumer
-     *
+     * <p>
      * P------>queue<-----Consumer
-     *
-     * @throws InterruptedException
+     * @throws
      */
     @Test
     public void testPut() throws InterruptedException {

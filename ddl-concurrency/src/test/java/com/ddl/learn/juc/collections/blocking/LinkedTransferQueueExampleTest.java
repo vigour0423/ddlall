@@ -17,11 +17,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/15
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class LinkedTransferQueueExampleTest {
 
     /**

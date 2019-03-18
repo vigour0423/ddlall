@@ -17,17 +17,12 @@ import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/13
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class DelayQueueExampleTest {
 
     /**
      * 1.Add method must add the Delayed element.
      * 2.peek method will return null/element(but not remove) be quickly.
-     *
      * @throws InterruptedException
      */
     @Test
@@ -39,7 +34,7 @@ public class DelayQueueExampleTest {
         delayQueue.add(delayed1);
         assertThat(delayQueue.size(), equalTo(1));
         long startTime = System.currentTimeMillis();
-//        assertThat(delayQueue.take(), is(delayed1));
+        //assertThat(delayQueue.take(), is(delayed1));
         DelayElement<String> take = delayQueue.take();
         System.out.println(System.currentTimeMillis() - startTime);
     }
@@ -56,22 +51,25 @@ public class DelayQueueExampleTest {
         assertThat(delayQueue.size(), equalTo(4));
         long startTime = System.currentTimeMillis();
         Iterator<DelayElement<String>> it = delayQueue.iterator();
+
         while (it.hasNext()) {
             assertThat(it.next(), notNullValue());
         }
+
         System.out.println(System.currentTimeMillis() - startTime);
         assertThat((System.currentTimeMillis() - startTime) < 5, equalTo(true));
     }
 
     @Test
     public void testAdd3() throws InterruptedException {
-
         DelayQueue<DelayElement<String>> delayQueue = DelayQueueExample.create();
         delayQueue.add(DelayElement.of("Delayed1", 100));
         delayQueue.add(DelayElement.of("Delayed2", 80));
         delayQueue.add(DelayElement.of("Delayed3", 1000));
         delayQueue.add(DelayElement.of("Delayed4", 2000));
+
         assertThat(delayQueue.size(), equalTo(4));
+
         assertThat(delayQueue.take().getData(), equalTo("Delayed2"));
         assertThat(delayQueue.take().getData(), equalTo("Delayed1"));
         assertThat(delayQueue.take().getData(), equalTo("Delayed3"));
@@ -110,7 +108,7 @@ public class DelayQueueExampleTest {
             delayQueue.add(null);
             fail("should not process to here.");
         } catch (Exception e) {
-            //assertThat((NullPointerException) e, isA(NullPointerException.class));
+            //assertThat( e, isA(NullPointerException.class));
             assertThat(e instanceof NullPointerException, equalTo(true));
         }
     }
