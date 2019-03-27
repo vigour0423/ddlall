@@ -6,11 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/17
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class CopyOnWriteMap<K, V> implements Map<K, V> {
 
     private volatile Map<K, V> map;

@@ -4,7 +4,6 @@ package com.ddl.learn.java8.stream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 public class StreamTest9 {
 
@@ -24,9 +23,11 @@ public class StreamTest9 {
 
         long endTime = System.nanoTime();
 
-        long millis = TimeUnit.NANOSECONDS.toMillis(endTime - startTime);
+        long nanoTime = endTime - startTime;
 
-        System.out.println("排序耗时：" + millis);
+        //long millis = TimeUnit.NANOSECONDS.toMillis(endTime - startTime);
+
+        System.out.println("排序耗时：" + nanoTime);
 
 
     }

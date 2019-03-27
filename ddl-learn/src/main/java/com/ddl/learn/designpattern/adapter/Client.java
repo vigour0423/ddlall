@@ -15,7 +15,7 @@ public class Client {
 
         Adaptee a = new Adaptee();
 
-        //		Target t = new Adapter();
+        //	Target t = new Adapter();
 
         Target t = new Adapter2(a);
 

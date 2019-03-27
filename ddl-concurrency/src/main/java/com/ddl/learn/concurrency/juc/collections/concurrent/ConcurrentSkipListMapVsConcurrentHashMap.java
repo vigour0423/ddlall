@@ -7,15 +7,12 @@ import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/17
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ConcurrentSkipListMapVsConcurrentHashMap {
 
     static class Entry {
         int threshold;
+
         long ms;
 
         public Entry(int threshold, long ms) {

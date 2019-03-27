@@ -75,10 +75,11 @@ public class LinkedTransferQueueExampleTest {
 
 
         ExecutorService executorService = Executors.newCachedThreadPool();
-        collect.stream().forEach(executorService::submit);
+        collect.forEach(executorService::submit);
         TimeUnit.MILLISECONDS.sleep(100);
         assertThat(queue.getWaitingConsumerCount(), equalTo(5));
         assertThat(queue.hasWaitingConsumer(), equalTo(true));
+
         IntStream.range(0, 5).boxed().map(String::valueOf).forEach(queue::add);
 
         TimeUnit.MILLISECONDS.sleep(5);

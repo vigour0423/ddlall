@@ -9,24 +9,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/16
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class JdkMapPerformance {
 
 
     /**
      * Concurrency Testing use five threads
-     *
-     *
      * @param args
-     * @throws InterruptedException
+     * @throws
      */
     public static void main(String[] args) throws InterruptedException {
 
-/*        pressureTest(new Hashtable<String, Integer>(), 5, false);
+       /* pressureTest(new Hashtable<String, Integer>(), 5, false);
         pressureTest(new Hashtable<String, Integer>(), 5, true);
 
 
@@ -65,7 +59,9 @@ public class JdkMapPerformance {
                     public void run() {
                         for (int i = 0; i < MAX_THRESHOLD; i++) {
                             Integer randomNumber = (int) Math.ceil(Math.random() * 600000);
-                            if (retrieve) map.get(String.valueOf(randomNumber));
+                            if (retrieve) {
+                                map.get(String.valueOf(randomNumber));
+                            }
                             map.put(String.valueOf(randomNumber), randomNumber);
                         }
                     }

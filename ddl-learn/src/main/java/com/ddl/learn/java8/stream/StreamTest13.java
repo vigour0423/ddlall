@@ -16,16 +16,14 @@ public class StreamTest13 {
 
         List<Student> students = Arrays.asList(student1, student2, student3, student4);
 
-        //        Map<String, List<Student>> map = students.stream().
-        //                collect(Collectors.groupingBy(Student::getName));
-        //        Map<Integer, List<Student>> map = students.stream().
-        //                collect(Collectors.groupingBy(Student::getScore));
+        Map<String, List<Student>> map1 = students.stream().collect(Collectors.groupingBy(Student::getName));
+        Map<Integer, List<Student>> map2 = students.stream().collect(Collectors.groupingBy(Student::getScore));
 
-        //        Map<String, Long> map = students.stream().
-        //                collect(Collectors.groupingBy(Student::getName, Collectors.counting()));
+        Map<String, Long> map3 = students.stream().collect(Collectors.groupingBy(Student::getName,
+                Collectors.counting()));
 
-        //        Map<String, Double> map = students.stream().
-        //                collect(Collectors.groupingBy(Student::getName, Collectors.averagingDouble(Student::getScore)));
+        Map<String, Double> map4 = students.stream().collect(Collectors.groupingBy(Student::getName,
+                Collectors.averagingDouble(Student::getScore)));
 
         Map<Boolean, List<Student>> map = students.stream().
                 collect(Collectors.partitioningBy(student -> student.getScore() >= 90));

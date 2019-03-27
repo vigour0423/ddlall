@@ -11,9 +11,9 @@ public class StreamTest11 {
         List<String> list = Arrays.asList("hello welcome", "world hello",
                 "hello world hello", "hello welcome");
 
-        //        List<String[]> result = list.stream().map(item -> item.split(" ")).distinct().
-        //                collect(Collectors.toList());
-        //        result.forEach(item -> Arrays.asList(item).forEach(System.out::println));
+         /*       List<String[]> result = list.stream().map(item -> item.split(" ")).distinct().
+                        collect(Collectors.toList());
+                result.forEach(item -> Arrays.asList(item).forEach(System.out::println));*/
 
         List<String> result = list.stream().map(item -> item.split(" ")).flatMap(Arrays::stream).distinct().
                 collect(Collectors.toList());

@@ -2,11 +2,7 @@ package com.ddl.learn.concurrency.juc.collections.concurrent;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/17
- * QQ交流群:601980517，463962286
- ***************************************/
+
 public class ConcurrentLinkedQueueExample {
     public static void main(String[] args) {
 
@@ -36,7 +32,7 @@ public class ConcurrentLinkedQueueExample {
         if (null != s && s.length() > 0) {
 
         }
-        if(null!=s&&!s.isEmpty()){
+        if (null != s && !s.isEmpty()) {
 
         }
     }
