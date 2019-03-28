@@ -8,11 +8,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/18
- * QQ交流群:601980517，463962286
- ***************************************/
 public class LockFreeQueue<E> {
 
     private AtomicReference<Node<E>> head, tail;
@@ -59,6 +54,7 @@ public class LockFreeQueue<E> {
 
     private static class Node<E> {
         E element;
+
         volatile Node<E> next;
 
         public Node(E element) {

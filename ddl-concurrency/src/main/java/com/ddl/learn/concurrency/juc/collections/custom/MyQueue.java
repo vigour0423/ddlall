@@ -1,20 +1,15 @@
 package com.ddl.learn.concurrency.juc.collections.custom;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/9/18
- * QQ交流群:601980517，463962286
- ***************************************/
 
 /**
  * un-threadsafe
- *
  * @param <E>
  */
 public class MyQueue<E> {
 
     private static class Node<E> {
         private E element;
+
         private Node<E> next;
 
         public Node(E element, Node<E> next) {
@@ -45,6 +40,7 @@ public class MyQueue<E> {
     }
 
     private Node<E> first, last;
+
     private int size;
 
 
@@ -77,18 +73,20 @@ public class MyQueue<E> {
     }
 
     public E removeFirst() {
-        if (isEmpty()) return null;
+        if (isEmpty()) {
+            return null;
+        }
         E answer = first.getElement();
         first = first.getNext();
         size--;
-        if (size == 0)
+        if (size == 0) {
             last = null;
+        }
         return answer;
     }
 
     /**
      * FIFO
-     *
      * @param args
      */
     public static void main(String[] args) {

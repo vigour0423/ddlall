@@ -20,6 +20,7 @@ public class ConsumerTest {
         System.out.println(intConsumer instanceof IntConsumer);
         //面向对象方式
         consumerTest.test(consumer);
+        //consumerTest.test((Consumer<Integer>) intConsumer);
         //函数式方式
         consumerTest.test(consumer::accept);
         //函数式方式

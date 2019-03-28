@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Consumer;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -49,7 +48,7 @@ public class CacheLoaderTest3 {
 
     @Test
     public void testLoadNullValueUseOptional() {
-        CacheLoader<String, Optional<Employee>> loader = new CacheLoader<>() {
+        CacheLoader<String, Optional<Employee>> loader = new CacheLoader<String, Optional<Employee>>() {
             @Override
             public Optional<Employee> load(String key) {
                 if (key.equals("null")) {
@@ -103,7 +102,7 @@ public class CacheLoaderTest3 {
         CacheLoader<String, String> loader = CacheLoader.from(String::toUpperCase);
         LoadingCache<String, String> cache = CacheBuilder.newBuilder().build(loader);
 
-        Map<String, String> preData = new HashMap<>() {
+        Map<String, String> preData = new HashMap<String, String>() {
             {
                 put("come", "COME");
                 put("hello", "hello");

@@ -30,7 +30,7 @@
       <module name="ddl-dto" target="10.0.1" />
       <module name="ddl-entity" target="10.0.1" />
       <module name="ddl-infrastructure" target="10.0.1" />
-      <module name="ddl-learn" target="10.0.1" />
+      <module name="ddl-learn" target="1.8" />
       <module name="ddl-service" target="10.0.1" />
       <module name="ddl-servlet3.0" target="10.0.1" />
       <module name="ddl-springannotation" target="10.0.1" />

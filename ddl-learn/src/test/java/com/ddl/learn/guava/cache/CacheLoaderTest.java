@@ -99,7 +99,7 @@ public class CacheLoaderTest {
     }
 
     private CacheLoader<String, Employee> createCacheLoader() {
-        return new CacheLoader<>() {
+        return new CacheLoader<String, Employee>() {
             @Override
             public Employee load(String key) throws Exception {
                 return findEmployeeByName(key);
