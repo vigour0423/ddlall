@@ -21,7 +21,9 @@ public class LockFreeQueue<E> {
     }
 
     public void addLast(E e) {
-        if (e == null) throw new NullPointerException("The null element not allow");
+        if (e == null) {
+            throw new NullPointerException("The null element not allow");
+        }
         Node<E> newNode = new Node<>(e);
         Node<E> previousNode = tail.getAndSet(newNode);
         previousNode.next = newNode;
@@ -92,7 +94,9 @@ public class LockFreeQueue<E> {
                     e.printStackTrace();
                 }
                 Long value = queue.removeFirst();
-                if (value == null) continue;
+                if (value == null) {
+                    continue;
+                }
                 counter--;
                 System.out.println(value);
                 data.put(value, new Object());

@@ -1,6 +1,8 @@
 package com.ddl.learn.java8.stream2;
 
 
+import java.util.concurrent.TimeUnit;
+
 public class LambdaTest {
 
     Runnable r1 = () -> System.out.println(this);
@@ -12,11 +14,12 @@ public class LambdaTest {
         }
     };
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         LambdaTest lambdaTest = new LambdaTest();
 
         Thread t1 = new Thread(lambdaTest.r1);
         t1.start();
+        TimeUnit.SECONDS.sleep(1);
 
         System.out.println("--------");
 

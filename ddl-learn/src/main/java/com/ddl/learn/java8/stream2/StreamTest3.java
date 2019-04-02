@@ -11,7 +11,7 @@ public class StreamTest3 {
 
         //System.out.println(list.getClass());
 
-        //list.stream().forEach(System.out::println);
+        //list.stream().map(item->item).forEach(System.out::println);
 
         Stream<String> stream = list.stream();
 
