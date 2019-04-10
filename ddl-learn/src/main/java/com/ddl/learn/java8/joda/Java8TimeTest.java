@@ -9,6 +9,14 @@ import java.util.TreeSet;
 public class Java8TimeTest {
 
     public static void main(String[] args) {
+       /* String aa = "2";
+        char[] strChar=aa.toCharArray();
+        String result="";
+        for(int i=0;i<strChar.length;i++){
+            System.out.println(strChar[i]);
+            result +=Integer.toBinaryString(strChar[i])+ "";
+        }*/
+        System.out.println(Integer.toBinaryString(128));
         LocalDate localDate = LocalDate.now();
         System.out.println(localDate);
 
@@ -102,7 +110,7 @@ public class Java8TimeTest {
         LocalDate localDate7 = LocalDate.now();
         LocalDate localDate8 = LocalDate.of(2018, 3, 16);
 
-        Period period = Period.between(localDate7, localDate8);
+        Period period = Period.between(localDate8, localDate7);
         System.out.println(period.getYears());
         System.out.println(period.getMonths());
         System.out.println(period.getDays());

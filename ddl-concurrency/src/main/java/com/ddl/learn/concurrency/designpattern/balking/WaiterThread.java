@@ -2,13 +2,15 @@ package com.ddl.learn.concurrency.designpattern.balking;
 
 import java.io.IOException;
 
-
+/**
+ * 相当于巡视的服务生
+ */
 public class WaiterThread extends Thread {
 
     private final BalkingData balkingData;
 
-    public WaiterThread(BalkingData balkingData) {
-        super("Waiter");
+    public WaiterThread(BalkingData balkingData,int i) {
+        super("Waiter:"+i);
         this.balkingData = balkingData;
     }
 
