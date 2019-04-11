@@ -7,22 +7,23 @@ import java.io.IOException;
  */
 public class WaiterThread extends Thread {
 
-    private final BalkingData balkingData;
+    private BalkingData balkingData;
 
-    public WaiterThread(BalkingData balkingData,int i) {
-        super("Waiter:"+i);
+    public WaiterThread(BalkingData balkingData, int i) {
+        super("Waiter:" + i);
         this.balkingData = balkingData;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < 200; i++) {
+        while (true) {
             try {
                 balkingData.save();
-                Thread.sleep(1_000L);
+                Thread.sleep(1L);
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
+
     }
 }

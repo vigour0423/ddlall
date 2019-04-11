@@ -3,6 +3,7 @@ package com.ddl.learn.concurrency.designpattern.balking;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.LinkedList;
 
 /**
  * balking:止步，场景：酒店服务，客户挥手前台服务员服务，这时从其他地方走过一个服务员承担了这服务，前台的就放弃此次服务。
@@ -12,16 +13,16 @@ import java.io.Writer;
 public class BalkingData {
     private final String fileName;
 
-    private String content;
+    private volatile LinkedList<String> contentList;
 
     private final Object MODITOR = new Object();
 
-    private volatile boolean changed;
+    //private volatile boolean changed;
 
-    public BalkingData(String fileName, String content) {
+    public BalkingData(String fileName, LinkedList<String> contentList) {
         this.fileName = fileName;
-        this.content = content;
-        this.changed = true;
+        this.contentList = contentList;
+        //this.changed = true;
     }
 
     /**
@@ -30,15 +31,10 @@ public class BalkingData {
      * @param i
      * @throws InterruptedException
      */
-    public synchronized void change(String newContent, int i) throws InterruptedException {
-        synchronized (MODITOR) {
-            if (changed) {
-                new WaiterThread(this, i).start();
-                MODITOR.wait();
-            }
-            this.content = newContent;
-            this.changed = true;
-        }
+    public void change(String newContent, int i) throws InterruptedException {
+        contentList.add(newContent);
+        new WaiterThread(this, i).start();
+
 
     }
 
@@ -47,23 +43,26 @@ public class BalkingData {
      * @throws IOException
      */
     public void save() throws IOException {
+        String content;
         synchronized (MODITOR) {
-            if (!changed) {
+            if (contentList.isEmpty()) {
                 return;
             }
-            doSave();
-            this.changed = false;
-            MODITOR.notifyAll();
+            content = contentList.removeFirst();
         }
+        doSave(content);
     }
 
 
-    private void doSave() throws IOException {
-        System.out.println(Thread.currentThread().getName() + " calls do save,content=" + content);
-        try (Writer writer = new FileWriter(fileName, true)) {
-            writer.write(content);
-            writer.write("\n");
-            writer.flush();
+    private void doSave(String content) throws IOException {
+        if (content != null) {
+            System.out.println(Thread.currentThread().getName() + " calls do save,content=" + content);
+            try (Writer writer = new FileWriter(fileName, true)) {
+                writer.write(content);
+                writer.write("\n");
+                writer.flush();
+            }
         }
+
     }
 }

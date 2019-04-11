@@ -20,10 +20,9 @@ public class CustomerThread extends Thread {
     @Override
     public void run() {
         try {
-            for (int i = 0; i < 20; i++) {
-                System.out.println("第几次："+i);
+            for (int i = 0; i < 200; i++) {
                 balkingData.change("No." + i,i);
-                Thread.sleep(random.nextInt(1000));
+                //Thread.sleep(random.nextInt(1000));
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
