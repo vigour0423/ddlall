@@ -34,6 +34,6 @@ public class VolatileTest2 {
                     e.printStackTrace();
                 }
             }
-        }, "ADDER-1").start();
+        }, "ADDER-2").start();
     }
 }
