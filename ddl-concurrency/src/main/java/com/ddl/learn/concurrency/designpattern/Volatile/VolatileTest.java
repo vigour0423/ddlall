@@ -3,7 +3,7 @@ package com.ddl.learn.concurrency.designpattern.Volatile;
 
 public class VolatileTest {
 
-    private static  int INIT_VALUE = 0;
+    private static int INIT_VALUE = 0;
 
     private final static int MAX_LIMIT = 5;
 
@@ -18,12 +18,12 @@ public class VolatileTest {
         new Thread(() -> {
             int localValue = INIT_VALUE;
             while (localValue < MAX_LIMIT) {
-               // synchronized (moditor) {
+                //synchronized (moditor) {
                     if (localValue != INIT_VALUE) {
                         System.out.printf("The value updated to [%d]\n", INIT_VALUE);
                         localValue = INIT_VALUE;
                     }
-            //    }
+                //}
             }
         }, "READER").start();
 
@@ -31,16 +31,17 @@ public class VolatileTest {
         new Thread(() -> {
             int localValue = INIT_VALUE;
             while (INIT_VALUE < MAX_LIMIT) {
-               // synchronized (moditor) {
+                //synchronized (moditor) {
                     System.out.printf("Update the value to [%d]\n", ++localValue);
                     INIT_VALUE = localValue;
-                }
+                //}
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-           // }
+
+            }
         }, "UPDATER").start();
     }
 }
