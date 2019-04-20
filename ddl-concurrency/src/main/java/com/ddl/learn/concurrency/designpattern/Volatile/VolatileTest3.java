@@ -7,13 +7,13 @@ public class VolatileTest3 {
 
     private final static int MAX_LIMIT = 500;
 
-    private static  boolean flag;
+    private static volatile boolean flag;
 
     public static void main(String[] args) throws InterruptedException {
         new Thread(() -> {
-            boolean local=false;
+            boolean local = false;
             while (true) {
-                if (local!=flag) {
+                if (local != flag) {
                     System.out.println("T1->" + flag);
                 }
             /*    try {

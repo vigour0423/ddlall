@@ -3,7 +3,6 @@ package com.ddl.learn.concurrency.juc.executors;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
 
 
 public class CompletableFutureExample1 {
@@ -26,7 +25,7 @@ public class CompletableFutureExample1 {
         System.out.println("DONE");*/
 
         //Unit
-/*        CompletableFuture.runAsync(() -> {
+        CompletableFuture.runAsync(() -> {
             try {
                 TimeUnit.SECONDS.sleep(10);
             } catch (InterruptedException e) {
@@ -35,7 +34,7 @@ public class CompletableFutureExample1 {
         }).whenComplete((v, t) -> System.out.println("DONE"));
         System.out.println("========i am not blocked=========");
 
-        Thread.currentThread().join();*/
+        Thread.currentThread().join();
 
 /*        ExecutorService executorService = Executors.newFixedThreadPool(10);
 
@@ -51,12 +50,12 @@ public class CompletableFutureExample1 {
         }).parallel().forEach(CompletableFutureExample1::display);*/
 
 
-        IntStream.range(0, 10).boxed()
+       /* IntStream.range(0, 10).boxed()
                 .forEach(i -> CompletableFuture.supplyAsync(CompletableFutureExample1::get)
                         .thenAccept(CompletableFutureExample1::display)
                         .whenComplete((v, t) -> System.out.println(i + " DONE"))
                 );
-        Thread.currentThread().join();
+        Thread.currentThread().join();*/
     }
 
     private static void display(int data) {

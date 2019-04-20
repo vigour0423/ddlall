@@ -1,9 +1,13 @@
 package com.ddl.learn.concurrency.juc.executors;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 
 public class CompletionServiceExample1 {
@@ -15,7 +19,7 @@ public class CompletionServiceExample1 {
      * @throws InterruptedException
      */
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        //        futureDefect1();
+               //futureDefect1();
         futureDefect2();
     }
 
@@ -53,14 +57,18 @@ public class CompletionServiceExample1 {
                     return 20;
                 }
         );
+        List<Future<Integer>> futureList = service.invokeAll(callableList);
+        for (Future<Integer> integerFuture : futureList) {
+            System.out.println(integerFuture.get());
+        }
 
-        List<Future<Integer>> futures = new ArrayList<>();
-        futures.add(service.submit(callableList.get(0)));
+     /*   List<Future<Integer>> futures = new ArrayList<>();
         futures.add(service.submit(callableList.get(1)));
+        futures.add(service.submit(callableList.get(0)));
 
         for (Future<Integer> future : futures) {
             System.out.println(future.get());
-        }
+        }*/
     }
 
     /**

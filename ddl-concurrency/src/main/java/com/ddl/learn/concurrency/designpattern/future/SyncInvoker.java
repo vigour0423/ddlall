@@ -1,6 +1,8 @@
 package com.ddl.learn.concurrency.designpattern.future;
 
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Future        ->代表的是未来的一个凭据
  * FutureTask    ->将你的调用逻辑进行了隔离
@@ -15,19 +17,19 @@ public class SyncInvoker {
         FutureService futureService = new FutureService();
         Future<String> future = futureService.submit(() -> {
             try {
-                Thread.sleep(10000l);
+                TimeUnit.MILLISECONDS.sleep(10000L);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             return "FINISH";
-        }, System.out::println);
+        },System.out::println);
         System.out.println(future);
 
         //System.out.println(future.get());
 
         System.out.println("===========");
         System.out.println(" do other thing.");
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         System.out.println("===========");
 
 
@@ -35,7 +37,7 @@ public class SyncInvoker {
 
     private static String get()
             throws InterruptedException {
-        Thread.sleep(10000l);
+        TimeUnit.MILLISECONDS.sleep(10000L);
         return "FINISH";
     }
 }

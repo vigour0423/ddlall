@@ -3,7 +3,13 @@ package com.ddl.learn.concurrency.juc.executors;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 
 public class CompletionServiceExample2 {
@@ -25,7 +31,7 @@ public class CompletionServiceExample2 {
      */
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
-        /*ExecutorService service = Executors.newFixedThreadPool(2);
+        ExecutorService service = Executors.newFixedThreadPool(2);
         final List<Callable<Integer>> callableList = Arrays.asList(
                 () -> {
                     sleep(10);
@@ -47,20 +53,18 @@ public class CompletionServiceExample2 {
         while ((future = completionService.take()) != null) {
             System.out.println(future.get());
         }
-*/
+    /*    Future<Integer> future = completionService.poll();
+        System.out.println(future);
 
-        /*Future<Integer> future = completionService.poll();
-        System.out.println(future);*/
-
-        //        System.out.println(completionService.poll(11, TimeUnit.SECONDS).get());
+        System.out.println(completionService.poll(11, TimeUnit.SECONDS).get());*/
 
 
-        ExecutorService service = Executors.newFixedThreadPool(2);
+   /*     ExecutorService service = Executors.newFixedThreadPool(2);
         ExecutorCompletionService<Event> completionService = new ExecutorCompletionService<>(service);
         final Event event = new Event(1);
         completionService.submit(new MyTask(event), event);
 
-        System.out.println(completionService.take().get().result);
+        System.out.println(completionService.take().get().result);*/
     }
 
     private static class MyTask implements Runnable {

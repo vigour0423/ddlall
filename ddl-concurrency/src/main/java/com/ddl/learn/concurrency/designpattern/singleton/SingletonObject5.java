@@ -6,7 +6,7 @@ public class SingletonObject5 {
     private static volatile SingletonObject5 instance;
 
     private SingletonObject5() {
-        //
+        // init other .....
     }
 
     //double check add volatile

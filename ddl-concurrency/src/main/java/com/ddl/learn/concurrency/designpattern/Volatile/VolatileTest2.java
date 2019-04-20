@@ -5,7 +5,7 @@ public class VolatileTest2 {
 
     private static volatile int INIT_VALUE = 0;
 
-    private final static int MAX_LIMIT = 50;
+    private final static int MAX_LIMIT = 500;
 
     public static void main(String[] args) {
         new Thread(() -> {

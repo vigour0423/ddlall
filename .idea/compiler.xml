@@ -7,12 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ddl-api" />
-        <module name="ddl-common" />
         <module name="ddl-concurrency" />
         <module name="ddl-datastructure" />
         <module name="ddl-dto" />
         <module name="ddl-entity" />
         <module name="ddl-infrastructure" />
+        <module name="ddl-jvm" />
         <module name="ddl-learn" />
         <module name="ddl-service" />
         <module name="ddl-servlet3.0" />
@@ -24,12 +24,12 @@
     <bytecodeTargetLevel>
       <module name="data-structures" target="1.8" />
       <module name="ddl-api" target="10.0.1" />
-      <module name="ddl-common" target="10.0.1" />
       <module name="ddl-concurrency" target="1.8" />
       <module name="ddl-datastructure" target="1.8" />
       <module name="ddl-dto" target="10.0.1" />
       <module name="ddl-entity" target="10.0.1" />
       <module name="ddl-infrastructure" target="10.0.1" />
+      <module name="ddl-jvm" target="1.8" />
       <module name="ddl-learn" target="1.8" />
       <module name="ddl-service" target="10.0.1" />
       <module name="ddl-servlet3.0" target="10.0.1" />

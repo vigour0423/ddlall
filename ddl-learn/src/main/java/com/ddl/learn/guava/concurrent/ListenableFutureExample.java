@@ -5,6 +5,8 @@ import com.google.common.util.concurrent.*;
 import javax.annotation.Nullable;
 import java.util.concurrent.*;
 
+import static com.google.common.util.concurrent.Futures.*;
+
 
 public class ListenableFutureExample {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -26,23 +28,24 @@ public class ListenableFutureExample {
 
 
         ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(service);
+
         ListenableFuture<Integer> future1 = listeningExecutorService.submit(() ->
         {
             try {
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(30);
+                //throw new RuntimeException();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             return 100;
         });
-
-        //future1.addListener(() -> System.out.println("I am finished"), service);
-
-        Futures.addCallback(future1, new MyCallBack(), service);
+        //future1.addListener(()->System.out.println("I finish"),service);
+        addCallback(future1, new MyCallBack(), service);
         System.out.println("=============");
 
+
         //jdk 1.8
-        CompletableFuture.supplyAsync(() ->
+/*        CompletableFuture.supplyAsync(() ->
         {
             try {
                 TimeUnit.SECONDS.sleep(5);
@@ -53,7 +56,7 @@ public class ListenableFutureExample {
         }, service).whenComplete(
                 (v, t) -> System.out.println("I am finished and the result is " + v)
         );
-        System.out.println("============================");
+        System.out.println("============================");*/
     }
 
     static class MyCallBack implements FutureCallback<Integer> {

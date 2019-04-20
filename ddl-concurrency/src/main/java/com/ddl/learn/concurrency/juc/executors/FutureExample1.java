@@ -36,6 +36,7 @@ public class FutureExample1 {
             }
             callerThread.interrupt();
         }).start();
+
         Integer result = future.get();
         System.out.println("==============" + result + "=======");
     }

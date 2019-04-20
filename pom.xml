@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>ddl-api</module>
-        <module>ddl-common</module>
+        <module>ddl-jvm</module>
         <module>ddl-entity</module>
         <module>ddl-service</module>
         <module>ddl-learn</module>
