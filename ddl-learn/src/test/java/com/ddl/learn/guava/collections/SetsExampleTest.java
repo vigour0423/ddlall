@@ -1,5 +1,6 @@
 package com.ddl.learn.guava.collections;
 
+import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.Test;
@@ -52,8 +53,10 @@ public class SetsExampleTest {
 
     @Test
     public void testDiff() {
-        HashSet<Integer> set1 = Sets.newHashSet(1, 2, 3);
+        HashSet<Integer> set1 = Sets.newHashSet(5, 2, 3);
         HashSet<Integer> set2 = Sets.newHashSet(1, 4, 6);
+        System.out.println(FluentIterable.from(new ArrayList<>()).toSet());
+        System.out.println(Sets.intersection(new HashSet<>(), new HashSet<>()).size());
         Sets.SetView<Integer> diffResult1 = Sets.difference(set1, set2);
         System.out.println(diffResult1);
         Sets.SetView<Integer> diffResult2 = Sets.difference(set2, set1);

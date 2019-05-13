@@ -9,11 +9,12 @@ public class MyClassLoaderTest2 {
     public static void main(String[] args) throws ClassNotFoundException {
         MyClassLoader classLoader1 = new MyClassLoader("MyClassLoader-1");
         MyClassLoader classLoader2 = new MyClassLoader("MyClassLoader-2",classLoader1);
+        classLoader1.setDir("D:\\ddllearn\\classloader2");
         classLoader2.setDir("D:\\ddllearn\\classloader2");
 
-        Class<?> aClass = classLoader1.loadClass("com.ddl.learn.jvm.classloader.customloader.MyObject");
+        Class<?> aClass = classLoader1.loadClass("com.ddl.learn.jvm.classloader.loadclass.LoaderClass");
         System.out.println(aClass.hashCode());
-        Class<?> aClass2 = classLoader2.loadClass("com.ddl.learn.jvm.classloader.customloader.MyObject");
+        Class<?> aClass2 = classLoader2.loadClass("com.ddl.learn.jvm.classloader.loadclass.LoaderClass");
         System.out.println(aClass2.hashCode());
         System.out.println(((MyClassLoader) aClass.getClassLoader()).getClassLoaderName());
     }

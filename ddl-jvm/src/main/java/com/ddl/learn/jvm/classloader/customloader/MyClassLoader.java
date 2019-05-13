@@ -27,6 +27,10 @@ public class MyClassLoader extends ClassLoader {
         super(parent);
         this.classLoaderName = classLoaderName;
     }
+    public MyClassLoader(ClassLoader parent) {
+        super(parent);
+    }
+
 
 
     /**
@@ -39,6 +43,7 @@ public class MyClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name)
             throws ClassNotFoundException {
+        System.out.println("哈哈哈");
         String classPath = name.replace(".", "/");
         File classFile = new File(dir, classPath + ".class");
         if (!classFile.exists()) {

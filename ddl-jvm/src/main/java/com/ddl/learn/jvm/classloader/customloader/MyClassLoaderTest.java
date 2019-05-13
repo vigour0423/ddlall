@@ -7,7 +7,7 @@ public class MyClassLoaderTest {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
         MyClassLoader classLoader = new MyClassLoader("MyClassLoader");
-        Class<?> aClass = classLoader.loadClass("com.ddl.learn.jvm.classloader.customloader.MyObject");
+        Class<?> aClass = classLoader.loadClass("com.ddl.learn.jvm.classloader.loadclass.LoaderClass");
         System.out.println(aClass);
         System.out.println(aClass.getClassLoader());
         System.out.println(classLoader.getClass().getClassLoader());

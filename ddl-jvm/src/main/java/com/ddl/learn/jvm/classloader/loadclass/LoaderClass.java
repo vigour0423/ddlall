@@ -21,7 +21,6 @@ LoaderClass {
 }
 
 class MyObject {
-
     public static int x = 10;
 
     static {

@@ -9,12 +9,6 @@ public class Singleton {
     public static int y;
 
     /**
-     * int x = 0;
-     * int y = 0;
-     * instance = null;
-     */
-
-    /**
      * 1.instance = null;
      * 2.x = 0;
      * 3.y = 0;
