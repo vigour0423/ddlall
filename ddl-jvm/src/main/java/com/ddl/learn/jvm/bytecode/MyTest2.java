@@ -12,6 +12,14 @@ public class MyTest2 {
 
     private static Integer in = 10;
 
+    public MyTest2() {
+
+    }
+
+    public MyTest2(int i) {
+        System.out.println("aaa");
+    }
+
     public static void main(String[] args) {
         MyTest2 myTest2 = new MyTest2();
         myTest2.setX(8);
@@ -33,5 +41,9 @@ public class MyTest2 {
     }
 
     private synchronized static void test2() {
+    }
+
+    static{
+        System.out.println("Test");
     }
 }

@@ -30,12 +30,12 @@
     <properties>
         <project.release.version>1.2.1-SNAPSHOT</project.release.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>10.0.1</java.version>
+        <java.version>1.8</java.version>
         <org.springframework.version>4.3.19.RELEASE</org.springframework.version>
         <egg.version>1.2.1-SNAPSHOT</egg.version>
-        <maven.compiler.source>10.0.1</maven.compiler.source>
-        <maven.compiler.target>10.0.1</maven.compiler.target>
-        <maven.compiler.compilerVersion>10.0.1</maven.compiler.compilerVersion>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -209,7 +209,7 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.0</version>
                     <configuration>
-                        <release>10</release>
+                        <!--<release>10</release>-->
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>

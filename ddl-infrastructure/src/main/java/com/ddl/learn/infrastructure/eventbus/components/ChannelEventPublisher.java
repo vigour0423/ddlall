@@ -1,13 +1,8 @@
 package com.ddl.learn.infrastructure.eventbus.components;
 
-import com.ddl.egg.exception.BusinessException;
 import com.ddl.learn.infrastructure.eventbus.EventPublisher;
-
-import com.ddl.learn.infrastructure.eventbus.IgnoreForceConsume;
 import com.ddl.learn.log.datachange.DataChangeTracer;
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageDeliveryException;
@@ -38,7 +33,7 @@ public class ChannelEventPublisher implements EventPublisher {
         try {
             channel.send(message);
         } catch (MessageDeliveryException e) {
-            if (e.getCause() instanceof BusinessException) {
+          /*  if (e.getCause() instanceof BusinessException) {
                 throw (BusinessException) e.getCause();
             }
             String desc = e.getMessage();
@@ -48,7 +43,7 @@ public class ChannelEventPublisher implements EventPublisher {
                     throw e;
                 }
             }
-            throw e;
+            throw e;*/
         } finally {
             if (!isTracing) {
                 DataChangeTracer.stopTrace();
@@ -68,7 +63,7 @@ public class ChannelEventPublisher implements EventPublisher {
             String operatorAccount = map.containsKey("operatorAccount") ? String.valueOf(map.get("operatorAccount")) : "";
             DataChangeTracer.startTrace(transactionId, module, function, changeType, reason, operatorName, operatorAccount);
         } catch (Exception e) {
-            throw new BusinessException(e);
+           // throw new BusinessException(e);
         }
     }
 }

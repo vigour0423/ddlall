@@ -30,7 +30,7 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>com.ddl.egg</groupId>
             <artifactId>egg-log</artifactId>
         </dependency>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>com.ddl.egg</groupId>
             <artifactId>egg-common</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>

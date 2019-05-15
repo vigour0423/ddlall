@@ -1,8 +1,6 @@
 package com.ddl.learn;
 
 
-import com.ddl.egg.exception.BusinessException;
-
 import java.util.function.Supplier;
 
 /**
@@ -21,7 +19,7 @@ public class CommandBuilder<T extends Command> {
         try {
             command = typeParameterClass.newInstance();
         } catch (Exception e) {
-            throw new BusinessException(500, "create instance occur exception.", e);
+            //throw new BusinessException(500, "create instance occur exception.", e);
         }
     }
 

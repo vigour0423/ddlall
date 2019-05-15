@@ -23,20 +23,20 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="data-structures" target="1.8" />
-      <module name="ddl-api" target="10.0.1" />
+      <module name="ddl-api" target="1.8" />
       <module name="ddl-concurrency" target="1.8" />
       <module name="ddl-datastructure" target="1.8" />
-      <module name="ddl-dto" target="10.0.1" />
-      <module name="ddl-entity" target="10.0.1" />
-      <module name="ddl-infrastructure" target="10.0.1" />
+      <module name="ddl-dto" target="1.8" />
+      <module name="ddl-entity" target="1.8" />
+      <module name="ddl-infrastructure" target="1.8" />
       <module name="ddl-jvm" target="1.8" />
       <module name="ddl-learn" target="1.8" />
-      <module name="ddl-service" target="10.0.1" />
-      <module name="ddl-servlet3.0" target="10.0.1" />
-      <module name="ddl-springannotation" target="10.0.1" />
-      <module name="ddl-springmvcannotation" target="10.0.1" />
-      <module name="ddl-web" target="10.0.1" />
-      <module name="ddlall" target="10.0.1" />
+      <module name="ddl-service" target="1.8" />
+      <module name="ddl-servlet3.0" target="1.8" />
+      <module name="ddl-springannotation" target="1.8" />
+      <module name="ddl-springmvcannotation" target="1.8" />
+      <module name="ddl-web" target="1.8" />
+      <module name="ddlall" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
