@@ -11,17 +11,17 @@
     <modules>
         <module>ddl-api</module>
         <module>ddl-jvm</module>
-        <module>ddl-entity</module>
         <module>ddl-service</module>
         <module>ddl-learn</module>
         <module>ddl-web</module>
-        <module>ddl-dto</module>
         <module>ddl-infrastructure</module>
         <module>ddl-servlet3.0</module>
         <module>ddl-springannotation</module>
         <module>ddl-springmvcannotation</module>
         <module>ddl-datastructure</module>
         <module>ddl-concurrency</module>
+        <module>ddl-socket</module>
+        <module>ddl-dubbo</module>
     </modules>
 
     <name>ddl-all</name>
@@ -39,6 +39,20 @@
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.0.4.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- JUnit -->
             <dependency>
                 <groupId>junit</groupId>
