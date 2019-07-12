@@ -2,9 +2,10 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/ddl-api" />
+    <file type="web" url="file://$PROJECT_DIR$/ddl-dubbo" />
     <file type="web" url="file://$PROJECT_DIR$/ddl-servlet3.0" />
+    <file type="web" url="file://$PROJECT_DIR$/ddl-springmvc4" />
     <file type="web" url="file://$PROJECT_DIR$/ddl-springmvcannotation" />
-    <file type="web" url="file://$PROJECT_DIR$/ddl-web" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
@@ -18,6 +19,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/ddl-datastructures/pom.xml" />
+        <option value="$PROJECT_DIR$/ddl-dto/pom.xml" />
       </set>
     </option>
   </component>

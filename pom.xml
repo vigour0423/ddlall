@@ -13,7 +13,6 @@
         <module>ddl-jvm</module>
         <module>ddl-service</module>
         <module>ddl-learn</module>
-        <module>ddl-web</module>
         <module>ddl-infrastructure</module>
         <module>ddl-servlet3.0</module>
         <module>ddl-springannotation</module>
@@ -22,6 +21,7 @@
         <module>ddl-concurrency</module>
         <module>ddl-socket</module>
         <module>ddl-dubbo</module>
+        <module>ddl-springmvc4</module>
     </modules>
 
     <name>ddl-all</name>
