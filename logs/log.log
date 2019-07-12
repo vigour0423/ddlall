@@ -1,0 +1,3 @@
+2019-05-29 14:10:06 ERROR FunctionTest2:17 - 定时发送短信异常，ID{1}
+java.lang.ArithmeticException: / by zero
+	at com.ddl.learn.java8.FunctionTest2.main(FunctionTest2.java:15)
