@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="boot-order-service-consumer" />
+        <module name="boot-user-service-provider" />
+        <module name="ddl-api" />
+        <module name="ddl-concurrency" />
+        <module name="ddl-datastructure" />
+        <module name="ddl-infrastructure" />
+        <module name="ddl-jvm" />
+        <module name="ddl-learn" />
+        <module name="ddl-service" />
+        <module name="ddl-servlet3.0" />
+        <module name="ddl-socket" />
+        <module name="ddl-springannotation" />
+        <module name="ddl-springmvcannotation" />
+        <module name="gmall-interface" />
+        <module name="springmvc-1" />
+        <module name="springmvc-2" />
+        <module name="springmvc-3" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="boot-order-service-consumer" target="1.8" />
+      <module name="boot-user-service-provider" target="1.8" />
+      <module name="data-structures" target="1.8" />
+      <module name="ddl-api" target="1.8" />
+      <module name="ddl-concurrency" target="1.8" />
+      <module name="ddl-datastructure" target="1.8" />
+      <module name="ddl-dubbo" target="1.8" />
+      <module name="ddl-infrastructure" target="1.8" />
+      <module name="ddl-jvm" target="1.8" />
+      <module name="ddl-learn" target="1.8" />
+      <module name="ddl-service" target="1.8" />
+      <module name="ddl-servlet3.0" target="1.8" />
+      <module name="ddl-socket" target="1.8" />
+      <module name="ddl-springannotation" target="1.8" />
+      <module name="ddl-springmvc4" target="1.8" />
+      <module name="ddl-springmvcannotation" target="1.8" />
+      <module name="ddlall" target="1.8" />
+      <module name="gmall-interface" target="1.8" />
+      <module name="springmvc-1" target="1.8" />
+      <module name="springmvc-2" target="1.8" />
+      <module name="springmvc-3" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="boot-user-service-provider" options="" />
+    </option>
+  </component>
+</project>

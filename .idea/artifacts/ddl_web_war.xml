@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ddl-web:war">
+    <output-path>$PROJECT_DIR$/ddl-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ddl-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ddl-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ddl-web:war exploded" />
+    </root>
+  </artifact>
+</component>

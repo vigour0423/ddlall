@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-concurrency" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-datastructure" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-dubbo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-dubbo/boot-order-service-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-dubbo/boot-user-service-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-dubbo/gmall-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-infrastructure" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-jvm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-learn" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/service/AbstractHelloService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/service/HelloService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/service/HelloServiceExt.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/service/HelloServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/servlet/HelloAsyncServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/servlet/HelloServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/servlet/MyServletContainerInitializer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/servlet/UserFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/servlet/UserListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/servlet/UserServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-socket" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springannotation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/java/com/ddl/springmvc/entities/Address.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/java/com/ddl/springmvc/entities/User.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/java/com/ddl/springmvc/handlers/HelloWorld.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/java/com/ddl/springmvc/handlers/SpringMVCTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/java/com/ddl/springmvc/views/HelloView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/resources/i18n.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/resources/i18n_en_US.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/resources/i18n_zh_CN.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/webapp/WEB-INF/spring-servlet.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/webapp/WEB-INF/views" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/src/main/webapp/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-2/src/main/resources/i18n.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-2/src/main/resources/i18n_en_US.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-2/src/main/resources/i18n_zh_CN.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-2/src/main/webapp/WEB-INF/spring-servlet.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-3" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/note.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/MyWebAppInitializer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/config/AppConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/config/RootConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/controller/AsyncController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/controller/HelloController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/controller/MyFirstInterceptor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/service/DeferredResultQueue.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/java/com/ddl/service/HelloService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/resources/mvc.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/webapp/WEB-INF/views" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/webapp/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ddl-springmvcannotation/src/main/webapp/upload_3.jpg" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
