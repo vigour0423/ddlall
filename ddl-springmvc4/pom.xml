@@ -12,10 +12,13 @@
     <artifactId>ddl-springmvc4</artifactId>
     <packaging>pom</packaging>
 
-    <name>ddl-springmvc4 Maven Webapp</name>
+    <name>ddl-springmvc4</name>
     <modules>
         <module>springmvc-1</module>
+        <module>springmvc-2</module>
+        <module>springmvc-3</module>
     </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
