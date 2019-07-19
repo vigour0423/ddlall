@@ -5,7 +5,7 @@
 <mapper namespace="com.ddl.mybatis.dao.DepartmentMapper">
     <!--public Department getDeptById(Integer id);  -->
     <select id="getDeptById" resultType="com.ddl.mybatis.bean.Department">
-		select id,dept_name departmentName from tbl_dept where id=#{id}
+		select id,department_name departmentName from department where id=#{id}
 	</select>
 
 
@@ -14,13 +14,13 @@
             private Integer id;
             private String departmentName;
             private List<Employee> emps;
-      did  dept_name  ||  eid  last_name  email   gender
+      did  department_name  ||  eid  last_name  email   gender
      -->
 
     <!--嵌套结果集的方式，使用collection标签定义关联的集合类型的属性封装规则  -->
     <resultMap type="com.ddl.mybatis.bean.Department" id="MyDept">
         <id column="did" property="id"/>
-        <result column="dept_name" property="departmentName"/>
+        <result column="department_name" property="departmentName"/>
         <!--
             collection定义关联集合类型的属性的封装规则
             ofType:指定集合里面元素的类型
@@ -33,12 +33,13 @@
             <result column="gender" property="gender"/>
         </collection>
     </resultMap>
+
     <!-- public Department getDeptByIdPlus(Integer id); -->
     <select id="getDeptByIdPlus" resultMap="MyDept">
-		SELECT d.id did,d.dept_name dept_name,
+		SELECT d.id did,d.department_name department_name,
 				e.id eid,e.last_name last_name,e.email email,e.gender gender
-		FROM tbl_dept d
-		LEFT JOIN tbl_employee e
+		FROM department d
+		LEFT JOIN employee e
 		ON d.id=e.d_id
 		WHERE d.id=#{id}
 	</select>
@@ -46,14 +47,14 @@
     <!-- collection：分段查询 -->
     <resultMap type="com.ddl.mybatis.bean.Department" id="MyDeptStep">
         <id column="id" property="id"/>
-        <id column="dept_name" property="departmentName"/>
-        <collection property="emps"
-                    select="com.ddl.mybatis.dao.EmployeeMapperPlus.getEmpsByDeptId"
+        <id column="department_name" property="departmentName"/>
+        <collection property="emps" select="com.ddl.mybatis.dao.EmployeeMapperPlus.getEmpsByDeptId"
                     column="{deptId=id}" fetchType="lazy"></collection>
     </resultMap>
+
     <!-- public Department getDeptByIdStep(Integer id); -->
     <select id="getDeptByIdStep" resultMap="MyDeptStep">
-		select id,dept_name from tbl_dept where id=#{id}
+		select id,department_name from department where id=#{id}
 	</select>
 
     <!-- 扩展：多列的值传递过去：
