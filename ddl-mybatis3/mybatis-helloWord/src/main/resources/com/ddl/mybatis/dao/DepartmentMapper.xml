@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ddl.mybatis.dao.DepartmentMapper">
     <!--public Department getDeptById(Integer id);  -->
+    <cache-ref namespace="com.ddl.mybatis.dao.EmployeeMapper"/>
+    
     <select id="getDeptById" resultType="com.ddl.mybatis.bean.Department">
 		select id,department_name departmentName from department where id=#{id}
 	</select>
