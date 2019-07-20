@@ -12,6 +12,10 @@
     <file url="file://$PROJECT_DIR$/ddl-infrastructure" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ddl-jvm" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ddl-learn" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-mybatis3" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-mybatis3/mybatis-helloWord" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-mybatis3/mybatis-mbq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ddl-mybatis3/mybatis-spring" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ddl-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ddl-servlet3.0" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ddl-servlet3.0/src/main/java/com/ddl/service/AbstractHelloService.java" charset="UTF-8" />

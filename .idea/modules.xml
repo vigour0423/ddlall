@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/ddl-infrastructure/ddl-infrastructure.iml" filepath="$PROJECT_DIR$/ddl-infrastructure/ddl-infrastructure.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-jvm/ddl-jvm.iml" filepath="$PROJECT_DIR$/ddl-jvm/ddl-jvm.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-learn/ddl-learn.iml" filepath="$PROJECT_DIR$/ddl-learn/ddl-learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-mybatis3/ddl-mybatis3.iml" filepath="$PROJECT_DIR$/ddl-mybatis3/ddl-mybatis3.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-service/ddl-service.iml" filepath="$PROJECT_DIR$/ddl-service/ddl-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-servlet3.0/ddl-servlet3.0.iml" filepath="$PROJECT_DIR$/ddl-servlet3.0/ddl-servlet3.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-socket/ddl-socket.iml" filepath="$PROJECT_DIR$/ddl-socket/ddl-socket.iml" />
@@ -19,6 +20,9 @@
       <module fileurl="file://$PROJECT_DIR$/ddl-springmvcannotation/ddl-springmvcannotation.iml" filepath="$PROJECT_DIR$/ddl-springmvcannotation/ddl-springmvcannotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ddlall.iml" filepath="$PROJECT_DIR$/.idea/ddlall.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-dubbo/gmall-interface/gmall-interface.iml" filepath="$PROJECT_DIR$/ddl-dubbo/gmall-interface/gmall-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-mybatis3/mybatis-helloWord/mybatis-helloWord.iml" filepath="$PROJECT_DIR$/ddl-mybatis3/mybatis-helloWord/mybatis-helloWord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-mybatis3/mybatis-mbq/mybatis-mbq.iml" filepath="$PROJECT_DIR$/ddl-mybatis3/mybatis-mbq/mybatis-mbq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddl-mybatis3/mybatis-spring/mybatis-spring.iml" filepath="$PROJECT_DIR$/ddl-mybatis3/mybatis-spring/mybatis-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-1/springmvc-1.iml" filepath="$PROJECT_DIR$/ddl-springmvc4/springmvc-1/springmvc-1.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-2/springmvc-2.iml" filepath="$PROJECT_DIR$/ddl-springmvc4/springmvc-2/springmvc-2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddl-springmvc4/springmvc-3/springmvc-3.iml" filepath="$PROJECT_DIR$/ddl-springmvc4/springmvc-3/springmvc-3.iml" />

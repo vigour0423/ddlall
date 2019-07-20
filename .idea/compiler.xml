@@ -20,6 +20,9 @@
         <module name="ddl-springannotation" />
         <module name="ddl-springmvcannotation" />
         <module name="gmall-interface" />
+        <module name="mybatis-helloWord" />
+        <module name="mybatis-mbq" />
+        <module name="mybatis-spring" />
         <module name="springmvc-1" />
         <module name="springmvc-2" />
         <module name="springmvc-3" />
@@ -36,6 +39,7 @@
       <module name="ddl-infrastructure" target="1.8" />
       <module name="ddl-jvm" target="1.8" />
       <module name="ddl-learn" target="1.8" />
+      <module name="ddl-mybatis3" target="1.8" />
       <module name="ddl-service" target="1.8" />
       <module name="ddl-servlet3.0" target="1.8" />
       <module name="ddl-socket" target="1.8" />
@@ -44,6 +48,9 @@
       <module name="ddl-springmvcannotation" target="1.8" />
       <module name="ddlall" target="1.8" />
       <module name="gmall-interface" target="1.8" />
+      <module name="mybatis-helloWord" target="1.8" />
+      <module name="mybatis-mbq" target="1.8" />
+      <module name="mybatis-spring" target="1.8" />
       <module name="springmvc-1" target="1.8" />
       <module name="springmvc-2" target="1.8" />
       <module name="springmvc-3" target="1.8" />

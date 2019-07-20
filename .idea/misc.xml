@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/ddl-api" />
     <file type="web" url="file://$PROJECT_DIR$/ddl-dubbo" />
+    <file type="web" url="file://$PROJECT_DIR$/ddl-mybatis3/mybatis-spring" />
     <file type="web" url="file://$PROJECT_DIR$/ddl-servlet3.0" />
     <file type="web" url="file://$PROJECT_DIR$/ddl-springmvc4" />
     <file type="web" url="file://$PROJECT_DIR$/ddl-springmvcannotation" />

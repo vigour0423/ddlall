@@ -22,6 +22,7 @@
         <module>ddl-socket</module>
         <module>ddl-dubbo</module>
         <module>ddl-springmvc4</module>
+        <module>ddl-mybatis3</module>
     </modules>
 
     <name>ddl-all</name>

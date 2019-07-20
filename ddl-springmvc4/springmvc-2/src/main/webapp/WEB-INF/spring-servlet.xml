@@ -28,7 +28,7 @@
     <mvc:default-servlet-handler/>
 
     <mvc:annotation-driven/>
-    <!--<mvc:annotation-driven conversion-service="conversionService"/>-->
+   <!-- <mvc:annotation-driven conversion-service="conversionService"/>-->
 
     <!-- 配置 ConversionService -->
     <bean id="conversionService"
@@ -52,17 +52,17 @@
 
     <mvc:interceptors>
         <!-- 配置自定义的拦截器 -->
-        <bean class="com.ddl.springmvc.interceptors.FirstInterceptor"></bean>
+        <bean class="com.ddl.springmvc.interceptors.FirstInterceptor"/>
 
         <!-- 配置拦截器(不)作用的路径 -->
         <mvc:interceptor>
             <!--<mvc:exclude-mapping path=""></mvc:exclude-mapping>-->
             <mvc:mapping path="/emps"/>
-            <bean class="com.ddl.springmvc.interceptors.SecondInterceptor"></bean>
+            <bean class="com.ddl.springmvc.interceptors.SecondInterceptor"/>
         </mvc:interceptor>
 
         <!-- 配置 LocaleChanceInterceptor -->
-        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
 
     <!--
