@@ -16,6 +16,7 @@
     <modules>
         <module>mybatis-helloWord</module>
         <module>mybatis-spring</module>
+        <module>mybatis-mbq</module>
     </modules>
 
     <properties>
