@@ -111,7 +111,6 @@ public class MyBatisCacheTest {
             System.out.println(emp01);
             openSession.close();
 
-
             //第二次查询是从二级缓存中拿到的数据，并没有发送新的sql
             //mapper2.addEmp(new Employee(null, "aaa", "nnn", "0"));
             Employee emp02 = mapper2.getEmpById(1);

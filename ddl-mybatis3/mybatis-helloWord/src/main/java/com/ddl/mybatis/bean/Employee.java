@@ -17,6 +17,9 @@ public class Employee implements Serializable {
 
     private Department dept;
 
+    //员工状态
+    private EmpStatus empStatus = EmpStatus.LOGOUT;
+
     public Employee() {
         super();
     }
@@ -80,6 +83,14 @@ public class Employee implements Serializable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public EmpStatus getEmpStatus() {
+        return empStatus;
+    }
+
+    public void setEmpStatus(EmpStatus empStatus) {
+        this.empStatus = empStatus;
     }
 
     @Override

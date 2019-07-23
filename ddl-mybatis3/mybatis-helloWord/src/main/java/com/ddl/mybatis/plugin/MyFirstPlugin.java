@@ -1,0 +1,88 @@
+package com.ddl.mybatis.plugin;
+
+import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.plugin.Intercepts;
+import org.apache.ibatis.plugin.Invocation;
+import org.apache.ibatis.plugin.Plugin;
+import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.reflection.MetaObject;
+import org.apache.ibatis.reflection.SystemMetaObject;
+
+import java.util.Properties;
+
+/**
+ * 完成插件签名：
+ * 告诉MyBatis当前插件用来拦截哪个对象的哪个方法
+ * <p>
+ * <p>
+ * 插件原理
+ * 在四大对象创建的时候
+ * 1、每个创建出来的对象不是直接返回的，而是
+ * interceptorChain.pluginAll(parameterHandler);
+ * 2、获取到所有的Interceptor（拦截器）（插件需要实现的接口）；
+ * 调用interceptor.plugin(target);返回target包装后的对象
+ * 3、插件机制，我们可以使用插件为目标对象创建一个代理对象；AOP（面向切面）
+ * 我们的插件可以为四大对象创建出代理对象；
+ * 代理对象就可以拦截到四大对象的每一个执行；
+ * <p>
+ * public Object pluginAll(Object target) {
+ * for (Interceptor interceptor : interceptors) {
+ * target = interceptor.plugin(target);
+ * }
+ * return target;
+ * }
+ */
+
+
+@Intercepts(
+        {
+                @Signature(type = StatementHandler.class, method = "parameterize", args = java.sql.Statement.class)
+        })
+public class MyFirstPlugin implements Interceptor {
+
+    /**
+     * intercept：拦截：
+     * 拦截目标对象的目标方法的执行；
+     */
+    @Override
+    public Object intercept(Invocation invocation) throws Throwable {
+        System.out.println("MyFirstPlugin...intercept:" + invocation.getMethod());
+        //动态的改变一下sql运行的参数：以前1号员工，实际从数据库查询3号员工
+        Object target = invocation.getTarget();
+        System.out.println("当前拦截到的对象：" + target);
+        //拿到：StatementHandler==>ParameterHandler===>parameterObject
+        //拿到target的元数据
+        MetaObject metaObject = SystemMetaObject.forObject(target);
+        Object value = metaObject.getValue("parameterHandler.parameterObject");
+        System.out.println("sql语句用的参数是：" + value);
+        //修改完sql语句要用的参数
+        //metaObject.setValue("parameterHandler.parameterObject", 11);
+        //执行目标方法
+        return  invocation.proceed();
+
+    }
+
+    /**
+     * plugin：
+     * 包装目标对象的：包装：为目标对象创建一个代理对象
+     */
+    @Override
+    public Object plugin(Object target) {
+        //我们可以借助Plugin的wrap方法来使用当前Interceptor包装我们目标对象
+        System.out.println("MyFirstPlugin...plugin:mybatis将要包装的对象" + target);
+        Object wrap = Plugin.wrap(target, this);
+        //返回为当前target创建的动态代理
+        return wrap;
+    }
+
+    /**
+     * setProperties：
+     * 将插件注册时 的property属性设置进来
+     */
+    @Override
+    public void setProperties(Properties properties) {
+        System.out.println("插件配置的信息：" + properties);
+    }
+
+}

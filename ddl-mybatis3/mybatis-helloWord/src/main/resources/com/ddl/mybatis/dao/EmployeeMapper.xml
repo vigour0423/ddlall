@@ -3,7 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ddl.mybatis.dao.EmployeeMapper">
-	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+	<!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
 	<!--<cache eviction="FIFO" flushInterval="60000" readOnly="false" size="1024"/>-->
 	<!--
 	eviction:缓存的回收策略：
@@ -63,7 +63,7 @@ public Employee getEmpById(Integer id);
 		select * from employee where id = #{id}
 	</select>
 	<select id="getEmpById" resultType="com.ddl.mybatis.bean.Employee"
-		databaseId="mysql" useCache="true">
+		databaseId="mysql" >
 		select * from employee where id = #{id}
 	</select>
 	<select id="getEmpById" resultType="com.ddl.mybatis.bean.Employee"
@@ -81,8 +81,8 @@ public Employee getEmpById(Integer id);
 	-->
 	<insert id="addEmp" parameterType="com.ddl.mybatis.bean.Employee"
 		useGeneratedKeys="true" keyProperty="id" databaseId="mysql" flushCache="true">
-		insert into employee(last_name,email,gender)
-		values(#{lastName},#{email},#{gender})
+		insert into employee(last_name,email,gender,emp_status)
+		values(#{lastName},#{email},#{gender},#{empStatus})
 	</insert>
 
 	<!--
@@ -133,5 +133,9 @@ public Employee getEmpById(Integer id);
 		delete from employee where id=#{id}
 	</delete>
 
+	<!--public List<Employee> getEmps();  -->
+	<select id="getEmps" resultType="com.ddl.mybatis.bean.Employee">
+		select * from employee
+	</select>
 
 </mapper>
