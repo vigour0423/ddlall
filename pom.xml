@@ -23,6 +23,7 @@
         <module>ddl-dubbo</module>
         <module>ddl-springmvc4</module>
         <module>ddl-mybatis3</module>
+        <module>ddl-designpattern</module>
     </modules>
 
     <name>ddl-all</name>
